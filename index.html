@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Devine Design Co | Holographic Web Agency</title>
+  <meta name="description" content="Devine Design Co — registered South African web development agency. Holographic interfaces, custom websites, SEO & mobile optimization.">
+  <meta name="keywords" content="custom websites, SEO, mobile optimization, web development, South Africa, tax registered, holographic">
+  <meta name="author" content="Devine Design Co">
+  <link rel="canonical" href="https://www.devinedesignco.co.za/">
+  <meta property="og:title" content="Devine Design Co | Holographic Web Agency">
+  <meta property="og:description" content="Registered South African agency. We code custom websites, optimize for SEO & mobile, and bring your dream site to life.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0c0b0a">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c49a6c'%3E%3Cpath d='M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0c0b0a;
+      color: #e9e2d4;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ===== HOLOGRAPHIC GRID OVERLAY ===== */
+    #holo-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(60px, 60px); }
+    }
+
+    /* ===== HOLOGRAPHIC GLOW SPOTS ===== */
+    .holo-spot {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.15;
+      animation: pulseSpot 6s ease-in-out infinite alternate;
+    }
+    .holo-spot.cyan { background: #00f3ff; width: 600px; height: 600px; top: -200px; right: -200px; }
+    .holo-spot.gold { background: #c49a6c; width: 500px; height: 500px; bottom: -100px; left: -100px; animation-delay: 3s; }
+    @keyframes pulseSpot {
+      0% { opacity: 0.08; transform: scale(1); }
+      100% { opacity: 0.2; transform: scale(1.2); }
+    }
+
+    /* ===== FLOATING RINGS (Hero) ===== */
+    .hero-rings {
+      position: absolute;
+      top: 50%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-rings .ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(0, 243, 255, 0.15);
+      animation: ringSpin 20s linear infinite;
+    }
+    .hero-rings .ring:nth-child(1) { width: 100%; height: 100%; animation-duration: 25s; border-color: rgba(0, 243, 255, 0.08); }
+    .hero-rings .ring:nth-child(2) { width: 75%; height: 75%; animation-duration: 18s; animation-direction: reverse; border-color: rgba(196, 154, 108, 0.12); }
+    .hero-rings .ring:nth-child(3) { width: 50%; height: 50%; animation-duration: 12s; border-color: rgba(0, 243, 255, 0.15); }
+    .hero-rings .ring:nth-child(4) { width: 25%; height: 25%; animation-duration: 8s; animation-direction: reverse; border-color: rgba(196, 154, 108, 0.2); }
+    @keyframes ringSpin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* ===== SMOOTH REVEAL ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1);
+      will-change: transform, opacity;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: rgba(12, 11, 10, 0.85);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 243, 255, 0.15);
+      transition: border-color 0.3s;
+    }
+    .header:hover { border-color: rgba(0, 243, 255, 0.3); }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo-group {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #f3e9d2 20%, #c49a6c 50%, #00f3ff 80%);
+      background-size: 200% 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: shimmerText 4s ease-in-out infinite;
+    }
+    @keyframes shimmerText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .logo-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #00f3ff;
+      background: rgba(0, 243, 255, 0.08);
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      border: 1px solid rgba(0, 243, 255, 0.15);
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #e9e2d4;
+      padding: 0.5rem 0;
+      transition: color 0.3s, text-shadow 0.3s;
+      position: relative;
+    }
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #00f3ff;
+      box-shadow: 0 0 10px #00f3ff;
+      transition: width 0.3s ease;
+    }
+    .nav-links li a:hover {
+      color: #00f3ff;
+      text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+    }
+    .nav-links li a:hover::after { width: 100%; }
+    .btn-outline-holo {
+      border: 1px solid #00f3ff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+    }
+    .btn-outline-holo:hover {
+      background: #00f3ff;
+      color: #0c0b0a !important;
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #00f3ff;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary, .btn-secondary {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      border-radius: 40px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00f3ff, #0088cc);
+      color: #0c0b0a;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 0 40px rgba(0, 243, 255, 0.5);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #c49a6c;
+      color: #e9e2d4;
+      padding: 0.8rem 1.8rem;
+      text-shadow: 0 0 5px rgba(196, 154, 108, 0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(196, 154, 108, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(196, 154, 108, 0.3);
+      border-color: #00f3ff;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      padding: 6rem 0 7rem;
+      background: radial-gradient(ellipse at 70% 20%, rgba(0, 243, 255, 0.06) 0%, #0c0b0a 80%);
+      border-bottom: 1px solid rgba(0, 243, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content { flex: 1.2; }
+    .hero-badge {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      background: rgba(0, 243, 255, 0.06);
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      color: #00f3ff;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0, 243, 255, 0.15);
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: #f7f0e4;
+      line-height: 1.15;
+    }
+    .hero-highlight {
+      color: #00f3ff;
+      text-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+      position: relative;
+    }
+    .hero-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+      box-shadow: 0 0 15px #00f3ff;
+      animation: underlinePulse 3s ease-in-out infinite;
+    }
+    @keyframes underlinePulse {
+      0%, 100% { opacity: 0.4; width: 80%; left: 10%; }
+      50% { opacity: 1; width: 100%; left: 0; }
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .hero-stats span i { color: #00f3ff; margin-right: 8px; text-shadow: 0 0 8px rgba(0, 243, 255, 0.4); }
+    .dark-glass-snippet {
+      background: rgba(20, 18, 16, 0.8);
+      backdrop-filter: blur(16px);
+      border-radius: 2rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(0, 243, 255, 0.2);
+      transition: all 0.4s ease;
+      box-shadow: 0 0 30px rgba(0, 243, 255, 0.05);
+    }
+    .dark-glass-snippet:hover {
+      transform: scale(1.02) translateY(-5px);
+      border-color: #00f3ff;
+      box-shadow: 0 0 50px rgba(0, 243, 255, 0.15);
+    }
+
+    /* ===== SECTIONS ===== */
+    .section-dark { background: #0f0e0c; border-top: 1px solid rgba(0, 243, 255, 0.05); border-bottom: 1px solid rgba(0, 243, 255, 0.05); }
+    .section-mid { background: #131110; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      text-align: center;
+      color: #f7f0e4;
+      text-shadow: 0 0 30px rgba(0, 243, 255, 0.05);
+    }
+    .section-sub {
+      text-align: center;
+      color: #b8ab9a;
+      max-width: 680px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.05rem;
+    }
+
+    /* ===== HOLOGRAPHIC CARDS ===== */
+    .services-grid, .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .service-card, .portfolio-item {
+      background: rgba(26, 23, 20, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 1.8rem;
+      padding: 2rem;
+      border: 1px solid rgba(0, 243, 255, 0.08);
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      position: relative;
+      overflow: hidden;
+      will-change: transform;
+    }
+    .service-card::before, .portfolio-item::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 2px;
+      background: conic-gradient(from var(--angle, 0deg), #00f3ff, #c49a6c, #00f3ff, #c49a6c, #00f3ff);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: spinBorder 6s linear infinite;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .service-card:hover::before, .portfolio-item:hover::before { opacity: 1; }
+    @keyframes spinBorder {
+      to { --angle: 360deg; }
+    }
+    @property --angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    .service-card:hover, .portfolio-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(0, 243, 255, 0.3);
+      box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
+    }
+    .service-icon {
+      font-size: 2.8rem;
+      color: #00f3ff;
+      margin-bottom: 1rem;
+      transition: all 0.3s;
+      filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.3));
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.6));
+    }
+    .portfolio-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
+      border-radius: 1rem 1rem 0 0;
+      margin: -2rem -2rem 1rem -2rem;
+      filter: grayscale(0.2) brightness(0.8);
+    }
+    .portfolio-item:hover .portfolio-img {
+      transform: scale(1.05);
+      filter: grayscale(0) brightness(1);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: rgba(20, 18, 16, 0.6);
+      backdrop-filter: blur(16px);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      border: 1px solid rgba(0, 243, 255, 0.08);
+      transition: all 0.4s ease;
+    }
+    .contact-grid:hover {
+      border-color: rgba(0, 243, 255, 0.2);
+      box-shadow: 0 0 50px rgba(0, 243, 255, 0.05);
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+    .contact-detail:hover { transform: translateX(8px); }
+    .contact-detail i {
+      color: #00f3ff;
+      width: 2rem;
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid rgba(0, 243, 255, 0.1);
+      border-radius: 1rem;
+      background: rgba(12, 11, 10, 0.6);
+      color: #e9e2d4;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+    input:focus, textarea:focus {
+      border-color: #00f3ff;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 243, 255, 0.1), 0 0 20px rgba(0, 243, 255, 0.1);
+      transform: scale(1.01);
+    }
+    .footer {
+      background: #090807;
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(0, 243, 255, 0.05);
+    }
+    .trust-badge {
+      background: rgba(0, 243, 255, 0.05);
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: #00f3ff;
+      border: 1px solid rgba(0, 243, 255, 0.1);
+      transition: all 0.3s;
+    }
+    .trust-badge:hover {
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+      background: rgba(0, 243, 255, 0.08);
+    }
+    .legal-card {
+      background: rgba(0, 243, 255, 0.03);
+      border-left: 3px solid #00f3ff;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.02);
+    }
+    .legal-card:hover {
+      border-left-width: 6px;
+      box-shadow: 0 0 30px rgba(0, 243, 255, 0.05);
+    }
+
+    /* ===== FLOATING CTA ===== */
+    .floating-cta {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, #00f3ff, #0088cc);
+      color: #0c0b0a;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+      z-index: 100;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 243, 255, 0.3);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(0, 243, 255, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(0, 243, 255, 0.5); }
+    }
+    .floating-cta:hover {
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 0 60px rgba(0, 243, 255, 0.6);
+    }
+
+    /* ===== AURA AI (CORTANA STYLE) ===== */
+    #aura-container {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 200px;
+      height: 320px;
+      z-index: 1000;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      filter: drop-shadow(0 0 40px rgba(0, 243, 255, 0.2));
+      animation: auraFloat 5s ease-in-out infinite;
+    }
+    @keyframes auraFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    #aura-body {
+      width: 100%;
+      height: 260px;
+      position: relative;
+      pointer-events: auto;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #aura-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #aura-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.4));
+    }
+    #aura-speech {
+      position: absolute;
+      bottom: 105%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #00f3ff;
+      font-size: 0.7rem;
+      font-weight: 500;
+      white-space: nowrap;
+      text-shadow: 0 0 15px #00f3ff, 0 0 40px #00f3ff;
+      opacity: 0;
+      transition: all 0.4s ease;
+      background: rgba(12, 11, 10, 0.7);
+      backdrop-filter: blur(12px);
+      padding: 6px 18px;
+      border-radius: 40px;
+      border: 1px solid rgba(0, 243, 255, 0.2);
+      pointer-events: none;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+    }
+    #aura-speech.active {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-6px);
+    }
+    #aura-actions {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      pointer-events: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      padding: 0 4px;
+      z-index: 3;
+    }
+    .aura-btn {
+      background: rgba(0, 243, 255, 0.04);
+      border: 1px solid rgba(0, 243, 255, 0.1);
+      color: #00f3ff;
+      padding: 3px 12px;
+      border-radius: 30px;
+      font-size: 0.55rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      background: rgba(12, 11, 10, 0.5);
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.02);
+    }
+    .aura-btn:hover {
+      background: #00f3ff;
+      color: #0c0b0a;
+      box-shadow: 0 0 30px #00f3ff;
+      border-color: #00f3ff;
+      transform: translateY(-2px);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 880px) {
+      .menu-icon { display: block; }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 75%;
+        height: calc(100vh - 70px);
+        background: #0c0b0a;
+        flex-direction: column;
+        padding: 2rem;
+        transition: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+        gap: 1.5rem;
+        align-items: flex-start;
+        border-right: 1px solid rgba(0, 243, 255, 0.1);
+      }
+      .nav-links.active { left: 0; }
+      .hero-content h1 { font-size: 2.8rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 2.4rem; }
+      .hero-rings { width: 300px; height: 300px; left: 50%; top: 40%; }
+      #aura-container {
+        bottom: 80px;
+        right: 10px;
+        width: 150px;
+        height: 240px;
+        transform: scale(0.8);
+        transform-origin: bottom right;
+      }
+      #aura-speech { font-size: 0.55rem; padding: 4px 10px; white-space: normal; max-width: 140px; }
+      .aura-btn { font-size: 0.45rem; padding: 2px 8px; }
+      .floating-cta { bottom: 16px; left: 16px; padding: 8px 14px; font-size: 0.8rem; }
+    }
+    @media (max-width: 480px) {
+      #aura-container { width: 120px; height: 190px; bottom: 70px; right: 6px; transform: scale(0.7); }
+      .hero-content h1 { font-size: 2.2rem; }
+    }
+    .form-message { margin-top: 1rem; padding: 0.8rem; border-radius: 1rem; display: none; }
+
+    /* ===== SMOOTH SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0c0b0a; }
+    ::-webkit-scrollbar-thumb { background: #00f3ff; border-radius: 10px; box-shadow: 0 0 15px #00f3ff; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HOLOGRAPHIC BACKGROUND EFFECTS ===== -->
+  <div id="holo-grid"></div>
+  <div class="holo-spot cyan"></div>
+  <div class="holo-spot gold"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
+      <div class="navbar">
+        <div class="logo-group">
+          <span class="logo-main">DEVINE DESIGN CO</span>
+          <span class="logo-sub">HOLO · WEB · AI</span>
+        </div>
+        <div class="menu-icon" id="menuToggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact" class="btn-outline-holo">Start your dream site <i class="fas fa-arrow-right"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-rings">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+      </div>
+      <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-microchip"></i> HOLOGRAPHIC ENGINEERING</div>
+            <h1>Your dream website,<br /><span class="hero-highlight">holographic & SEO‑ready</span></h1>
+            <p style="font-size:1.1rem; color:#b8ab9a; max-width:90%;">We build next‑gen, responsive websites that rank on Google, work flawlessly on mobile, and reflect your unique vision. No templates — just handcrafted code with a futuristic edge.</p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:1.5rem 0;">
+              <a href="#contact" class="btn-primary">Get a free quote →</a>
+              <a href="#services" class="btn-secondary">Explore services</a>
+            </div>
+            <div class="hero-stats">
+              <span><i class="fas fa-laptop-code"></i> 100% custom</span>
+              <span><i class="fas fa-chart-line"></i> SEO optimized</span>
+              <span><i class="fas fa-mobile-alt"></i> Mobile‑first</span>
+            </div>
+            <div class="legal-card" style="margin-top:1.5rem;">
+              <i class="fas fa-building" style="color:#00f3ff;"></i> Reg No: 2025 / 587768 / 07 | TAX: 9162998281 | Director: Tertius Pelser
+            </div>
+          </div>
+          <div class="hero-visual" style="flex:0.9;">
+            <div class="dark-glass-snippet">
+              <pre style="color:#e9e2d4; font-size:0.8rem;"><span style="color:#00f3ff;">// Holographic interface</span>
+<span style="color:#c49a6c;">const dreamSite</span> = {
+  customDesign: true,
+  mobileOptimized: true,
+  lighthouseScore: <span style="color:#00f3ff;">98</span>,
+  seo: <span style="color:#c49a6c;">'auto‑generated meta & schema'</span>,
+};</pre>
+              <div style="margin-top:0.8rem; font-size:0.7rem; color:#00f3ff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);"><i class="fas fa-gem"></i> Built for Google & users — guaranteed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="section-mid fade-up">
+      <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
+        <div class="section-title">What we build</div>
+        <div class="section-sub">Custom websites, SEO, mobile optimization — everything you need to succeed online.</div>
+        <div class="services-grid">
+          <div class="service-card" data-topic="custom-websites" style="--order:1">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>Custom Websites</h3>
+            <p>Fully hand‑coded, no page builders. Your site, your rules — unique design and functionality.</p>
+          </div>
+          <div class="service-card" data-topic="seo" style="--order:2">
+            <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
+            <h3>SEO & Performance</h3>
+            <p>Rank higher with on‑page SEO, schema markup, and 95+ Lighthouse scores.</p>
+          </div>
+          <div class="service-card" data-topic="mobile" style="--order:3">
+            <div class="service-icon"><i class="fas fa-mobile-screen-button"></i></div>
+            <h3>Mobile Optimization</h3>
+            <p>Flawless responsive design — perfect on phones, tablets, and desktops.</p>
+          </div>
+          <div class="service-card" data-topic="dream-site" style="--order:4">
+            <div class="service-icon"><i class="fas fa-dreamcast"></i></div>
+            <h3>Your Dream Site</h3>
+            <p>Tell us your vision, we bring it to life. Interactive prototypes, revisions included.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO (UPDATED WITH willemisinyathelohouse.webp) ===== -->
+    <section id="portfolio" class="section-dark fade-up">
+      <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
+        <div class="section-title">Recent dream sites</div>
+        <div class="section-sub">Real projects, real results — each built from scratch</div>
+        <div class="portfolio-grid">
+
+          <!-- Project 1: willemisinyathelohouse.com (REAL) -->
+          <div class="portfolio-item" style="--order:1">
+            <div class="portfolio-img" style="background-image:url('images/willemisinyathelohouse.webp');" loading="lazy"></div>
+            <div style="padding:0.5rem 1rem 1rem;">
+              <h3>Willem Isinyathelo House</h3>
+              <p style="color:#b8ab9a; font-size:0.9rem;">Full custom website build — modern, responsive, and tailored to the brand.</p>
+              <a href="https://willemisinyathelohouse.com" target="_blank" rel="noopener noreferrer"
+                 style="display:inline-block; margin-top:0.5rem; color:#00f3ff; text-decoration:none; border:1px solid #00f3ff33; padding:0.3rem 1rem; border-radius:30px; font-size:0.8rem; transition:all 0.3s;"
+                 onmouseover="this.style.background='#00f3ff'; this.style.color='#0c0b0a';"
+                 onmouseout="this.style.background='transparent'; this.style.color='#00f3ff';">
+                View Project →
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2: Boutique Hotel (placeholder — replace with your own) -->
+          <div class="portfolio-item" style="--order:2">
+            <div class="portfolio-img" style="background-image:url('https://picsum.photos/id/20/600/400');" loading="lazy"></div>
+            <div style="padding:0.5rem 1rem 1rem;">
+              <h3>Boutique Hotel</h3>
+              <p style="color:#b8ab9a; font-size:0.9rem;">Custom booking engine + mobile‑first design. 156% increase in direct bookings.</p>
+              <a href="#" style="display:inline-block; margin-top:0.5rem; color:#00f3ff; text-decoration:none; border:1px solid #00f3ff33; padding:0.3rem 1rem; border-radius:30px; font-size:0.8rem; transition:all 0.3s;"
+                 onmouseover="this.style.background='#00f3ff'; this.style.color='#0c0b0a';"
+                 onmouseout="this.style.background='transparent'; this.style.color='#00f3ff';">
+                View Project →
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3: Tech Startup (placeholder — replace with your own) -->
+          <div class="portfolio-item" style="--order:3">
+            <div class="portfolio-img" style="background-image:url('https://picsum.photos/id/91/600/400');" loading="lazy"></div>
+            <div style="padding:0.5rem 1rem 1rem;">
+              <h3>Tech Startup</h3>
+              <p style="color:#b8ab9a; font-size:0.9rem;">Full‑stack web app + blog with structured data. 400% organic traffic growth.</p>
+              <a href="#" style="display:inline-block; margin-top:0.5rem; color:#00f3ff; text-decoration:none; border:1px solid #00f3ff33; padding:0.3rem 1rem; border-radius:30px; font-size:0.8rem; transition:all 0.3s;"
+                 onmouseover="this.style.background='#00f3ff'; this.style.color='#0c0b0a';"
+                 onmouseout="this.style.background='transparent'; this.style.color='#00f3ff';">
+                View Project →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section-mid fade-up">
+      <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
+        <div class="section-title">Let's build your dream website</div>
+        <div class="section-sub">Fill in the form — we'll get back within 24h with a custom quote</div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-detail"><i class="fas fa-building"></i><span>DEVINE DESIGN CO (Reg: 2025/587768/07)</span></div>
+            <div class="contact-detail"><i class="fas fa-user-tie"></i><span>Director: Tertius Pelser</span></div>
+            <div class="contact-detail"><i class="fas fa-file-invoice-dollar"></i><span>TAX Number: 9162998281</span></div>
+            <div class="contact-detail"><i class="fas fa-map-pin"></i><span>81 Ludorf Street, Brits, North West, 0250</span></div>
+            <div class="contact-detail"><i class="fas fa-envelope"></i><span>hello@devinedesignco.co.za</span></div>
+            <div class="trust-badge"><i class="fas fa-check-circle"></i> Fully tax compliant · Private Company · In Business since 2025</div>
+            <div class="legal-card" style="margin-top:1rem;"><i class="fas fa-gavel"></i> Registration Certificate: COR14.3 — All rights reserved.</div>
+          </div>
+          <div>
+            <form id="contactForm">
+              <div class="form-group"><input type="text" id="name" placeholder="Your name *" required /></div>
+              <div class="form-group"><input type="email" id="email" placeholder="Email address *" required /></div>
+              <div class="form-group"><textarea rows="4" id="message" placeholder="Tell us about your dream website, SEO needs, or mobile requirements..."></textarea></div>
+              <button type="submit" class="btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i> Send & get quote</button>
+              <div id="formFeedback" class="form-message"></div>
+            </form>
+            <p style="font-size:0.7rem; text-align:center; margin-top:1rem; color:#5a5a5a;"><i class="fas fa-lock" style="color:#00f3ff;"></i> Your data is safe. We respond within 24h.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
+      <div style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:#00f3ff; text-shadow: 0 0 20px rgba(0, 243, 255, 0.2);">DEVINE DESIGN CO</div>
+      <p style="color:#b8ab9a;">Custom websites · SEO · Mobile optimization — built by a registered South African agency.</p>
+      <div style="margin:1rem 0; font-size:0.8rem; color:#7a7a7a;">
+        <div>Registration Number: 2025 / 587768 / 07 | TAX: 9162998281</div>
+        <div>Director: Tertius Pelser | 81 Ludorf Street, Brits, North West, 0250</div>
+        <div>Enterprise Type: Private Company | Status: In Business</div>
+      </div>
+      <div class="trust-badge" style="margin-bottom:0.5rem;"><i class="fas fa-registered"></i> COR14.3 Registered — Fully Compliant</div>
+      <p style="color:#5a5a5a;">© 2025 Devine Design Co — All rights reserved. Let's build your dream site.</p>
+      <div style="margin-top:1rem; color:#5a5a5a;"><i class="fab fa-github"></i> <i class="fab fa-linkedin"></i> <i class="fab fa-instagram"></i></div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING CTA ===== -->
+  <a href="#contact" class="floating-cta"><i class="fas fa-comment-dots"></i> Start your dream site</a>
+
+  <!-- ============================================================
+  HOLOGRAPHIC AURA — CORTANA STYLE (PANEL-FREE)
+  ============================================================ -->
+  <div id="aura-container">
+    <div id="aura-body">
+      <canvas id="aura-canvas"></canvas>
+      <svg id="aura-svg" viewBox="0 0 220 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="auraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00f3ff" stop-opacity="0.9" />
+            <stop offset="50%" stop-color="#00f3ff" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#00f3ff" stop-opacity="0.2" />
+          </linearGradient>
+          <linearGradient id="auraGradGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e2b870" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#c49a6c" stop-opacity="0.2" />
+          </linearGradient>
+          <filter id="glowFilter"><feGaussianBlur stdDeviation="3" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+        </defs>
+        <ellipse cx="110" cy="150" rx="90" ry="120" fill="url(#auraGrad)" opacity="0.06" />
+        <ellipse cx="110" cy="150" rx="70" ry="100" stroke="url(#auraGrad)" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4" />
+        <path d="M30 180 C20 160, 20 140, 40 130 L180 130 C200 140, 200 160, 190 180 L30 180" fill="none" stroke="url(#auraGrad)" stroke-width="1.5" opacity="0.5" filter="url(#glowFilter)" />
+        <rect x="98" y="110" width="24" height="25" rx="12" fill="none" stroke="url(#auraGrad)" stroke-width="1.2" opacity="0.6" />
+        <ellipse cx="110" cy="90" rx="40" ry="45" fill="none" stroke="url(#auraGrad)" stroke-width="1.8" opacity="0.7" />
+        <ellipse cx="110" cy="90" rx="36" ry="41" fill="rgba(0, 243, 255, 0.03)" stroke="url(#auraGrad)" stroke-width="0.5" opacity="0.3" />
+        <path d="M70 90 C70 55, 90 40, 110 40 C130 40, 150 55, 150 90 C150 100, 145 105, 140 110 L80 110 C75 105, 70 100, 70 90" fill="none" stroke="url(#auraGradGold)" stroke-width="1.2" opacity="0.4" />
+        <path d="M90 140 L110 120 L130 140 L110 160 Z" fill="none" stroke="url(#auraGrad)" stroke-width="1.2" opacity="0.6" />
+        <circle cx="110" cy="140" r="6" fill="none" stroke="url(#auraGrad)" stroke-width="1.5" opacity="0.8" />
+        <circle cx="110" cy="140" r="2.5" fill="#00f3ff" opacity="0.6" />
+        <g class="eye-group" id="eyeGroup">
+          <ellipse cx="96" cy="82" rx="7" ry="4.5" fill="none" stroke="url(#auraGrad)" stroke-width="1.2" />
+          <circle cx="96" cy="82" r="3" fill="#00f3ff" opacity="0.8" />
+          <circle cx="95" cy="81" r="1.2" fill="#0c0b0a" />
+          <ellipse cx="124" cy="82" rx="7" ry="4.5" fill="none" stroke="url(#auraGrad)" stroke-width="1.2" />
+          <circle cx="124" cy="82" r="3" fill="#00f3ff" opacity="0.8" />
+          <circle cx="123" cy="81" r="1.2" fill="#0c0b0a" />
+        </g>
+        <path d="M86 74 C92 72, 98 72, 104 74" stroke="url(#auraGrad)" stroke-width="1.2" stroke-linecap="round" opacity="0.4" />
+        <path d="M116 74 C122 72, 128 72, 134 74" stroke="url(#auraGrad)" stroke-width="1.2" stroke-linecap="round" opacity="0.4" />
+        <path d="M110 86 L108 94 L112 94 Z" fill="none" stroke="url(#auraGrad)" stroke-width="0.8" opacity="0.3" />
+        <path d="M102 102 C106 106, 114 106, 118 102" stroke="url(#auraGrad)" stroke-width="1.2" stroke-linecap="round" class="mouth" opacity="0.5" />
+        <circle cx="40" cy="80" r="1.5" fill="#00f3ff" opacity="0.3" class="particle" />
+        <circle cx="180" cy="85" r="1.2" fill="#00f3ff" opacity="0.25" class="particle" />
+        <circle cx="45" cy="160" r="1" fill="#00f3ff" opacity="0.2" class="particle" />
+        <circle cx="175" cy="155" r="1.4" fill="#00f3ff" opacity="0.25" class="particle" />
+        <circle cx="60" cy="120" r="0.8" fill="#00f3ff" opacity="0.2" class="particle" />
+        <circle cx="160" cy="125" r="1" fill="#00f3ff" opacity="0.2" class="particle" />
+      </svg>
+      <div id="aura-speech">✨ Hello, I'm Aura.</div>
+    </div>
+    <div id="aura-actions">
+      <button class="aura-btn" data-action="services">Services</button>
+      <button class="aura-btn" data-action="portfolio">Work</button>
+      <button class="aura-btn" data-action="contact">Contact</button>
+      <button class="aura-btn" data-action="who">About</button>
+    </div>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // --- Mobile Menu ---
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          if (icon) { icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars'); }
+        });
+      });
+    }
+
+    // --- Smooth Scroll ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = this.getAttribute('href');
+        if (target === '#') return;
+        const el = document.querySelector(target);
+        if (el) { e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // --- Scroll Reveal ---
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const cards = entry.target.querySelectorAll('.service-card, .portfolio-item, .contact-grid');
+          cards.forEach((card, idx) => { card.style.transitionDelay = `${idx * 0.08}s`; });
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+    fadeElements.forEach(el => observer.observe(el));
+
+    // --- Contact Form ---
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name')?.value.trim();
+        const email = document.getElementById('email')?.value.trim();
+        if (!name || !email) {
+          feedback.style.display = 'block';
+          feedback.style.background = '#2a1e18';
+          feedback.style.color = '#e2b870';
+          feedback.innerHTML = '⚠️ Please fill in name and email.';
+          setTimeout(() => feedback.style.display = 'none', 2500);
+          return;
+        }
+        if (!email.includes('@')) {
+          feedback.style.display = 'block';
+          feedback.style.background = '#2a1e18';
+          feedback.innerHTML = '📧 Valid email required.';
+          setTimeout(() => feedback.style.display = 'none', 2500);
+          return;
+        }
+        feedback.style.display = 'block';
+        feedback.style.background = 'rgba(0, 243, 255, 0.1)';
+        feedback.style.color = '#00f3ff';
+        feedback.innerHTML = `✨ Thank you ${name}! We'll contact you within 24h to discuss your dream website.`;
+        form.reset();
+        setTimeout(() => feedback.style.display = 'none', 4500);
+      });
+    }
+
+    // ============================================================
+    //  HOLOGRAPHIC AURA ENGINE (CORTANA STYLE)
+    // ============================================================
+    const auraContainer = document.getElementById('aura-container');
+    const speechEl = document.getElementById('aura-speech');
+    const eyeGroup = document.getElementById('eyeGroup');
+    const mouth = document.querySelector('.mouth');
+    const canvas = document.getElementById('aura-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width = 220,
+      height = 260;
+    let particles = [];
+    let isTyping = false;
+    let typeTimeout = null;
+
+    function setupCanvas() {
+      const rect = document.getElementById('aura-body').getBoundingClientRect();
+      width = rect.width || 220;
+      height = rect.height || 260;
+      canvas.width = width;
+      canvas.height = height;
+    }
+    setupCanvas();
+    window.addEventListener('resize', setupCanvas);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 2.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.6;
+        this.speedY = (Math.random() - 0.5) * 0.6;
+        this.opacity = Math.random() * 0.5 + 0.1;
+        this.phase = Math.random() * Math.PI * 2;
+      }
+      update(time) {
+        this.x += this.speedX + Math.sin(time + this.phase) * 0.15;
+        this.y += this.speedY + Math.cos(time + this.phase) * 0.15;
+        if (this.x < 0 || this.x > width) this.speedX *= -1;
+        if (this.y < 0 || this.y > height) this.speedY *= -1;
+        this.opacity = 0.15 + Math.sin(time + this.phase) * 0.1 + 0.1;
+      }
+      draw(ctx) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 243, 255, ${this.opacity * 0.6})`;
+        ctx.fill();
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = 'rgba(0, 243, 255, 0.3)';
+      }
+    }
+
+    for (let i = 0; i < 50; i++) particles.push(new Particle());
+
+    let time = 0;
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      time += 0.02;
+      particles.forEach(p => { p.update(time);
+        p.draw(ctx); });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    function typeMessage(text, duration = 2000) {
+      if (typeTimeout) clearTimeout(typeTimeout);
+      isTyping = true;
+      speechEl.classList.add('active');
+      speechEl.textContent = '';
+      let i = 0;
+      const speed = Math.max(20, Math.floor(duration / text.length));
+      let talkInterval = setInterval(() => {
+        const current = parseFloat(mouth.getAttribute('opacity') || 0.5);
+        mouth.setAttribute('opacity', current === 0.5 ? 0.9 : 0.5);
+      }, 120);
+
+      function typeChar() {
+        if (i < text.length) {
+          speechEl.textContent = text.substring(0, i + 1) + '▊';
+          i++;
+          typeTimeout = setTimeout(typeChar, speed);
+        } else {
+          speechEl.textContent = text;
+          isTyping = false;
+          clearInterval(talkInterval);
+          mouth.setAttribute('opacity', 0.5);
+          typeTimeout = setTimeout(() => { speechEl.classList.remove('active'); }, 4000);
+        }
+      }
+      typeChar();
+    }
+
+    document.querySelectorAll('.aura-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const action = btn.dataset.action;
+        const responses = {
+          'services': '💻 Custom websites, SEO, mobile optimization — all hand-coded.',
+          'portfolio': '🚀 See our work: willemisinyathelohouse.com and more.',
+          'contact': '📞 Email hello@devinedesignco.co.za or use the form.',
+          'who': '🧠 I\'m Aura, your holographic AI guide. Ask me anything!'
+        };
+        typeMessage(responses[action] || '✨ Try one of the buttons!');
+        if (action === 'services') document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        else if (action === 'portfolio') document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+        else if (action === 'contact') document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    const topics = {
+      'custom-websites': '💻 Custom websites are my specialty! No templates, pure performance.',
+      'seo': '📈 SEO is key! Optimizing meta, schema, and content.',
+      'mobile': '📱 Mobile optimization is a must. Looks stunning on every device.',
+      'dream-site': '✨ Your dream site starts here. Tell us your vision!'
+    };
+    document.querySelectorAll('[data-topic]').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        const topic = el.dataset.topic;
+        if (topics[topic] && !isTyping) typeMessage(topics[topic], 1400);
+      });
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      const rect = document.getElementById('aura-body').getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const deltaX = (e.clientX - centerX) / 22;
+      const deltaY = (e.clientY - centerY) / 22;
+      const maxMove = 6;
+      const moveX = Math.min(Math.max(deltaX, -maxMove), maxMove);
+      const moveY = Math.min(Math.max(deltaY, -maxMove), maxMove);
+      if (eyeGroup) eyeGroup.setAttribute('transform', `translate(${moveX}, ${moveY})`);
+    });
+
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY + 30) {
+        if (!isTyping) typeMessage('👇 Scroll down to see our work.', 1000);
+      } else if (currentScrollY < lastScrollY - 30) {
+        if (!isTyping) typeMessage('👆 Welcome back! Let\'s build something.', 1000);
+      }
+      lastScrollY = currentScrollY;
+    });
+
+    document.getElementById('aura-body').addEventListener('click', () => {
+      if (!isTyping) {
+        const greetings = ['😊 Hello! How can I help?', '✨ Ready to build your dream site?', '💡 Ask me about custom development.'];
+        typeMessage(greetings[Math.floor(Math.random() * greetings.length)], 1500);
+      }
+    });
+
+    setInterval(() => {
+      if (isTyping) return;
+      const idleMessages = ['💡 98% score 95+ on Lighthouse.', '📱 Mobile-first design is crucial for SEO.', '🚀 We\'ve helped 50+ clients grow.'];
+      typeMessage(idleMessages[Math.floor(Math.random() * idleMessages.length)], 1800);
+    }, 15000);
+
+    setTimeout(() => { typeMessage('👋 Hello, I\'m Aura. Your holographic guide.', 2200); }, 1200);
+  </script>
+</body>
+</html>
