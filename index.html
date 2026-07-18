@@ -3,12 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Devine Design Co | Holographic Web Agency</title>
-  <meta name="description" content="Devine Design Co — registered South African web development agency. Holographic interfaces, custom websites, SEO & mobile optimization." />
+  <title>Devine Designs | Holographic Web Agency</title>
+  
+  <!-- ===== GOOGLE COMPLIANCE ===== -->
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+  
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Devine Designs",
+    "url": "https://www.devinedesignssa.com",
+    "logo": "https://www.devinedesignssa.com/images/logo.png",
+    "description": "Premium web development agency specializing in holographic interfaces, custom websites, SEO, and mobile optimization.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "81 Ludorf Street",
+      "addressLocality": "Brits",
+      "addressRegion": "North West",
+      "postalCode": "0250",
+      "addressCountry": "ZA"
+    },
+    "taxID": "9162998281",
+    "duns": "2025/587768/07",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@devinedesignssa.com",
+      "telephone": "+27649497355",
+      "contactType": "customer service",
+      "availableLanguage": ["English"]
+    },
+    "sameAs": [
+      "https://github.com/ZeroDayRaven",
+      "https://linkedin.com/company/devine-designs"
+    ]
+  }
+  </script>
+
+  <meta name="description" content="Devine Designs — registered South African web development agency. Holographic interfaces, custom websites, SEO & mobile optimization." />
   <meta name="keywords" content="custom websites, SEO, mobile optimization, web development, South Africa, tax registered, holographic" />
-  <meta name="author" content="Devine Design Co" />
+  <meta name="author" content="Devine Designs" />
   <link rel="canonical" href="https://www.devinedesignssa.com/" />
-  <meta property="og:title" content="Devine Design Co | Holographic Web Agency" />
+  <meta property="og:title" content="Devine Designs | Holographic Web Agency" />
   <meta property="og:description" content="Registered South African agency. We code custom websites, optimize for SEO & mobile, and bring your dream site to life." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0c0b0a" />
@@ -111,57 +158,113 @@
       transform: translateY(0);
     }
 
-    /* ===== HEADER ===== */
+    /* ============================================================
+       HOLOGRAPHIC HEADER WITH GLASSMORPHISM & ANIMATED LOGO
+       ============================================================ */
     .header {
-      background: rgba(12, 11, 10, 0.85);
-      backdrop-filter: blur(20px);
+      background: rgba(12, 11, 10, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid rgba(0, 243, 255, 0.15);
-      transition: border-color 0.3s;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      transition: border-color 0.4s ease;
     }
-    .header:hover { border-color: rgba(0, 243, 255, 0.3); }
+    .header:hover {
+      border-color: rgba(0, 243, 255, 0.4);
+      box-shadow: 0 4px 40px rgba(0, 243, 255, 0.05);
+    }
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 0;
+      padding: 0.8rem 0;
       flex-wrap: wrap;
     }
+
+    /* ----- DEVINE DESIGNS LOGO (MATCHING THE IMAGE) ----- */
     .logo-group {
       display: flex;
-      align-items: baseline;
-      gap: 12px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1;
+      text-decoration: none;
     }
-    .logo-main {
+
+    /* "DEVINE" — Large, serif, holographic gradient */
+    .logo-devine {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
+      font-size: 2.4rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #f3e9d2 20%, #c49a6c 50%, #00f3ff 80%);
-      background-size: 200% 200%;
-      background-clip: text;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #f3e9d2 0%, #c49a6c 40%, #00f3ff 70%, #c49a6c 100%);
+      background-size: 300% 300%;
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
-      animation: shimmerText 4s ease-in-out infinite;
+      animation: holographicShimmer 6s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
+      line-height: 1.1;
     }
-    @keyframes shimmerText {
+    @keyframes holographicShimmer {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    .logo-sub {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 2px;
+
+    /* "DESIGNS" — Smaller, sans-serif, cyan glow */
+    .logo-designs {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 6px;
       color: #00f3ff;
-      background: rgba(0, 243, 255, 0.08);
-      padding: 0.25rem 0.9rem;
-      border-radius: 40px;
-      border: 1px solid rgba(0, 243, 255, 0.15);
-      text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+      text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+      text-transform: uppercase;
+      margin-top: 2px;
     }
+
+    /* Tagline — "WEBSITES DESIGN GROWTH" */
+    .logo-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: #b8ab9a;
+      text-transform: uppercase;
+      border-top: 1px solid rgba(0, 243, 255, 0.15);
+      padding-top: 4px;
+      margin-top: 4px;
+      width: 100%;
+      text-shadow: 0 0 8px rgba(0, 243, 255, 0.1);
+    }
+    .logo-tagline span {
+      color: #00f3ff;
+      font-weight: 600;
+    }
+
+    /* Glowing border pulse for the header */
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #00f3ff, #c49a6c, #00f3ff, transparent);
+      background-size: 200% 100%;
+      animation: borderGlow 4s linear infinite;
+      opacity: 0.5;
+    }
+    @keyframes borderGlow {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* ===== NAVIGATION ===== */
     .nav-links {
       display: flex;
       gap: 1.5rem;
@@ -175,6 +278,7 @@
       padding: 0.5rem 0;
       transition: color 0.3s, text-shadow 0.3s;
       position: relative;
+      font-size: 0.9rem;
     }
     .nav-links li a::after {
       content: '';
@@ -192,19 +296,22 @@
       text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
     }
     .nav-links li a:hover::after { width: 100%; }
+
     .btn-outline-holo {
-      border: 1px solid #00f3ff;
-      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(0, 243, 255, 0.5);
+      padding: 0.4rem 1.2rem !important;
       border-radius: 40px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.05);
     }
     .btn-outline-holo:hover {
       background: #00f3ff;
       color: #0c0b0a !important;
       transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
+      box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
     }
+    .btn-outline-holo::after { display: none !important; }
+
     .menu-icon {
       display: none;
       font-size: 1.6rem;
@@ -471,6 +578,23 @@
       text-align: center;
       border-top: 1px solid rgba(0, 243, 255, 0.05);
     }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .footer-links a {
+      color: #b8ab9a;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #00f3ff;
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    }
     .trust-badge {
       background: rgba(0, 243, 255, 0.05);
       border-radius: 40px;
@@ -675,6 +799,9 @@
       #aura-speech { font-size: 0.55rem; padding: 4px 10px; white-space: normal; max-width: 140px; }
       .aura-btn { font-size: 0.45rem; padding: 2px 8px; }
       .floating-cta { bottom: 16px; left: 16px; padding: 8px 14px; font-size: 0.8rem; }
+      .logo-devine { font-size: 1.8rem; }
+      .logo-designs { font-size: 0.8rem; letter-spacing: 4px; }
+      .logo-tagline { font-size: 0.4rem; letter-spacing: 2px; }
     }
     @media (max-width: 480px) {
       #aura-container { width: 120px; height: 190px; bottom: 70px; right: 6px; transform: scale(0.7); }
@@ -695,14 +822,19 @@
   <div class="holo-spot cyan"></div>
   <div class="holo-spot gold"></div>
 
-  <!-- ===== HEADER ===== -->
+  <!-- ============================================================
+  HOLOGRAPHIC HEADER WITH DEVINE DESIGNS LOGO
+  ============================================================ -->
   <header class="header">
     <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
       <div class="navbar">
-        <div class="logo-group">
-          <span class="logo-main">DEVINE DESIGN CO</span>
-          <span class="logo-sub">HOLO · WEB · AI</span>
-        </div>
+        <!-- Logo exactly matching the uploaded image -->
+        <a href="#home" class="logo-group" style="text-decoration:none;">
+          <span class="logo-devine">DEVINE</span>
+          <span class="logo-designs">DESIGNS</span>
+          <span class="logo-tagline">WEBSITES <span>·</span> DESIGN <span>·</span> GROWTH</span>
+        </a>
+
         <div class="menu-icon" id="menuToggle"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
@@ -850,7 +982,7 @@
         <div class="section-sub">Fill in the form — we'll get back within 24h with a custom quote</div>
         <div class="contact-grid">
           <div class="contact-info">
-            <div class="contact-detail"><i class="fas fa-building"></i><span>DEVINE DESIGN CO (Reg: 2025/587768/07)</span></div>
+            <div class="contact-detail"><i class="fas fa-building"></i><span>DEVINE DESIGNS (Reg: 2025/587768/07)</span></div>
             <div class="contact-detail"><i class="fas fa-user-tie"></i><span>Director: Tertius Pelser</span></div>
             <div class="contact-detail"><i class="fas fa-file-invoice-dollar"></i><span>TAX Number: 9162998281</span></div>
             <div class="contact-detail"><i class="fas fa-map-pin"></i><span>81 Ludorf Street, Brits, North West, 0250</span></div>
@@ -879,8 +1011,8 @@
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:#00f3ff; text-shadow: 0 0 20px rgba(0, 243, 255, 0.2);">DEVINE DESIGN CO</div>
-      <p style="color:#b8ab9a;">Custom websites · SEO · Mobile optimization — built by a registered South African agency.</p>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#00f3ff; text-shadow: 0 0 20px rgba(0, 243, 255, 0.2);">DEVINE DESIGNS</div>
+      <p style="color:#b8ab9a;">Modern websites · Real results — built by a registered South African agency.</p>
       <div style="margin:1rem 0; font-size:0.8rem; color:#7a7a7a;">
         <div>Registration Number: 2025 / 587768 / 07 | TAX: 9162998281</div>
         <div>Director: Tertius Pelser | 81 Ludorf Street, Brits, North West, 0250</div>
@@ -889,8 +1021,13 @@
       <div style="margin:0.5rem 0; color:#b8ab9a; font-size:0.85rem;">
         <i class="fas fa-envelope" style="color:#00f3ff;"></i> info@devinedesignssa.com &nbsp;|&nbsp; <i class="fas fa-phone" style="color:#00f3ff;"></i> +27 64 949 7355
       </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
       <div class="trust-badge" style="margin-bottom:0.5rem;"><i class="fas fa-registered"></i> COR14.3 Registered — Fully Compliant</div>
-      <p style="color:#5a5a5a;">© 2025 Devine Design Co — All rights reserved. Let's build your dream site.</p>
+      <p style="color:#5a5a5a;">© 2025 Devine Designs — All rights reserved. Let's build your dream site.</p>
       <div style="margin-top:1rem; color:#5a5a5a;"><i class="fab fa-github"></i> <i class="fab fa-linkedin"></i> <i class="fab fa-instagram"></i></div>
     </div>
   </footer>
