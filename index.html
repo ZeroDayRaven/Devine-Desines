@@ -20,7 +20,7 @@
     gtag('config', 'G-14H9QCZ92J');
   </script>
 
-  <!-- ===== META PIXEL (UPDATED WITH YOUR ID) ===== -->
+  <!-- ===== META PIXEL ===== -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -218,9 +218,7 @@
     .trust-badge:hover{box-shadow:0 0 30px rgba(0,243,255,.06);background:rgba(0,243,255,.06)}
     .legal-card{background:rgba(0,243,255,.02);border-left:3px solid #00f3ff;padding:1rem 1.2rem;margin:1rem 0;font-size:.85rem;transition:all .3s;box-shadow:0 0 20px rgba(0,243,255,.01)}
     .legal-card:hover{border-left-width:5px;box-shadow:0 0 40px rgba(0,243,255,.03)}
-    .floating-cta{position:fixed;bottom:24px;left:24px;background:linear-gradient(135deg,#00f3ff,#0066cc);color:#0a0a0a;padding:12px 24px;border-radius:50px;font-weight:700;box-shadow:0 4px 40px rgba(0,0,0,.5);z-index:100;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all .3s;border:1px solid rgba(0,243,255,.2);animation:pulseGlow 2.5s infinite ease-in-out;will-change:transform,box-shadow}
-    @keyframes pulseGlow{0%,100%{box-shadow:0 0 30px rgba(0,243,255,.1)}50%{box-shadow:0 0 60px rgba(0,243,255,.25)}}
-    .floating-cta:hover{transform:scale(1.05) translateY(-3px);box-shadow:0 0 80px rgba(0,243,255,.3)}
+    /* Floating CTA removed */
 
     /* ============================================================
        AI ORB
@@ -640,7 +638,7 @@
             <div class="contact-detail"><i class="fas fa-phone"></i><span>+27 64 949 7355</span></div>
             <div class="trust-badge"><i class="fas fa-check-circle"></i> Fully tax compliant · Private Company · In Business since 2025</div>
             <div class="legal-card" style="margin-top:1rem;"><i class="fas fa-gavel"></i> Registration Certificate: COR14.3 — All rights reserved.</div>
-            <a href="https://calendly.com/your-link" target="_blank" class="btn-primary" style="margin-top:1.5rem;width:100%;justify-content:center;"><i class="fas fa-calendar-check"></i> Book a free consultation</a>
+            <!-- Calendly button removed -->
           </div>
           <div>
             <form id="contactForm">
@@ -746,8 +744,7 @@
     </div>
   </div>
 
-  <!-- ===== FLOATING CTA ===== -->
-  <a href="https://calendly.com/your-link" target="_blank" class="floating-cta"><i class="fas fa-calendar-check"></i> Book a free call</a>
+  <!-- Floating CTA completely removed -->
 
   <!-- ===== AI ORB ===== -->
   <div id="aiAssistant">
@@ -857,8 +854,8 @@
           {
             id: 'contact',
             keywords: ['contact', 'email', 'reach', 'get in touch', 'phone', 'call', 'message', 'info@', 'hello@'],
-            response: ['You can reach us at info@devinedesignssa.com or +27 64 949 7355 📞. We\'ll get back within 24 hours.','Let\'s talk! 📧 Email info@devinedesignssa.com or use the contact form below. We respond within 24 hours.','We\'d love to hear from you! ✉️ Drop us an email at info@devinedesignssa.com or book a free consultation above.'],
-            suggestions: ['Book a consultation','Tell me about your services','View your portfolio']
+            response: ['You can reach us at info@devinedesignssa.com or +27 64 949 7355 📞. We\'ll get back within 24 hours.','Let\'s talk! 📧 Email info@devinedesignssa.com or use the contact form below. We respond within 24 hours.','We\'d love to hear from you! ✉️ Drop us an email at info@devinedesignssa.com or use the contact form above.'],
+            suggestions: ['Tell me about your services','View your portfolio','Book a consultation']
           },
           {
             id: 'compliance',
