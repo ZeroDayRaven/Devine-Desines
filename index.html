@@ -95,22 +95,14 @@
 
   <style>
     /* ============================================================
-       ALL STYLES (PRESERVED) + BLOG + LOCAL SEO BADGE
+       ALL STYLES (PRESERVED) + OPTIMIZATIONS
        ============================================================ */
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e9e2d4;line-height:1.6;scroll-behavior:smooth;overflow-x:hidden;position:relative;-webkit-tap-highlight-color:transparent;padding-bottom:env(safe-area-inset-bottom, 24px);min-height:100vh;min-height:100dvh}
 
     /* ===== IMAGE OPTIMIZATIONS ===== */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    .logo-img, .footer-logo-img {
-      height: auto;
-      width: auto;
-      max-height: 80px;
-    }
+    img{max-width:100%;height:auto;display:block}
+    .logo-img,.footer-logo-img{height:auto;width:auto;max-height:80px}
 
     #holo-grid{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,243,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,243,255,.025) 1px,transparent 1px);background-size:50px 50px;animation:gridMove 25s linear infinite}
     @keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(50px,50px)}}
@@ -136,7 +128,7 @@
     .btn-outline-holo{border:1px solid rgba(0,243,255,.4);padding:.4rem 1.4rem!important;border-radius:40px;transition:all .3s;box-shadow:0 0 20px rgba(0,243,255,.05);min-height:44px;display:inline-flex;align-items:center;justify-content:center}
     .btn-outline-holo:hover{background:#00f3ff;color:#0a0a0a!important;transform:translateY(-2px);box-shadow:0 0 40px rgba(0,243,255,.3)}
     .btn-outline-holo::after{display:none!important}
-    .btn-primary,.btn-secondary{min-height:48px;display:inline-flex;align-items:center;justify-content:center;transition:all .3s;font-weight:600;border-radius:40px;cursor:pointer;text-decoration:none;border:none;position:relative;overflow:hidden;padding:0.8rem 1.8rem}
+    .btn-primary,.btn-secondary{min-height:48px;display:inline-flex;align-items:center;justify-content:center;transition:all .3s;font-weight:600;border-radius:40px;cursor:pointer;text-decoration:none;border:none;position:relative;overflow:hidden;padding:.8rem 1.8rem}
     .btn-primary{background:linear-gradient(135deg,#00f3ff,#0066cc);color:#0a0a0a;box-shadow:0 0 30px rgba(0,243,255,.15)}
     .btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 0 60px rgba(0,243,255,.35)}
     .btn-secondary{background:transparent;border:1px solid rgba(196,154,108,.4);color:#e9e2d4;text-shadow:0 0 5px rgba(196,154,108,.1)}
@@ -152,7 +144,7 @@
     .hero-stats{display:flex;gap:1.2rem;margin-top:1.5rem;flex-wrap:wrap}
     .hero-stats span{display:flex;align-items:center;gap:8px;font-size:.9rem}
     .hero-stats span i{color:#00f3ff;font-size:1rem;text-shadow:0 0 10px rgba(0,243,255,.3)}
-    .hero-location-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,243,255,.06);border:1px solid rgba(0,243,255,.15);border-radius:40px;padding:.3rem 1.2rem;font-size:.7rem;color:#b8ab9a;margin-top:1rem;letter-spacing:0.5px}
+    .hero-location-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,243,255,.06);border:1px solid rgba(0,243,255,.15);border-radius:40px;padding:.3rem 1.2rem;font-size:.7rem;color:#b8ab9a;margin-top:1rem;letter-spacing:.5px}
     .hero-location-badge i{color:#00f3ff;font-size:.9rem}
     .dark-glass-snippet{background:rgba(20,18,16,.7);backdrop-filter:blur(20px);border-radius:2rem;padding:1.5rem;border:1px solid rgba(0,243,255,.15);transition:all .4s;box-shadow:0 0 40px rgba(0,243,255,.03)}
     .dark-glass-snippet:hover{transform:scale(1.02) translateY(-5px);border-color:rgba(0,243,255,.3);box-shadow:0 0 60px rgba(0,243,255,.08)}
@@ -196,7 +188,7 @@
     .pricing-card .plan-features{list-style:none;padding:0;margin:.3rem 0 .8rem;width:100%}
     .pricing-card .plan-features li{padding:.35rem 0;color:#b8ab9a;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;gap:8px}
     .pricing-card .plan-features li i{color:#00f3ff;font-size:.75rem}
-    .pricing-card .btn-primary{width:100%;justify-content:center;font-size:.85rem;padding:0.6rem 1.2rem}
+    .pricing-card .btn-primary{width:100%;justify-content:center;font-size:.85rem;padding:.6rem 1.2rem}
 
     /* ============================================================
        BLOG
@@ -238,17 +230,37 @@
     textarea{min-height:120px;resize:vertical}
 
     /* ============================================================
-       FOOTER — WITH BOTTOM BAR FIX
+       FOOTER — WITH BOTTOM BAR FIX (NO SOCIAL LINKS)
        ============================================================ */
     .footer{background:#080807;padding:2rem 0;text-align:center;border-top:1px solid rgba(0,243,255,.04);padding-bottom:calc(2rem + env(safe-area-inset-bottom, 24px))}
     .footer-logo-img{height:50px;width:auto;filter:drop-shadow(0 0 12px rgba(0,243,255,.15));margin:0 auto .5rem}
     .footer-links{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin:.8rem 0}
-    .footer-links a{color:#b8ab9a;text-decoration:none;font-size:.75rem;transition:color .3s;cursor:pointer;padding:0.4rem 0;min-height:44px;display:inline-flex;align-items:center}
+    .footer-links a{color:#b8ab9a;text-decoration:none;font-size:.75rem;transition:color .3s;cursor:pointer;padding:.4rem 0;min-height:44px;display:inline-flex;align-items:center}
     .footer-links a:hover{color:#00f3ff;text-shadow:0 0 15px rgba(0,243,255,.2)}
     .trust-badge{background:rgba(0,243,255,.04);border-radius:40px;padding:.35rem 1rem;display:inline-flex;align-items:center;gap:8px;font-size:.7rem;color:#00f3ff;border:1px solid rgba(0,243,255,.06);transition:all .3s;min-height:36px}
     .trust-badge:hover{box-shadow:0 0 30px rgba(0,243,255,.06);background:rgba(0,243,255,.06)}
     .legal-card{background:rgba(0,243,255,.02);border-left:3px solid #00f3ff;padding:.8rem 1rem;margin:.8rem 0;font-size:.8rem;transition:all .3s;box-shadow:0 0 20px rgba(0,243,255,.01)}
     .legal-card:hover{border-left-width:5px;box-shadow:0 0 40px rgba(0,243,255,.03)}
+
+    /* ============================================================
+       SOCIAL BAR — HOLOGRAPHIC THEME (HEADER BOTTOM RIGHT)
+       ============================================================ */
+    .social-bar{position:absolute;bottom:12px;right:0;display:flex;gap:12px;z-index:5;align-items:center}
+    .social-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;color:#b8ab9a;font-size:1.1rem;text-decoration:none;transition:all .35s cubic-bezier(.2,.9,.4,1);border:1px solid rgba(0,243,255,.12);background:rgba(10,10,10,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);position:relative;will-change:transform,color,box-shadow}
+    .social-icon::before{content:'';position:absolute;inset:-3px;border-radius:50%;padding:2px;background:conic-gradient(from var(--angle,0deg),#00f3ff,#c49a6c,#00f3ff,#c49a6c,#00f3ff);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinBorder 6s linear infinite;opacity:0;transition:opacity .4s ease;pointer-events:none}
+    .social-icon:hover::before{opacity:1}
+    .social-icon:hover{transform:translateY(-3px) scale(1.08);border-color:transparent;box-shadow:0 0 25px rgba(0,243,255,.2)}
+    .social-icon.whatsapp:hover{color:#25D366;box-shadow:0 0 30px rgba(37,211,102,.3),0 0 60px rgba(37,211,102,.08)}
+    .social-icon.facebook:hover{color:#1877F2;box-shadow:0 0 30px rgba(24,119,242,.3),0 0 60px rgba(24,119,242,.08)}
+    .social-icon.instagram:hover{color:#E4405F;box-shadow:0 0 30px rgba(228,64,95,.3),0 0 60px rgba(228,64,95,.08)}
+    .social-icon.linkedin:hover{color:#0A66C2;box-shadow:0 0 30px rgba(10,102,194,.3),0 0 60px rgba(10,102,194,.08)}
+    .social-icon{animation:socialFloat 4s ease-in-out infinite}
+    .social-icon:nth-child(1){animation-delay:0s}
+    .social-icon:nth-child(2){animation-delay:.5s}
+    .social-icon:nth-child(3){animation-delay:1s}
+    .social-icon:nth-child(4){animation-delay:1.5s}
+    @keyframes socialFloat{0%,100%{transform:translateY(0px)}50%{transform:translateY(-4px)}}
+    .social-icon:hover{animation-play-state:paused}
 
     /* ============================================================
        AI ORB — MOBILE OPTIMIZED
@@ -283,7 +295,7 @@
     .faq-grid{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:.6rem}
     .faq-item{background:rgba(26,23,20,.3);backdrop-filter:blur(8px);border-radius:1.2rem;border:1px solid rgba(0,243,255,.06);overflow:hidden;transition:all .3s}
     .faq-item:hover{border-color:rgba(0,243,255,.12)}
-    .faq-question{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;cursor:pointer;font-weight:600;color:#f7f0e4;transition:background .3s;background:transparent;border:none;width:100%;text-align:left;font-family:'Inter',sans-serif;font-size:.95rem;gap:0.8rem;min-height:48px}
+    .faq-question{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;cursor:pointer;font-weight:600;color:#f7f0e4;transition:background .3s;background:transparent;border:none;width:100%;text-align:left;font-family:'Inter',sans-serif;font-size:.95rem;gap:.8rem;min-height:48px}
     .faq-question:hover{background:rgba(0,243,255,.03)}
     .faq-question i{color:#00f3ff;transition:transform .3s;font-size:1.1rem;flex-shrink:0}
     .faq-item.open .faq-question i{transform:rotate(180deg)}
@@ -318,7 +330,7 @@
     ::-webkit-scrollbar-thumb{background:#00f3ff;border-radius:10px;box-shadow:0 0 20px #00f3ff}
 
     /* ============================================================
-       HEADER — ONLY LOGO + HAMBURGER
+       HEADER — ONLY LOGO + HAMBURGER + SOCIAL BAR
        ============================================================ */
     .navbar{display:flex;justify-content:center;align-items:center;position:relative;min-height:70px;padding:.4rem 0}
     .menu-icon{position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:1001;font-size:1.6rem;cursor:pointer;color:#00f3ff;display:block !important;transition:color .3s;line-height:1;padding:8px 12px;min-height:44px;min-width:44px;display:flex !important;align-items:center;justify-content:center}
@@ -361,158 +373,19 @@
     .logo-tagline span{color:#00f3ff;font-weight:600}
 
     /* ============================================================
-       RESPONSIVE
+       RESPONSIVE (SOCIAL BAR INCLUDED)
        ============================================================ */
-    @media (max-width: 1024px) {
-      .hero-content h1 { font-size: 2.8rem; }
-      .hero-grid { gap: 2rem; }
-      .section-title { font-size: 2.4rem; }
-      .contact-grid { gap: 1.5rem; padding: 1.8rem; }
-    }
-
-    @media (max-width: 880px) {
-      .navbar { min-height: 65px; }
-      .logo-img { height: 55px; max-height: 55px; }
-      .logo-ring { width: 90px; height: 90px; }
-      .logo-ring:nth-child(2) { width: 105px; height: 105px; }
-      .logo-tagline { font-size: 0.45rem; letter-spacing: 2px; }
-      .menu-icon { font-size: 1.6rem; left: 0.3rem; padding: 6px 10px; }
-      .hero-content h1 { font-size: 2.5rem; }
-      .hero { padding: 3rem 0 4rem; }
-      .hero-grid { gap: 1.8rem; }
-      .hero-stats { gap: 1rem; }
-      .hero-stats span { font-size: 0.85rem; }
-      .section-title { font-size: 2.2rem; }
-      .section-sub { font-size: 0.95rem; margin-bottom: 1.8rem; }
-      .contact-grid { grid-template-columns: 1fr; padding: 1.5rem; }
-      .contact-detail span { font-size: 0.9rem; }
-      .services-grid { gap: 1.2rem; }
-      .service-card { padding: 1.5rem 1.2rem; min-height: 200px; }
-      .service-card h3 { font-size: 1.1rem; }
-      .service-card p { font-size: 0.8rem; }
-      .pricing-grid { gap: 1.2rem; }
-      .pricing-card { padding: 1.5rem 1.2rem; }
-      .pricing-card .plan-price { font-size: 2rem; }
-      .portfolio-grid { gap: 1.2rem; }
-      .portfolio-item { padding: 1.5rem 1.2rem; }
-      .portfolio-img { height: 160px; margin: -1.5rem -1.2rem 0.8rem -1.2rem; }
-      #aiAssistant { bottom: 80px; right: 15px; width: 110px; height: 110px; }
-      #aiAssistant.speaking { width: 155px; height: 155px; }
-      #aiAssistant.listening { width: 140px; height: 140px; }
-      #aiAssistant.thinking { width: 130px; height: 130px; }
-      #assistantBubble { font-size: 0.6rem; padding: 4px 10px; white-space: normal; max-width: 180px; bottom: calc(100% + 14px); }
-      .trust-bar { padding: 1rem 0; margin: 1rem 0; }
-      .trust-item { font-size: 0.7rem; gap: 0.4rem; }
-      .trust-item i { font-size: 1.1rem; }
-      .faq-question { font-size: 0.9rem; padding: 0.8rem 1rem; }
-      .faq-answer { font-size: 0.85rem; }
-      .modal-box { padding: 1.2rem; }
-      .modal-box h2 { font-size: 1.5rem; }
-      .footer-logo-img { height: 40px; }
-      .blog-grid { gap: 1rem; }
-      .blog-card { padding: 1.2rem; }
-    }
-
-    @media (max-width: 600px) {
-      .navbar { min-height: 58px; padding: 0.3rem 0; }
-      .logo-img { height: 42px; max-height: 42px; }
-      .logo-ring { width: 75px; height: 75px; }
-      .logo-ring:nth-child(2) { width: 85px; height: 85px; }
-      .logo-tagline { font-size: 0.4rem; letter-spacing: 1.5px; margin-top: 2px; padding-top: 3px; }
-      .menu-icon { font-size: 1.4rem; padding: 6px 8px; }
-      .hero-content h1 { font-size: 2rem; }
-      .hero { padding: 2rem 0 3rem; }
-      .hero-grid { gap: 1.2rem; }
-      .hero-badge { font-size: 0.6rem; padding: 0.3rem 1rem; }
-      .hero-stats { gap: 0.8rem; }
-      .hero-stats span { font-size: 0.75rem; }
-      .hero-stats span i { font-size: 0.85rem; }
-      .btn-primary, .btn-secondary { font-size: 0.85rem; padding: 0.6rem 1.2rem; min-height: 44px; }
-      .section-title { font-size: 1.8rem; }
-      .section-sub { font-size: 0.85rem; margin-bottom: 1.2rem; padding: 0 0.5rem; }
-      .services-grid { gap: 1rem; grid-template-columns: 1fr; }
-      .service-card { padding: 1.2rem 1rem; min-height: 160px; }
-      .service-card h3 { font-size: 1rem; }
-      .service-card p { font-size: 0.78rem; }
-      .service-icon { font-size: 2rem; }
-      .service-price { font-size: 0.65rem; padding: 0.15rem 0.8rem; }
-      .pricing-grid { gap: 1rem; grid-template-columns: 1fr; }
-      .pricing-card { padding: 1.2rem 1rem; }
-      .pricing-card .plan-name { font-size: 1rem; }
-      .pricing-card .plan-price { font-size: 1.8rem; }
-      .pricing-card .plan-price small { font-size: 0.8rem; }
-      .pricing-card .plan-features li { font-size: 0.8rem; padding: 0.25rem 0; }
-      .pricing-card .btn-primary { font-size: 0.8rem; padding: 0.5rem 1rem; min-height: 44px; }
-      .pricing-card.popular::after { font-size: 0.5rem; padding: 0.1rem 0.6rem; top: -8px; right: 8px; }
-      .portfolio-grid { gap: 1rem; grid-template-columns: 1fr; }
-      .portfolio-item { padding: 1.2rem 1rem; }
-      .portfolio-img { height: 140px; margin: -1.2rem -1rem 0.6rem -1rem; }
-      .portfolio-item h3 { font-size: 0.95rem; }
-      .portfolio-item p { font-size: 0.78rem; }
-      .contact-grid { padding: 1.2rem; gap: 1rem; }
-      .contact-detail { gap: 0.6rem; margin-bottom: 0.6rem; }
-      .contact-detail i { width: 1.6rem; font-size: 0.9rem; }
-      .contact-detail span { font-size: 0.8rem; }
-      input, textarea { padding: 0.7rem 1rem; font-size: 0.9rem; min-height: 44px; }
-      textarea { min-height: 100px; }
-      .trust-bar { padding: 0.8rem 0; margin: 0.8rem 0; }
-      .trust-item { font-size: 0.65rem; gap: 0.3rem; }
-      .trust-item i { font-size: 0.9rem; }
-      .trust-scroll { gap: 1.2rem; }
-      .faq-grid { gap: 0.4rem; }
-      .faq-question { font-size: 0.82rem; padding: 0.6rem 0.8rem; min-height: 44px; }
-      .faq-question i { font-size: 0.9rem; }
-      .faq-answer { font-size: 0.78rem; padding: 0 0.8rem; }
-      .faq-item.open .faq-answer { padding: 0 0.8rem 0.8rem 0.8rem; }
-      .modal-box { padding: 1rem; }
-      .modal-box h2 { font-size: 1.3rem; }
-      .modal-box p, .modal-box li { font-size: 0.8rem; }
-      .modal-close { font-size: 1.4rem; min-height: 44px; min-width: 44px; }
-      .footer { padding: 1.5rem 0; padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 24px)); }
-      .footer-logo-img { height: 35px; }
-      .footer-links { gap: 0.8rem; }
-      .footer-links a { font-size: 0.7rem; min-height: 40px; }
-      .trust-badge { font-size: 0.65rem; padding: 0.25rem 0.8rem; min-height: 32px; }
-      .legal-card { font-size: 0.7rem; padding: 0.6rem 0.8rem; }
-      #aiAssistant { bottom: 70px; right: 10px; width: 85px; height: 85px; }
-      #aiAssistant.speaking { width: 120px; height: 120px; }
-      #aiAssistant.listening { width: 105px; height: 105px; }
-      #aiAssistant.thinking { width: 98px; height: 98px; }
-      #assistantBubble { font-size: 0.55rem; padding: 3px 8px; max-width: 140px; bottom: calc(100% + 10px); }
-      .dark-glass-snippet { padding: 1rem; }
-      .dark-glass-snippet pre { font-size: 0.65rem !important; }
-      .dark-glass-snippet .fa-gem { font-size: 0.6rem; }
-      .hero-visual img { max-width: 100% !important; }
-      .nav-links { width: 85%; padding: 4rem 1.2rem 1.2rem; }
-      .nav-links li a { font-size: 0.95rem; padding: 0.5rem 0.3rem; min-height: 40px; }
-      .nav-close-btn { font-size: 1.4rem; top: 0.8rem; right: 0.8rem; min-height: 40px; min-width: 40px; }
-      .blog-grid { gap: 0.8rem; }
-      .blog-card { padding: 1rem; }
-      .blog-card h3 { font-size: 1rem; }
-    }
-
-    @media (max-width: 400px) {
-      .hero-content h1 { font-size: 1.6rem; }
-      .section-title { font-size: 1.5rem; }
-      .logo-img { height: 35px; max-height: 35px; }
-      .logo-ring { width: 65px; height: 65px; }
-      .logo-ring:nth-child(2) { width: 75px; height: 75px; }
-      .menu-icon { font-size: 1.2rem; }
-      #aiAssistant { width: 75px; height: 75px; bottom: 60px; right: 8px; }
-      #aiAssistant.speaking { width: 100px; height: 100px; }
-      #aiAssistant.listening { width: 92px; height: 92px; }
-      #aiAssistant.thinking { width: 85px; height: 85px; }
-      #assistantBubble { font-size: 0.5rem; max-width: 120px; bottom: calc(100% + 8px); }
-      .btn-primary, .btn-secondary { font-size: 0.75rem; padding: 0.5rem 1rem; }
-    }
-
+    @media (max-width:1024px){.hero-content h1{font-size:2.8rem}.hero-grid{gap:2rem}.section-title{font-size:2.4rem}.contact-grid{gap:1.5rem;padding:1.8rem}}
+    @media (max-width:880px){.navbar{min-height:65px}.logo-img{height:55px;max-height:55px}.logo-ring{width:90px;height:90px}.logo-ring:nth-child(2){width:105px;height:105px}.logo-tagline{font-size:.45rem;letter-spacing:2px}.menu-icon{font-size:1.6rem;left:.3rem;padding:6px 10px}.hero-content h1{font-size:2.5rem}.hero{padding:3rem 0 4rem}.hero-grid{gap:1.8rem}.hero-stats{gap:1rem}.hero-stats span{font-size:.85rem}.section-title{font-size:2.2rem}.section-sub{font-size:.95rem;margin-bottom:1.8rem}.contact-grid{grid-template-columns:1fr;padding:1.5rem}.contact-detail span{font-size:.9rem}.services-grid{gap:1.2rem}.service-card{padding:1.5rem 1.2rem;min-height:200px}.service-card h3{font-size:1.1rem}.service-card p{font-size:.8rem}.pricing-grid{gap:1.2rem}.pricing-card{padding:1.5rem 1.2rem}.pricing-card .plan-price{font-size:2rem}.portfolio-grid{gap:1.2rem}.portfolio-item{padding:1.5rem 1.2rem}.portfolio-img{height:160px;margin:-1.5rem -1.2rem .8rem -1.2rem}#aiAssistant{bottom:80px;right:15px;width:110px;height:110px}#aiAssistant.speaking{width:155px;height:155px}#aiAssistant.listening{width:140px;height:140px}#aiAssistant.thinking{width:130px;height:130px}#assistantBubble{font-size:.6rem;padding:4px 10px;white-space:normal;max-width:180px;bottom:calc(100% + 14px)}.trust-bar{padding:1rem 0;margin:1rem 0}.trust-item{font-size:.7rem;gap:.4rem}.trust-item i{font-size:1.1rem}.faq-question{font-size:.9rem;padding:.8rem 1rem}.faq-answer{font-size:.85rem}.modal-box{padding:1.2rem}.modal-box h2{font-size:1.5rem}.footer-logo-img{height:40px}.blog-grid{gap:1rem}.blog-card{padding:1.2rem}.social-bar{bottom:8px;gap:8px}.social-icon{width:32px;height:32px;font-size:.9rem}}
+    @media (max-width:600px){.navbar{min-height:58px;padding:.3rem 0}.logo-img{height:42px;max-height:42px}.logo-ring{width:75px;height:75px}.logo-ring:nth-child(2){width:85px;height:85px}.logo-tagline{font-size:.4rem;letter-spacing:1.5px;margin-top:2px;padding-top:3px}.menu-icon{font-size:1.4rem;padding:6px 8px}.hero-content h1{font-size:2rem}.hero{padding:2rem 0 3rem}.hero-grid{gap:1.2rem}.hero-badge{font-size:.6rem;padding:.3rem 1rem}.hero-stats{gap:.8rem}.hero-stats span{font-size:.75rem}.hero-stats span i{font-size:.85rem}.btn-primary,.btn-secondary{font-size:.85rem;padding:.6rem 1.2rem;min-height:44px}.section-title{font-size:1.8rem}.section-sub{font-size:.85rem;margin-bottom:1.2rem;padding:0 .5rem}.services-grid{gap:1rem;grid-template-columns:1fr}.service-card{padding:1.2rem 1rem;min-height:160px}.service-card h3{font-size:1rem}.service-card p{font-size:.78rem}.service-icon{font-size:2rem}.service-price{font-size:.65rem;padding:.15rem .8rem}.pricing-grid{gap:1rem;grid-template-columns:1fr}.pricing-card{padding:1.2rem 1rem}.pricing-card .plan-name{font-size:1rem}.pricing-card .plan-price{font-size:1.8rem}.pricing-card .plan-price small{font-size:.8rem}.pricing-card .plan-features li{font-size:.8rem;padding:.25rem 0}.pricing-card .btn-primary{font-size:.8rem;padding:.5rem 1rem;min-height:44px}.pricing-card.popular::after{font-size:.5rem;padding:.1rem .6rem;top:-8px;right:8px}.portfolio-grid{gap:1rem;grid-template-columns:1fr}.portfolio-item{padding:1.2rem 1rem}.portfolio-img{height:140px;margin:-1.2rem -1rem .6rem -1rem}.portfolio-item h3{font-size:.95rem}.portfolio-item p{font-size:.78rem}.contact-grid{padding:1.2rem;gap:1rem}.contact-detail{gap:.6rem;margin-bottom:.6rem}.contact-detail i{width:1.6rem;font-size:.9rem}.contact-detail span{font-size:.8rem}input,textarea{padding:.7rem 1rem;font-size:.9rem;min-height:44px}textarea{min-height:100px}.trust-bar{padding:.8rem 0;margin:.8rem 0}.trust-item{font-size:.65rem;gap:.3rem}.trust-item i{font-size:.9rem}.trust-scroll{gap:1.2rem}.faq-grid{gap:.4rem}.faq-question{font-size:.82rem;padding:.6rem .8rem;min-height:44px}.faq-question i{font-size:.9rem}.faq-answer{font-size:.78rem;padding:0 .8rem}.faq-item.open .faq-answer{padding:0 .8rem .8rem .8rem}.modal-box{padding:1rem}.modal-box h2{font-size:1.3rem}.modal-box p,.modal-box li{font-size:.8rem}.modal-close{font-size:1.4rem;min-height:44px;min-width:44px}.footer{padding:1.5rem 0;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom, 24px))}.footer-logo-img{height:35px}.footer-links{gap:.8rem}.footer-links a{font-size:.7rem;min-height:40px}.trust-badge{font-size:.65rem;padding:.25rem .8rem;min-height:32px}.legal-card{font-size:.7rem;padding:.6rem .8rem}#aiAssistant{bottom:70px;right:10px;width:85px;height:85px}#aiAssistant.speaking{width:120px;height:120px}#aiAssistant.listening{width:105px;height:105px}#aiAssistant.thinking{width:98px;height:98px}#assistantBubble{font-size:.55rem;padding:3px 8px;max-width:140px;bottom:calc(100% + 10px)}.dark-glass-snippet{padding:1rem}.dark-glass-snippet pre{font-size:.65rem !important}.dark-glass-snippet .fa-gem{font-size:.6rem}.hero-visual img{max-width:100% !important}.nav-links{width:85%;padding:4rem 1.2rem 1.2rem}.nav-links li a{font-size:.95rem;padding:.5rem .3rem;min-height:40px}.nav-close-btn{font-size:1.4rem;top:.8rem;right:.8rem;min-height:40px;min-width:40px}.blog-grid{gap:.8rem}.blog-card{padding:1rem}.blog-card h3{font-size:1rem}.social-bar{bottom:6px;gap:6px}.social-icon{width:28px;height:28px;font-size:.75rem}}
+    @media (max-width:400px){.hero-content h1{font-size:1.6rem}.section-title{font-size:1.5rem}.logo-img{height:35px;max-height:35px}.logo-ring{width:65px;height:65px}.logo-ring:nth-child(2){width:75px;height:75px}.menu-icon{font-size:1.2rem}#aiAssistant{width:75px;height:75px;bottom:60px;right:8px}#aiAssistant.speaking{width:100px;height:100px}#aiAssistant.listening{width:92px;height:92px}#aiAssistant.thinking{width:85px;height:85px}#assistantBubble{font-size:.5rem;max-width:120px;bottom:calc(100% + 8px)}.btn-primary,.btn-secondary{font-size:.75rem;padding:.5rem 1rem}}
     .nav-links::before{display:none !important}
   </style>
 </head>
 <body>
 
   <!-- ===== SKIP TO CONTENT (ACCESSIBILITY) ===== -->
-  <a href="#home" style="position:absolute;top:-999px;left:0;background:#00f3ff;color:#0a0a0a;padding:12px 24px;z-index:9999;border-radius:0 0 12px 0;font-weight:600;text-decoration:none;font-size:0.9rem;">Skip to content</a>
+  <a href="#home" style="position:absolute;top:-999px;left:0;background:#00f3ff;color:#0a0a0a;padding:12px 24px;z-index:9999;border-radius:0 0 12px 0;font-weight:600;text-decoration:none;font-size:.9rem;">Skip to content</a>
 
   <!-- ===== BACKGROUND EFFECTS ===== -->
   <div id="holo-grid"></div>
@@ -525,6 +398,8 @@
     <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
       <div class="navbar">
         <div class="menu-icon" id="menuToggle" aria-label="Toggle navigation menu" role="button" tabindex="0"><i class="fas fa-bars"></i></div>
+
+        <!-- ===== CENTERED LOGO ===== -->
         <a href="#home" class="logo-group">
           <div class="logo-wrapper">
             <img src="images/DevineDesignsLogo.png" alt="Devine Designs Logo" class="logo-img" width="200" height="80" loading="lazy" />
@@ -534,6 +409,24 @@
           </div>
           <span class="logo-tagline">WEBSITES <span>·</span> DESIGN <span>·</span> GROWTH</span>
         </a>
+
+        <!-- ===== SOCIAL BAR (Bottom Right of Header) ===== -->
+        <div class="social-bar">
+          <a href="https://wa.me/27649497355" target="_blank" aria-label="WhatsApp" class="social-icon whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61579043092007" target="_blank" aria-label="Facebook" class="social-icon facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/devine_designs_sa/" target="_blank" aria-label="Instagram" class="social-icon instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/tertius-pelser-165600423/" target="_blank" aria-label="LinkedIn" class="social-icon linkedin">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+
+        <!-- ===== NAVIGATION ===== -->
         <ul class="nav-links" id="navLinks">
           <li><a href="#home" data-section="home">Home</a></li>
           <li><a href="#design-services" data-section="design-services">Design</a></li>
@@ -551,7 +444,7 @@
 
   <!-- ===== MAIN ===== -->
   <main>
-    <!-- ===== HERO (with location badge) ===== -->
+    <!-- ===== HERO (with truthful AI statement) ===== -->
     <section id="home" class="hero" data-section="home">
       <div class="hero-rings">
         <div class="ring"></div>
@@ -562,10 +455,12 @@
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
         <div class="hero-grid">
           <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-microchip"></i> HOLOGRAPHIC ENGINEERING</div>
+            <div class="hero-badge"><i class="fas fa-microchip"></i> AI‑ASSISTED ENGINEERING</div>
             <h1>Your dream website,<br /><span class="hero-highlight">holographic & SEO‑ready</span></h1>
-            <p style="font-size:clamp(1rem, 2.5vw, 1.15rem);color:#b8ab9a;max-width:90%;margin-bottom:1.2rem;">We build next‑gen, responsive websites that rank on Google, work flawlessly on mobile, and reflect your unique vision. No templates — just handcrafted code with a futuristic edge.</p>
-            <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin:1.2rem 0;">
+            <p style="font-size:clamp(1rem, 2.5vw, 1.15rem);color:#b8ab9a;max-width:90%;margin-bottom:1.2rem;">
+              By leveraging advanced AI tools, we handcraft high‑performance code with unmatched speed, cutting production time and delivering a truly futuristic edge. Fully custom, mobile‑first, and built to rank.
+            </p>
+            <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin:1.2rem 0;">
               <a href="#contact" class="btn-primary">Get a free quote →</a>
               <a href="#design-services" class="btn-secondary">Explore design</a>
             </div>
@@ -574,7 +469,6 @@
               <span><i class="fas fa-chart-line"></i> SEO optimized</span>
               <span><i class="fas fa-mobile-alt"></i> Mobile‑first</span>
             </div>
-            <!-- ===== LOCAL SEO BADGE ===== -->
             <div class="hero-location-badge">
               <i class="fas fa-map-marker-alt"></i> Serving Brits, North West &amp; nationwide
             </div>
@@ -582,17 +476,17 @@
               <i class="fas fa-building" style="color:#00f3ff;"></i> Reg No: 2025 / 587768 / 07 | TAX: 9162998281 | Director: Tertius Pelser
             </div>
           </div>
-          <div class="hero-visual" style="flex:0.9;">
+          <div class="hero-visual" style="flex:.9;">
             <img src="images/DevineDesignsLogo.png" alt="Devine Designs Logo" style="max-width:500px;width:100%;height:auto;margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;filter:drop-shadow(0 0 15px rgba(0,243,255,.3));" width="500" height="200" loading="lazy" />
             <div class="dark-glass-snippet">
-              <pre style="color:#e9e2d4;font-size:clamp(0.65rem, 1.2vw, 0.8rem);font-family:'SF Mono','Fira Code',monospace;overflow-x:auto;white-space:pre-wrap;word-break:break-word;"><span style="color:#00f3ff;">// Holographic interface</span>
+              <pre style="color:#e9e2d4;font-size:clamp(.65rem, 1.2vw, .8rem);font-family:'SF Mono','Fira Code',monospace;overflow-x:auto;white-space:pre-wrap;word-break:break-word;"><span style="color:#00f3ff;">// Holographic interface</span>
 <span style="color:#c49a6c;">const dreamSite</span> = {
   customDesign: <span style="color:#00f3ff;">true</span>,
   mobileOptimized: <span style="color:#00f3ff;">true</span>,
   lighthouseScore: <span style="color:#00f3ff;">98</span>,
   seo: <span style="color:#c49a6c;">'auto‑generated meta & schema'</span>,
 };</pre>
-              <div style="margin-top:.6rem;font-size:clamp(0.6rem, 1vw, 0.7rem);color:#00f3ff;text-shadow:0 0 15px rgba(0,243,255,.2);"><i class="fas fa-gem"></i> Built for Google & users — guaranteed.</div>
+              <div style="margin-top:.6rem;font-size:clamp(.6rem, 1vw, .7rem);color:#00f3ff;text-shadow:0 0 15px rgba(0,243,255,.2);"><i class="fas fa-gem"></i> Built for Google & users — guaranteed.</div>
             </div>
           </div>
         </div>
@@ -659,6 +553,36 @@
       </div>
     </section>
 
+    <!-- ============================================================
+    SECTION 3: AI-DRIVEN DEVELOPMENT
+    ============================================================ -->
+    <section id="ai-services" class="section-mid fade-up" data-section="ai-services" style="padding:3rem 0; border-top: 1px solid rgba(0, 243, 255, 0.06);">
+      <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
+        <div class="section-title">AI‑Driven Development</div>
+        <div class="section-sub">We integrate cutting‑edge AI into our workflow to deliver faster, smarter, and more reliable results.</div>
+        <div class="services-grid">
+          <div class="service-card" style="--order:1">
+            <div class="service-icon"><i class="fas fa-robot"></i></div>
+            <h3>AI‑Assisted Production</h3>
+            <p>We use AI to accelerate development, ensuring faster delivery, lower costs, and cutting‑edge performance without sacrificing quality.</p>
+            <span class="service-price">Included</span>
+          </div>
+          <div class="service-card" style="--order:2">
+            <div class="service-icon"><i class="fas fa-brain"></i></div>
+            <h3>Smart Content &amp; SEO</h3>
+            <p>AI‑generated copy and SEO strategies that rank. We combine human creativity with machine intelligence for the best results.</p>
+            <span class="service-price">From R2,000</span>
+          </div>
+          <div class="service-card" style="--order:3">
+            <div class="service-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Automated Optimization</h3>
+            <p>Continuous AI‑driven performance monitoring and optimization to keep your site fast, secure, and ahead of the competition.</p>
+            <span class="service-price">From R1,500/mo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== PRICING SECTION ===== -->
     <section id="pricing" class="section-mid fade-up" data-section="pricing" style="padding:3rem 0;">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
@@ -704,7 +628,7 @@
             <a href="#contact" class="btn-primary">Let's talk →</a>
           </div>
         </div>
-        <p style="text-align:center;color:#6a6a6a;font-size:clamp(0.7rem, 1.2vw, 0.8rem);margin-top:1.5rem;">
+        <p style="text-align:center;color:#6a6a6a;font-size:clamp(.7rem, 1.2vw, .8rem);margin-top:1.5rem;">
           <i class="fas fa-info-circle" style="color:#00f3ff;"></i> All prices in ZAR (South African Rand) · No hidden fees · Free quote on request
         </p>
       </div>
@@ -719,10 +643,10 @@
 
           <div class="portfolio-item" style="--order:1">
             <div class="portfolio-img" style="background-image:url('images/willemisinyathelohouse.webp');" loading="lazy"></div>
-            <div style="padding:.3rem 0.5rem 0.5rem;">
+            <div style="padding:.3rem .5rem .5rem;">
               <h3>Willem Isinyathelo House</h3>
-              <p style="color:#b8ab9a;font-size:clamp(0.8rem, 1.2vw, 0.9rem);">Full custom website build — modern, responsive, and tailored to the brand.</p>
-              <a href="https://willemisinyathelohouse.com" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:.4rem;color:#00f3ff;text-decoration:none;border:1px solid rgba(0,243,255,.15);padding:.25rem 1rem;border-radius:30px;font-size:clamp(0.7rem, 1vw, 0.8rem);transition:all .3s;min-height:40px;display:inline-flex;align-items:center;" onmouseover="this.style.background='#00f3ff';this.style.color='#0a0a0a';this.style.borderColor='#00f3ff';" onmouseout="this.style.background='transparent';this.style.color='#00f3ff';this.style.borderColor='rgba(0,243,255,.15)';">View Project →</a>
+              <p style="color:#b8ab9a;font-size:clamp(.8rem, 1.2vw, .9rem);">Full custom website build — modern, responsive, and tailored to the brand.</p>
+              <a href="https://willemisinyathelohouse.com" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:.4rem;color:#00f3ff;text-decoration:none;border:1px solid rgba(0,243,255,.15);padding:.25rem 1rem;border-radius:30px;font-size:clamp(.7rem, 1vw, .8rem);transition:all .3s;min-height:40px;display:inline-flex;align-items:center;" onmouseover="this.style.background='#00f3ff';this.style.color='#0a0a0a';this.style.borderColor='#00f3ff';" onmouseout="this.style.background='transparent';this.style.color='#00f3ff';this.style.borderColor='rgba(0,243,255,.15)';">View Project →</a>
             </div>
           </div>
 
@@ -733,10 +657,10 @@
                 <span class="text">Coming Soon</span>
               </div>
             </div>
-            <div style="padding:.3rem 0.5rem 0.5rem;">
+            <div style="padding:.3rem .5rem .5rem;">
               <h3>Project Name</h3>
-              <p style="color:#b8ab9a;font-size:clamp(0.8rem, 1.2vw, 0.9rem);">This project is currently in development. Check back soon!</p>
-              <span style="display:inline-block;margin-top:.3rem;color:#6a6a6a;text-decoration:none;border:1px solid rgba(255,255,255,.05);padding:.2rem 1rem;border-radius:30px;font-size:clamp(0.65rem, 0.9vw, 0.75rem);cursor:default;min-height:36px;display:inline-flex;align-items:center;">🚧 In Progress</span>
+              <p style="color:#b8ab9a;font-size:clamp(.8rem, 1.2vw, .9rem);">This project is currently in development. Check back soon!</p>
+              <span style="display:inline-block;margin-top:.3rem;color:#6a6a6a;text-decoration:none;border:1px solid rgba(255,255,255,.05);padding:.2rem 1rem;border-radius:30px;font-size:clamp(.65rem, .9vw, .75rem);cursor:default;min-height:36px;display:inline-flex;align-items:center;">🚧 In Progress</span>
             </div>
           </div>
 
@@ -747,10 +671,10 @@
                 <span class="text">Coming Soon</span>
               </div>
             </div>
-            <div style="padding:.3rem 0.5rem 0.5rem;">
+            <div style="padding:.3rem .5rem .5rem;">
               <h3>Project Name</h3>
-              <p style="color:#b8ab9a;font-size:clamp(0.8rem, 1.2vw, 0.9rem);">This project is currently in development. Check back soon!</p>
-              <span style="display:inline-block;margin-top:.3rem;color:#6a6a6a;text-decoration:none;border:1px solid rgba(255,255,255,.05);padding:.2rem 1rem;border-radius:30px;font-size:clamp(0.65rem, 0.9vw, 0.75rem);cursor:default;min-height:36px;display:inline-flex;align-items:center;">🚧 In Progress</span>
+              <p style="color:#b8ab9a;font-size:clamp(.8rem, 1.2vw, .9rem);">This project is currently in development. Check back soon!</p>
+              <span style="display:inline-block;margin-top:.3rem;color:#6a6a6a;text-decoration:none;border:1px solid rgba(255,255,255,.05);padding:.2rem 1rem;border-radius:30px;font-size:clamp(.65rem, .9vw, .75rem);cursor:default;min-height:36px;display:inline-flex;align-items:center;">🚧 In Progress</span>
             </div>
           </div>
 
@@ -761,7 +685,7 @@
     <!-- ===== TRUST BAR ===== -->
     <section class="trust-bar fade-up">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;overflow:hidden;">
-        <div style="text-align:center;margin-bottom:0.8rem;font-size:clamp(0.6rem, 0.9vw, 0.7rem);letter-spacing:2px;color:#6a6a6a;">TRUSTED BY BRANDS</div>
+        <div style="text-align:center;margin-bottom:.8rem;font-size:clamp(.6rem, .9vw, .7rem);letter-spacing:2px;color:#6a6a6a;">TRUSTED BY BRANDS</div>
         <div class="trust-scroll">
           <div class="trust-item"><i class="fas fa-building"></i> <span>Acme Corp</span></div>
           <div class="trust-item"><i class="fas fa-rocket"></i> <span>StartupX</span></div>
@@ -779,9 +703,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-    NEW BLOG SECTION
-    ============================================================ -->
+    <!-- ===== BLOG SECTION ===== -->
     <section id="blog" class="section-mid fade-up" data-section="blog" style="padding:3rem 0;">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
         <div class="section-title">Latest Insights</div>
@@ -814,7 +736,7 @@
 
         </div>
         <div style="text-align:center;margin-top:1.5rem;">
-          <a href="#" class="btn-secondary" style="font-size:0.85rem;">View all posts →</a>
+          <a href="#" class="btn-secondary" style="font-size:.85rem;">View all posts →</a>
         </div>
       </div>
     </section>
@@ -838,8 +760,8 @@
             <div class="faq-answer">A simple site takes 2-4 weeks. More complex projects can take 6-8 weeks. We work iteratively and keep you updated throughout the process.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-question">Do you offer ongoing support? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Yes, we offer retainer packages for maintenance, updates, and priority support. We also provide a 30-day warranty on all new builds.</div>
+            <button class="faq-question">Do you use AI in your development process? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">Absolutely! We use AI to accelerate development, write clean boilerplate code, generate SEO content, and optimise performance. This allows us to deliver high-quality results faster and more affordably.</div>
           </div>
           <div class="faq-item">
             <button class="faq-question">Are you tax registered and compliant? <i class="fas fa-chevron-down"></i></button>
@@ -863,7 +785,7 @@
             <div class="contact-detail"><i class="fas fa-envelope"></i><span>info@devinedesignssa.com</span></div>
             <div class="contact-detail"><i class="fas fa-phone"></i><span>+27 64 949 7355</span></div>
             <div class="trust-badge"><i class="fas fa-check-circle"></i> Fully tax compliant · Private Company · In Business since 2025</div>
-            <div class="legal-card" style="margin-top:0.8rem;"><i class="fas fa-gavel"></i> Registration Certificate: COR14.3 — All rights reserved.</div>
+            <div class="legal-card" style="margin-top:.8rem;"><i class="fas fa-gavel"></i> Registration Certificate: COR14.3 — All rights reserved.</div>
           </div>
           <div>
             <form id="contactForm">
@@ -873,7 +795,7 @@
               <button type="submit" class="btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i> Send & get quote</button>
               <div id="formFeedback" class="form-message"></div>
             </form>
-            <p style="font-size:clamp(0.6rem, 0.9vw, 0.7rem);text-align:center;margin-top:0.8rem;color:#6a6a6a;">
+            <p style="font-size:clamp(.6rem, .9vw, .7rem);text-align:center;margin-top:.8rem;color:#6a6a6a;">
               <i class="fas fa-lock" style="color:#00f3ff;"></i> Your data is safe. We respond within 24h.
             </p>
           </div>
@@ -882,17 +804,17 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER (NO SOCIAL LINKS) ===== -->
   <footer class="footer">
     <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
       <img src="images/DevineDesignsLogo.png" alt="Devine Designs Logo" class="footer-logo-img" width="160" height="60" loading="lazy" />
-      <p style="color:#b8ab9a;margin:.3rem 0;font-size:clamp(0.8rem, 1.2vw, 0.9rem);">Modern websites · Real results — built by a registered South African agency.</p>
-      <div style="margin:.5rem 0;font-size:clamp(0.7rem, 1vw, 0.8rem);color:#7a7a7a;">
+      <p style="color:#b8ab9a;margin:.3rem 0;font-size:clamp(.8rem, 1.2vw, .9rem);">Modern websites · Real results — built by a registered South African agency.</p>
+      <div style="margin:.5rem 0;font-size:clamp(.7rem, 1vw, .8rem);color:#7a7a7a;">
         <div>Registration Number: 2025 / 587768 / 07 | TAX: 9162998281</div>
         <div>Director: Tertius Pelser | 81 Ludorf Street, Brits, North West, 0250</div>
         <div>Enterprise Type: Private Company | Status: In Business</div>
       </div>
-      <div style="margin:.3rem 0;color:#b8ab9a;font-size:clamp(0.75rem, 1vw, 0.85rem);">
+      <div style="margin:.3rem 0;color:#b8ab9a;font-size:clamp(.75rem, 1vw, .85rem);">
         <i class="fas fa-envelope" style="color:#00f3ff;"></i> info@devinedesignssa.com &nbsp;|&nbsp; <i class="fas fa-phone" style="color:#00f3ff;"></i> +27 64 949 7355
       </div>
       <div class="footer-links">
@@ -901,12 +823,7 @@
         <a href="#" onclick="openModal('cookies')">Cookie Policy</a>
       </div>
       <div class="trust-badge" style="margin-bottom:.3rem;"><i class="fas fa-registered"></i> COR14.3 Registered — Fully Compliant</div>
-      <p style="color:#5a5a5a;font-size:clamp(0.7rem, 0.9vw, 0.8rem);">© 2025 Devine Designs — All rights reserved. Let's build your dream site.</p>
-      <div style="margin-top:0.8rem;color:#5a5a5a;font-size:1.2rem;">
-        <i class="fab fa-github" style="margin:0 8px;"></i>
-        <i class="fab fa-linkedin" style="margin:0 8px;"></i>
-        <i class="fab fa-instagram" style="margin:0 8px;"></i>
-      </div>
+      <p style="color:#5a5a5a;font-size:clamp(.7rem, .9vw, .8rem);">© 2025 Devine Designs — All rights reserved. Let's build your dream site.</p>
     </div>
   </footer>
 
@@ -978,7 +895,7 @@
   </div>
 
   <!-- ============================================================
-  AI ENGINE + MENU LOGIC
+  AI ENGINE + MENU LOGIC (OPTIMIZED)
   ============================================================ -->
   <script>
     // ============================================================
@@ -1016,7 +933,7 @@
     }
 
     // ============================================================
-    // AI ENGINE (optimized)
+    // AI ENGINE (OPTIMIZED FOR PERFORMANCE)
     // ============================================================
     (function(){
       'use strict';
@@ -1177,7 +1094,7 @@
       function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
       function hash(x,y){let h=x*374761393+y*668265263;h=(h^(h>>13))*1274126177;return(h^(h>>16))&0x7fffffff;}
       function smoothNoise(x,y){const ix=Math.floor(x),iy=Math.floor(y);const fx=x-ix,fy=y-iy;const sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy);const n00=(hash(ix,iy)&0xffff)/65536;const n10=(hash(ix+1,iy)&0xffff)/65536;const n01=(hash(ix,iy+1)&0xffff)/65536;const n11=(hash(ix+1,iy+1)&0xffff)/65536;return lerp(lerp(n00,n10,sx),lerp(n01,n11,sx),sy);}
-      function fbm(x,y,octaves=3){let value=0,amp=.5,freq=1;for(let i=0;i<octaves;i++){value+=amp*smoothNoise(x*freq+state.noiseOffset,y*freq+state.noiseOffset*.7);freq*=2.3;amp*=.45;}return value;}
+      function fbm(x,y,octaves=2){let value=0,amp=.5,freq=1;for(let i=0;i<octaves;i++){value+=amp*smoothNoise(x*freq+state.noiseOffset,y*freq+state.noiseOffset*.7);freq*=2.3;amp*=.45;}return value;}
 
       function setMode(mode,duration=0){
         state.mode=mode; if(duration>0)state.modeTimer=duration; else state.modeTimer=0;
@@ -1238,7 +1155,7 @@
           const dist=currentRadius*.2+(currentRadius*.65)*(.5+.5*Math.sin(angle*3.5+state.time*.018));
           const nx=cx+Math.cos(angle)*dist+mouseOffsetX*.15;
           const ny=cy+Math.sin(angle)*dist+mouseOffsetY*.15;
-          const noiseVal=fbm(nx*.035+state.time*.006,ny*.035+state.time*.005,3);
+          const noiseVal=fbm(nx*.035+state.time*.006,ny*.035+state.time*.005);
           const alpha=.025+.08*noiseVal*(1+state.energy*.6);
           ctx.fillStyle=`hsla(${hue+12*noiseVal},${sat*100}%,${(light+15+35*noiseVal)*1.2}%,${alpha})`;
           ctx.beginPath();ctx.arc(nx,ny,1.5+5*noiseVal,0,Math.PI*2);ctx.fill();
@@ -1270,7 +1187,7 @@
         pupilGrad.addColorStop(1,`hsla(${hue-8},95%,45%,0)`);
         ctx.fillStyle=pupilGrad;ctx.beginPath();ctx.arc(irisX,irisY,irisRadius*.7,0,Math.PI*2);ctx.fill();
 
-        const particleCount=5+Math.floor(5*state.energy);
+        const particleCount=3+Math.floor(4*state.energy);
         for(let i=0;i<particleCount;i++){
           const pAngle=(i/particleCount)*Math.PI*2+state.time*(.012+.006*state.energy);
           const pDist=currentRadius*(.45+.45*(.5+.5*Math.sin(state.time*.025+i*.5)));
@@ -1284,8 +1201,8 @@
 
         if(state.mode==='thinking'){
           state.thinkingSwirl+=.04;
-          for(let i=0;i<25;i++){
-            const t=i/25;
+          for(let i=0;i<20;i++){
+            const t=i/20;
             const sAngle=t*Math.PI*2+state.thinkingSwirl+Math.sin(t*4)*.4;
             const sDist=currentRadius*.15+currentRadius*.55*t;
             const sx=cx+Math.cos(sAngle)*sDist+mouseOffsetX*.08;
