@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
-  <title>Devine Designs | Free Website + Add‑ons</title>
+  <title>Devine Designs | Free Website + 2026 Price Menu</title>
 
   <!-- ===== PRELOAD & PRECONNECT ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,21 +24,21 @@
 
   <!-- ===== META TAGS ===== -->
   <meta name="description" content="Get a free custom website – pay only for the features you need. Limited free slots available! Brits, South Africa." />
-  <meta name="keywords" content="free website, custom web design, add-ons, SEO, Brits, South Africa, limited slots" />
+  <meta name="keywords" content="free website, custom web design, add-ons, SEO, Brits, South Africa, limited slots, updates" />
   <meta name="author" content="Devine Designs" />
   <link rel="canonical" href="https://www.devinedesignssa.com/" />
-  <meta property="og:title" content="Devine Designs | Free Website + Add‑ons" />
+  <meta property="og:title" content="Devine Designs | Free Website + 2026 Price Menu" />
   <meta property="og:description" content="Claim your free website today – only 50 slots available. Upgrade with premium features." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0c0b0a" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c49a6c'%3E%3Cpath d='M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z'/%3E%3C/svg%3E" />
 
-  <!-- ===== FONTS & ICONS (optimised) ===== -->
+  <!-- ===== FONTS & ICONS ===== -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <style>
-    /* ===== OPTIMISED & MINIFIED STYLES ===== */
+    /* ===== OPTIMISED STYLES (same as previous) ===== */
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e9e2d4;line-height:1.6;overflow-x:hidden;position:relative;-webkit-tap-highlight-color:transparent;min-height:100vh}
@@ -104,26 +104,45 @@
     .service-card.dream-site{border-color:rgba(196,154,108,.25);background:rgba(196,154,108,.05)}
     .service-card.dream-site .service-icon{color:#c49a6c}
     .service-card.dream-site .service-price{background:rgba(196,154,108,.12);border-color:rgba(196,154,108,.25);color:#c49a6c}
-    .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:900px;margin:0 auto}
-    .pricing-card{background:rgba(20,18,16,.6);backdrop-filter:blur(12px);border-radius:2rem;padding:1.8rem 1.5rem;border:1px solid rgba(0,243,255,.06);text-align:center;transition:all .4s;display:flex;flex-direction:column;align-items:center;gap:.3rem}
-    .pricing-card:hover{transform:translateY(-6px);border-color:rgba(0,243,255,.2);box-shadow:0 0 50px rgba(0,243,255,.05)}
-    .pricing-card.popular{border-color:rgba(0,243,255,.2);background:rgba(0,243,255,.04);position:relative}
-    .pricing-card.popular::after{content:'⭐ Most Popular';position:absolute;top:-10px;right:10px;background:#00f3ff;color:#0a0a0a;font-size:.55rem;font-weight:700;padding:.15rem .8rem;border-radius:60px}
-    .pricing-card .plan-name{font-size:1.2rem;font-weight:700;color:#f7f0e4}
-    .pricing-card .plan-price{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:800;color:#00f3ff;line-height:1.2}
-    .pricing-card .plan-price small{font-size:.9rem;font-weight:400;color:#b8ab9a;display:block}
-    .pricing-card .plan-features{list-style:none;padding:0;margin:.3rem 0 .6rem;width:100%;text-align:left}
-    .pricing-card .plan-features li{padding:.3rem 0;color:#b8ab9a;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;gap:10px}
-    .pricing-card .plan-features li i{color:#00f3ff;font-size:.75rem;width:1.2rem;text-align:center}
-    .pricing-card .btn-primary{width:100%;justify-content:center;font-size:.85rem;padding:.6rem 1.2rem}
-    .addon-tag{display:inline-block;background:rgba(196,154,108,.1);border:1px solid rgba(196,154,108,.2);border-radius:30px;padding:.1rem .6rem;font-size:.5rem;color:#c49a6c;margin-left:4px}
-    @media (max-width:700px){.pricing-grid{grid-template-columns:1fr}}
+
+    /* ===== PRICING MENU ===== */
+    .price-menu-container{max-width:1000px;margin:0 auto}
+    .price-menu{background:rgba(20,18,16,.6);backdrop-filter:blur(12px);border-radius:2rem;border:1px solid rgba(0,243,255,.06);overflow:hidden;transition:all .4s}
+    .price-menu:hover{border-color:rgba(0,243,255,.15);box-shadow:0 0 60px rgba(0,243,255,.04)}
+    .menu-category{background:rgba(0,243,255,.02);padding:.8rem 1.5rem;border-bottom:1px solid rgba(0,243,255,.04);display:flex;align-items:center;gap:.8rem}
+    .menu-category i{color:#c49a6c;font-size:1.1rem}
+    .menu-category h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#f7f0e4;font-weight:700}
+    .menu-category .badge{font-size:.55rem;background:rgba(0,243,255,.08);border:1px solid rgba(0,243,255,.1);border-radius:30px;padding:.1rem .7rem;color:#00f3ff;margin-left:auto}
+    .menu-item{display:grid;grid-template-columns:1fr 2fr 1fr 1.2fr;gap:1rem;padding:.8rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.03);align-items:center;transition:background .3s}
+    .menu-item:hover{background:rgba(0,243,255,.03)}
+    .menu-item .item-name{font-weight:600;color:#f7f0e4;font-size:.95rem}
+    .menu-item .item-desc{color:#b8ab9a;font-size:.8rem;line-height:1.4}
+    .menu-item .item-price{font-weight:700;color:#00f3ff;font-size:.95rem}
+    .menu-item .item-price small{font-weight:400;color:#8a8a8a;font-size:.7rem;display:block}
+    .menu-item .item-action{text-align:right}
+    .menu-item .item-action .btn-sm{background:transparent;border:1px solid rgba(0,243,255,.15);border-radius:30px;padding:.2rem 1rem;font-size:.7rem;color:#00f3ff;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block}
+    .menu-item .item-action .btn-sm:hover{background:#00f3ff;color:#0a0a0a;border-color:#00f3ff}
+    .menu-highlight{background:rgba(0,243,255,.04);border-left:3px solid #00f3ff}
+    .menu-highlight .item-name{color:#00f3ff}
+    .menu-highlight .item-price{color:#c49a6c}
+    .price-note{text-align:center;color:#6a6a6a;font-size:clamp(.7rem,1.2vw,.8rem);margin-top:1.5rem}
+    .price-note i{color:#00f3ff}
+    @media (max-width:768px){
+      .menu-item{grid-template-columns:1fr;gap:.3rem;padding:.6rem 1rem}
+      .menu-item .item-action{text-align:left}
+      .menu-item .item-price small{display:inline;margin-left:4px}
+      .menu-category{padding:.6rem 1rem;flex-wrap:wrap}
+      .menu-category .badge{margin-left:0}
+    }
+
     .limited-banner{background:linear-gradient(135deg,rgba(0,243,255,.06),rgba(196,154,108,.04));border:1px solid rgba(0,243,255,.12);border-radius:1.5rem;padding:.8rem 1.5rem;margin:0 auto 2rem;max-width:700px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
     .limited-banner .counter{font-size:1.2rem;font-weight:700;color:#00f3ff;display:flex;align-items:center;gap:6px}
     .limited-banner .counter span{font-size:1.8rem}
     .limited-banner .urgency{color:#c49a6c;font-size:.7rem;letter-spacing:1px}
     .limited-banner .progress-bar{width:100%;height:4px;background:rgba(255,255,255,.05);border-radius:10px;margin-top:4px;overflow:hidden}
     .limited-banner .progress-bar .fill{height:100%;background:linear-gradient(90deg,#00f3ff,#c49a6c);border-radius:10px;transition:width .5s ease}
+
+    /* Slot, blog, portfolio, etc. – kept as before */
     .slot-section{padding:2rem 0 3rem;background:#0e0d0c;border-top:1px solid rgba(0,243,255,.04);border-bottom:1px solid rgba(0,243,255,.04)}
     .slot-panel{max-width:520px;width:100%;margin:0 auto;background:rgba(18,17,16,.88);backdrop-filter:blur(20px);border:1px solid rgba(0,243,255,.10);border-radius:2rem;padding:1.4rem 1.2rem 1.6rem;box-shadow:0 0 60px rgba(0,243,255,.03),0 0 120px rgba(0,0,0,.6);position:relative;overflow:hidden}
     .slot-panel::before{content:'';position:absolute;inset:-2px;border-radius:inherit;padding:2px;background:conic-gradient(from var(--angle,0deg),#00f3ff,#c49a6c,#7b2ffc,#00f3ff);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinBorder 10s linear infinite;opacity:.25;pointer-events:none;z-index:0}
@@ -199,16 +218,36 @@
     .portfolio-item.coming-soon .coming-soon-badge .text{font-size:.6rem;color:#b8ab9a;letter-spacing:3px;text-transform:uppercase;background:rgba(0,0,0,.5);padding:.2rem .8rem;border-radius:30px;border:1px solid rgba(0,243,255,.1)}
     .portfolio-item.coming-soon h3{opacity:.5;font-size:1rem}
     .portfolio-item.coming-soon p{opacity:.4;font-size:.8rem}
+
+    /* ===== BUILD YOUR PACKAGE FORM ===== */
+    .package-form-section{padding:3rem 0}
+    .package-form{background:rgba(20,18,16,.6);backdrop-filter:blur(12px);border-radius:2rem;padding:2rem;border:1px solid rgba(0,243,255,.06);max-width:900px;margin:0 auto;transition:all .4s}
+    .package-form:hover{border-color:rgba(0,243,255,.15);box-shadow:0 0 60px rgba(0,243,255,.04)}
+    .package-form .form-group{margin-bottom:1.2rem}
+    .package-form label{display:block;font-weight:600;color:#f7f0e4;margin-bottom:.3rem;font-size:.9rem}
+    .package-form .checkbox-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.5rem}
+    .package-form .checkbox-item{background:rgba(0,243,255,.02);border:1px solid rgba(0,243,255,.06);border-radius:.8rem;padding:.5rem .8rem;display:flex;align-items:center;gap:.6rem;transition:all .3s;cursor:pointer}
+    .package-form .checkbox-item:hover{background:rgba(0,243,255,.05);border-color:rgba(0,243,255,.15)}
+    .package-form .checkbox-item input[type="checkbox"]{accent-color:#00f3ff;width:18px;height:18px;cursor:pointer}
+    .package-form .checkbox-item label{font-weight:400;font-size:.85rem;color:#b8ab9a;cursor:pointer;margin:0}
+    .package-form .checkbox-item .price-tag{font-size:.65rem;color:#00f3ff;font-weight:600;margin-left:auto}
+    .conditional-fields{background:rgba(0,243,255,.02);border-radius:1rem;padding:1rem;margin-top:.8rem;border-left:3px solid #00f3ff;display:none}
+    .conditional-fields.active{display:block}
+    .conditional-fields label{font-size:.8rem;color:#b8ab9a;font-weight:500}
+    .conditional-fields input,.conditional-fields textarea,.conditional-fields select{width:100%;padding:.6rem 1rem;border:1px solid rgba(0,243,255,.08);border-radius:.8rem;background:rgba(12,11,10,.5);color:#e9e2d4;font-size:.9rem;margin-top:.2rem;font-family:'Inter',sans-serif}
+    .conditional-fields input:focus,.conditional-fields textarea:focus,.conditional-fields select:focus{border-color:#00f3ff;outline:none;box-shadow:0 0 0 4px rgba(0,243,255,.06)}
+    .form-summary{background:rgba(0,243,255,.03);border-radius:1rem;padding:1rem;margin-top:1.5rem;border:1px solid rgba(0,243,255,.06)}
+    .form-summary .total{font-size:1.2rem;font-weight:700;color:#00f3ff}
+    .package-form .btn-primary{width:100%;font-size:1rem;padding:.8rem}
+
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;background:rgba(20,18,16,.5);backdrop-filter:blur(20px);border-radius:2rem;padding:2rem;border:1px solid rgba(0,243,255,.06)}
     .contact-grid:hover{border-color:rgba(0,243,255,.12);box-shadow:0 0 60px rgba(0,243,255,.03)}
     .contact-detail{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;min-height:44px}
     .contact-detail:hover{transform:translateX(6px)}
     .contact-detail i{color:#00f3ff;width:2rem;font-size:1.1rem;flex-shrink:0}
     .contact-detail span{font-size:.95rem;word-break:break-word}
-    input,textarea{width:100%;padding:.9rem 1.2rem;border:1px solid rgba(0,243,255,.08);border-radius:1rem;background:rgba(12,11,10,.5);color:#e9e2d4;transition:all .3s;font-family:'Inter',sans-serif;font-size:1rem;min-height:48px}
-    input:focus,textarea:focus{border-color:#00f3ff;outline:none;box-shadow:0 0 0 4px rgba(0,243,255,.06),0 0 30px rgba(0,243,255,.06);transform:scale(1.01)}
-    textarea{min-height:120px;resize:vertical}
-    .form-message{margin-top:1rem;padding:.8rem;border-radius:1rem;display:none}
+    @media (max-width:768px){.contact-grid{grid-template-columns:1fr;padding:1.2rem}}
+
     .footer{background:#080807;padding:2rem 0;text-align:center;border-top:1px solid rgba(0,243,255,.04)}
     .footer-logo-img{height:50px;width:auto;margin:0 auto .5rem}
     .footer-links{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin:.8rem 0}
@@ -312,8 +351,8 @@
     @media (max-width:500px){.slot-panel{padding:1rem .8rem 1.2rem}.slot-header h3{font-size:1.1rem}.free-badge{font-size:.5rem;padding:.15rem .6rem}.free-badge span{font-size:.75rem}.reel-wrapper{height:140px;max-width:260px}.reel-symbol{height:46px}.reel-symbol .symbol-icon{font-size:1.3rem}.reel-symbol .symbol-label{font-size:.45rem}.reel-wrapper .active-marker{height:46px}.reels-container{min-height:150px;padding:.3rem .4rem}.spin-btn{font-size:.8rem;padding:.45rem 1.4rem;min-height:38px;min-width:110px}.slot-info{font-size:.55rem}.prize-line-display{font-size:.75rem;min-height:38px;padding:.4rem .6rem}.prize-line-display .prize-icon-big{font-size:1.1rem}.popup-box{padding:1.2rem 1rem}.popup-box h2{font-size:1.2rem}.popup-box p{font-size:.75rem}.limited-banner{flex-direction:column;align-items:stretch;text-align:center;padding:.6rem 1rem}.limited-banner .counter{justify-content:center}}
     @media (max-width:380px){.reel-wrapper{height:120px;max-width:220px}.reel-symbol{height:40px}.reel-symbol .symbol-icon{font-size:1.1rem}.reel-symbol .symbol-label{font-size:.4rem}.reel-wrapper .active-marker{height:40px}.reels-container{min-height:130px}.slot-panel{padding:.8rem .6rem 1rem}.spin-btn{font-size:.7rem;padding:.35rem 1rem;min-height:34px;min-width:90px}.prize-line-display{font-size:.65rem;min-height:34px}}
     @media (max-width:1024px){.hero-content h1{font-size:2.8rem}.hero-grid{gap:2rem}.section-title{font-size:2.4rem}.contact-grid{gap:1.5rem;padding:1.8rem}}
-    @media (max-width:880px){.navbar{min-height:65px}.logo-img{height:55px;max-height:55px}.logo-ring{width:90px;height:90px}.logo-ring:nth-child(2){width:105px;height:105px}.logo-tagline{font-size:.45rem;letter-spacing:2px}.menu-icon{font-size:1.6rem;left:.3rem;padding:6px 10px}.hero-content h1{font-size:2.5rem}.hero{padding:3rem 0 4rem}.hero-grid{gap:1.8rem}.hero-stats{gap:1rem}.hero-stats span{font-size:.85rem}.section-title{font-size:2.2rem}.section-sub{font-size:.95rem;margin-bottom:1.8rem}.contact-grid{grid-template-columns:1fr;padding:1.5rem}.contact-detail span{font-size:.9rem}.services-grid{gap:1.2rem}.service-card{padding:1.5rem 1.2rem;min-height:200px}.service-card h3{font-size:1.1rem}.service-card p{font-size:.8rem}.pricing-grid{gap:1.2rem}.pricing-card{padding:1.5rem 1.2rem}.pricing-card .plan-price{font-size:1.8rem}.portfolio-grid{gap:1.2rem}.portfolio-item{padding:1.5rem 1.2rem}.portfolio-img{height:160px;margin:-1.5rem -1.2rem .8rem -1.2rem}#aiAssistant{bottom:80px;right:15px;width:110px;height:110px}#aiAssistant.speaking{width:155px;height:155px}#aiAssistant.listening{width:140px;height:140px}#aiAssistant.thinking{width:130px;height:130px}#assistantBubble{font-size:.6rem;padding:4px 10px;white-space:normal;max-width:180px;bottom:calc(100% + 14px)}.trust-bar{padding:1rem 0;margin:1rem 0}.trust-item{font-size:.7rem;gap:.4rem}.trust-item i{font-size:1.1rem}.faq-question{font-size:.9rem;padding:.8rem 1rem}.faq-answer{font-size:.85rem}.modal-box{padding:1.2rem}.modal-box h2{font-size:1.5rem}.footer-logo-img{height:40px}.blog-grid{gap:1rem}.blog-card{padding:1.2rem}.social-bar{bottom:8px;gap:8px}.social-icon{width:32px;height:32px;font-size:.9rem}}
-    @media (max-width:600px){.navbar{min-height:58px;padding:.3rem 0}.logo-img{height:42px;max-height:42px}.logo-ring{width:75px;height:75px}.logo-ring:nth-child(2){width:85px;height:85px}.logo-tagline{font-size:.4rem;letter-spacing:1.5px;margin-top:2px;padding-top:3px}.menu-icon{font-size:1.4rem;padding:6px 8px}.hero-content h1{font-size:2rem}.hero{padding:2rem 0 3rem}.hero-grid{gap:1.2rem}.hero-badge{font-size:.6rem;padding:.3rem 1rem}.hero-stats{gap:.8rem}.hero-stats span{font-size:.75rem}.hero-stats span i{font-size:.85rem}.btn-primary,.btn-secondary{font-size:.85rem;padding:.6rem 1.2rem;min-height:44px}.section-title{font-size:1.8rem}.section-sub{font-size:.85rem;margin-bottom:1.2rem;padding:0 .5rem}.services-grid{gap:1rem;grid-template-columns:1fr}.service-card{padding:1.2rem 1rem;min-height:160px}.service-card h3{font-size:1rem}.service-card p{font-size:.78rem}.service-icon{font-size:2rem}.service-price{font-size:.65rem;padding:.15rem .8rem}.pricing-grid{gap:1rem;grid-template-columns:1fr}.pricing-card{padding:1.2rem 1rem}.pricing-card .plan-name{font-size:1rem}.pricing-card .plan-price{font-size:1.6rem}.pricing-card .plan-features li{font-size:.8rem;padding:.25rem 0}.pricing-card .btn-primary{font-size:.8rem;padding:.5rem 1rem;min-height:44px}.pricing-card.popular::after{font-size:.5rem;padding:.1rem .6rem;top:-8px;right:8px}.portfolio-grid{gap:1rem;grid-template-columns:1fr}.portfolio-item{padding:1.2rem 1rem}.portfolio-img{height:140px;margin:-1.2rem -1rem .6rem -1rem}.portfolio-item h3{font-size:.95rem}.portfolio-item p{font-size:.78rem}.contact-grid{padding:1.2rem;gap:1rem}.contact-detail{gap:.6rem;margin-bottom:.6rem}.contact-detail i{width:1.6rem;font-size:.9rem}.contact-detail span{font-size:.8rem}input,textarea{padding:.7rem 1rem;font-size:.9rem;min-height:44px}textarea{min-height:100px}.trust-bar{padding:.8rem 0;margin:.8rem 0}.trust-item{font-size:.65rem;gap:.3rem}.trust-item i{font-size:.9rem}.trust-scroll{gap:1.2rem}.faq-grid{gap:.4rem}.faq-question{font-size:.82rem;padding:.6rem .8rem;min-height:44px}.faq-question i{font-size:.9rem}.faq-answer{font-size:.78rem;padding:0 .8rem}.faq-item.open .faq-answer{padding:0 .8rem .8rem .8rem}.modal-box{padding:1rem}.modal-box h2{font-size:1.3rem}.modal-box p,.modal-box li{font-size:.8rem}.modal-close{font-size:1.4rem;min-height:44px;min-width:44px}.footer{padding:1.5rem 0}.footer-logo-img{height:35px}.footer-links{gap:.8rem}.footer-links a{font-size:.7rem;min-height:40px}.trust-badge{font-size:.65rem;padding:.25rem .8rem;min-height:32px}.legal-card{font-size:.7rem;padding:.6rem .8rem}#aiAssistant{bottom:70px;right:10px;width:85px;height:85px}#aiAssistant.speaking{width:120px;height:120px}#aiAssistant.listening{width:105px;height:105px}#aiAssistant.thinking{width:98px;height:98px}#assistantBubble{font-size:.55rem;padding:3px 8px;max-width:140px;bottom:calc(100% + 10px)}.dark-glass-snippet{padding:1rem}.dark-glass-snippet pre{font-size:.65rem!important}.dark-glass-snippet .fa-gem{font-size:.6rem}.hero-visual img{max-width:100%!important}.nav-links{width:85%;padding:4rem 1.2rem 1.2rem}.nav-links li a{font-size:.95rem;padding:.5rem .3rem;min-height:40px}.nav-close-btn{font-size:1.4rem;top:.8rem;right:.8rem;min-height:40px;min-width:40px}.blog-grid{gap:.8rem}.blog-card{padding:1rem}.blog-card h3{font-size:1rem}.social-bar{bottom:6px;gap:6px}.social-icon{width:28px;height:28px;font-size:.75rem}}
+    @media (max-width:880px){.navbar{min-height:65px}.logo-img{height:55px;max-height:55px}.logo-ring{width:90px;height:90px}.logo-ring:nth-child(2){width:105px;height:105px}.logo-tagline{font-size:.45rem;letter-spacing:2px}.menu-icon{font-size:1.6rem;left:.3rem;padding:6px 10px}.hero-content h1{font-size:2.5rem}.hero{padding:3rem 0 4rem}.hero-grid{gap:1.8rem}.hero-stats{gap:1rem}.hero-stats span{font-size:.85rem}.section-title{font-size:2.2rem}.section-sub{font-size:.95rem;margin-bottom:1.8rem}.contact-grid{grid-template-columns:1fr;padding:1.5rem}.contact-detail span{font-size:.9rem}.services-grid{gap:1.2rem}.service-card{padding:1.5rem 1.2rem;min-height:200px}.service-card h3{font-size:1.1rem}.service-card p{font-size:.8rem}.portfolio-grid{gap:1.2rem}.portfolio-item{padding:1.5rem 1.2rem}.portfolio-img{height:160px;margin:-1.5rem -1.2rem .8rem -1.2rem}#aiAssistant{bottom:80px;right:15px;width:110px;height:110px}#aiAssistant.speaking{width:155px;height:155px}#aiAssistant.listening{width:140px;height:140px}#aiAssistant.thinking{width:130px;height:130px}#assistantBubble{font-size:.6rem;padding:4px 10px;white-space:normal;max-width:180px;bottom:calc(100% + 14px)}.trust-bar{padding:1rem 0;margin:1rem 0}.trust-item{font-size:.7rem;gap:.4rem}.trust-item i{font-size:1.1rem}.faq-question{font-size:.9rem;padding:.8rem 1rem}.faq-answer{font-size:.85rem}.modal-box{padding:1.2rem}.modal-box h2{font-size:1.5rem}.footer-logo-img{height:40px}.blog-grid{gap:1rem}.blog-card{padding:1.2rem}.social-bar{bottom:8px;gap:8px}.social-icon{width:32px;height:32px;font-size:.9rem}}
+    @media (max-width:600px){.navbar{min-height:58px;padding:.3rem 0}.logo-img{height:42px;max-height:42px}.logo-ring{width:75px;height:75px}.logo-ring:nth-child(2){width:85px;height:85px}.logo-tagline{font-size:.4rem;letter-spacing:1.5px;margin-top:2px;padding-top:3px}.menu-icon{font-size:1.4rem;padding:6px 8px}.hero-content h1{font-size:2rem}.hero{padding:2rem 0 3rem}.hero-grid{gap:1.2rem}.hero-badge{font-size:.6rem;padding:.3rem 1rem}.hero-stats{gap:.8rem}.hero-stats span{font-size:.75rem}.hero-stats span i{font-size:.85rem}.btn-primary,.btn-secondary{font-size:.85rem;padding:.6rem 1.2rem;min-height:44px}.section-title{font-size:1.8rem}.section-sub{font-size:.85rem;margin-bottom:1.2rem;padding:0 .5rem}.services-grid{gap:1rem;grid-template-columns:1fr}.service-card{padding:1.2rem 1rem;min-height:160px}.service-card h3{font-size:1rem}.service-card p{font-size:.78rem}.service-icon{font-size:2rem}.service-price{font-size:.65rem;padding:.15rem .8rem}.portfolio-grid{gap:1rem;grid-template-columns:1fr}.portfolio-item{padding:1.2rem 1rem}.portfolio-img{height:140px;margin:-1.2rem -1rem .6rem -1rem}.portfolio-item h3{font-size:.95rem}.portfolio-item p{font-size:.78rem}.package-form{padding:1.2rem}.checkbox-grid{grid-template-columns:1fr 1fr}.contact-grid{padding:1.2rem;gap:1rem}.contact-detail{gap:.6rem;margin-bottom:.6rem}.contact-detail i{width:1.6rem;font-size:.9rem}.contact-detail span{font-size:.8rem}input,textarea{padding:.7rem 1rem;font-size:.9rem;min-height:44px}textarea{min-height:100px}.trust-bar{padding:.8rem 0;margin:.8rem 0}.trust-item{font-size:.65rem;gap:.3rem}.trust-item i{font-size:.9rem}.trust-scroll{gap:1.2rem}.faq-grid{gap:.4rem}.faq-question{font-size:.82rem;padding:.6rem .8rem;min-height:44px}.faq-question i{font-size:.9rem}.faq-answer{font-size:.78rem;padding:0 .8rem}.faq-item.open .faq-answer{padding:0 .8rem .8rem .8rem}.modal-box{padding:1rem}.modal-box h2{font-size:1.3rem}.modal-box p,.modal-box li{font-size:.8rem}.modal-close{font-size:1.4rem;min-height:44px;min-width:44px}.footer{padding:1.5rem 0}.footer-logo-img{height:35px}.footer-links{gap:.8rem}.footer-links a{font-size:.7rem;min-height:40px}.trust-badge{font-size:.65rem;padding:.25rem .8rem;min-height:32px}.legal-card{font-size:.7rem;padding:.6rem .8rem}#aiAssistant{bottom:70px;right:10px;width:85px;height:85px}#aiAssistant.speaking{width:120px;height:120px}#aiAssistant.listening{width:105px;height:105px}#aiAssistant.thinking{width:98px;height:98px}#assistantBubble{font-size:.55rem;padding:3px 8px;max-width:140px;bottom:calc(100% + 10px)}.dark-glass-snippet{padding:1rem}.dark-glass-snippet pre{font-size:.65rem!important}.dark-glass-snippet .fa-gem{font-size:.6rem}.hero-visual img{max-width:100%!important}.nav-links{width:85%;padding:4rem 1.2rem 1.2rem}.nav-links li a{font-size:.95rem;padding:.5rem .3rem;min-height:40px}.nav-close-btn{font-size:1.4rem;top:.8rem;right:.8rem;min-height:40px;min-width:40px}.blog-grid{gap:.8rem}.blog-card{padding:1rem}.blog-card h3{font-size:1rem}.social-bar{bottom:6px;gap:6px}.social-icon{width:28px;height:28px;font-size:.75rem}}
     @media (max-width:400px){.hero-content h1{font-size:1.6rem}.section-title{font-size:1.5rem}.logo-img{height:35px;max-height:35px}.logo-ring{width:65px;height:65px}.logo-ring:nth-child(2){width:75px;height:75px}.menu-icon{font-size:1.2rem}#aiAssistant{width:75px;height:75px;bottom:60px;right:8px}#aiAssistant.speaking{width:100px;height:100px}#aiAssistant.listening{width:92px;height:92px}#aiAssistant.thinking{width:85px;height:85px}#assistantBubble{font-size:.5rem;max-width:120px;bottom:calc(100% + 8px)}.btn-primary,.btn-secondary{font-size:.75rem;padding:.5rem 1rem}}
   </style>
 </head>
@@ -361,6 +400,7 @@
           <li><a href="#faq" data-section="faq">FAQ</a></li>
           <li><a href="#loyalty" data-section="loyalty">Loyalty</a></li>
           <li><a href="#referrals" data-section="referrals">Refer</a></li>
+          <li><a href="#quote" data-section="quote">Build Your Package</a></li>
           <li><a href="#contact" data-section="contact">Contact</a></li>
           <li><a href="#contact" class="btn-outline-holo">Claim Free Site <i class="fas fa-arrow-right"></i></a></li>
         </ul>
@@ -384,8 +424,8 @@
               Pay only for the features you need – custom domain, SEO, e‑commerce, and more. <strong>Only <span id="freeSlotsCount">50</span> free slots available.</strong> Don't miss out!
             </p>
             <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin:1.2rem 0;">
-              <a href="#pricing" class="btn-primary">Claim Your Free Site →</a>
-              <a href="#contact" class="btn-secondary">Get a quote</a>
+              <a href="#pricing" class="btn-primary" id="viewMenuBtn">View Full Price Menu →</a>
+              <a href="#quote" class="btn-secondary">Build Your Package</a>
             </div>
             <div class="hero-stats">
               <span><i class="fas fa-check-circle"></i> Free base site</span>
@@ -402,13 +442,15 @@
           <div class="hero-visual" style="flex:.9;">
             <img src="images/DevineDesignsLogo.png" alt="Devine Designs Logo" style="max-width:500px;width:100%;height:auto;margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;filter:drop-shadow(0 0 15px rgba(0,243,255,.3));" width="500" height="200" loading="lazy" />
             <div class="dark-glass-snippet">
-              <pre style="color:#e9e2d4;font-size:clamp(.65rem, 1.2vw, .8rem);font-family:'SF Mono','Fira Code',monospace;overflow-x:auto;white-space:pre-wrap;word-break:break-word;"><span style="color:#00f3ff;">// Freemium Model</span>
-<span style="color:#c49a6c;">const devineOffer</span> = {
+              <pre style="color:#e9e2d4;font-size:clamp(.65rem, 1.2vw, .8rem);font-family:'SF Mono','Fira Code',monospace;overflow-x:auto;white-space:pre-wrap;word-break:break-word;"><span style="color:#00f3ff;">// Build Your Package</span>
+<span style="color:#c49a6c;">const mySite</span> = {
   base: <span style="color:#00f3ff;">'Free'</span>,
-  addons: [<span style="color:#c49a6c;">'SEO'</span>, <span style="color:#c49a6c;">'E‑commerce'</span>, <span style="color:#c49a6c;">'Premium Support'</span>],
-  freeSlots: <span style="color:#00f3ff;">'<span id="heroSlotsCount">50</span> remaining'</span>,
+  domain: <span style="color:#c49a6c;">'yourbrand.co.za'</span>,
+  seo: <span style="color:#c49a6c;">'Advanced'</span>,
+  ecommerce: <span style="color:#c49a6c;">'Enabled'</span>,
+  updates: <span style="color:#00f3ff;">'5 included + extras'</span>,
 };</pre>
-              <div style="margin-top:.6rem;font-size:clamp(.6rem, 1vw, .7rem);color:#00f3ff;text-shadow:0 0 15px rgba(0,243,255,.2);"><i class="fas fa-gem"></i> Only pay for what you use — no monthly fees.</div>
+              <div style="margin-top:.6rem;font-size:clamp(.6rem, 1vw, .7rem);color:#00f3ff;text-shadow:0 0 15px rgba(0,243,255,.2);"><i class="fas fa-gem"></i> Tell us exactly what you need – we'll build it.</div>
             </div>
           </div>
         </div>
@@ -453,7 +495,7 @@
             <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
             <h3>SEO &amp; Performance</h3>
             <p>Rank higher with on‑page SEO, schema markup, and 95+ Lighthouse scores.</p>
-            <span class="service-price">From R2,500</span>
+            <span class="service-price">From R2,999</span>
           </div>
           <div class="service-card" data-topic="content" style="--order:2">
             <div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
@@ -499,11 +541,11 @@
       </div>
     </section>
 
-    <!-- ===== PRICING ===== -->
+    <!-- ===== PRICING MENU ===== -->
     <section id="pricing" class="section-mid fade-up visible" data-section="pricing" style="padding:3rem 0;">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
-        <div class="section-title">Free Website + Add‑ons</div>
-        <div class="section-sub">Get a fully functional custom website at no cost. Upgrade only the features you need.</div>
+        <div class="section-title">📋 2026 Price Menu</div>
+        <div class="section-sub">Everything you need, priced transparently. Mix and match to suit your budget.</div>
 
         <div class="limited-banner" id="limitedBanner">
           <div class="counter"><i class="fas fa-clock"></i><span id="slotsCounter">50</span> free slots left</div>
@@ -511,42 +553,279 @@
           <div class="progress-bar"><div class="fill" id="slotsProgress" style="width:100%"></div></div>
         </div>
 
-        <div class="pricing-grid">
-          <div class="pricing-card popular">
-            <div class="plan-name">Free Base</div>
-            <div class="plan-price">R0 <small>always free</small></div>
-            <ul class="plan-features">
-              <li><i class="fas fa-check-circle"></i> 5‑page custom website</li>
-              <li><i class="fas fa-check-circle"></i> Mobile‑first responsive</li>
-              <li><i class="fas fa-check-circle"></i> Basic SEO setup</li>
-              <li><i class="fas fa-check-circle"></i> Hosting &amp; weekly backups</li>
-              <li><i class="fas fa-check-circle"></i> 30‑day warranty</li>
-              <li><i class="fas fa-check-circle"></i> <span style="color:#c49a6c;">No monthly fee</span></li>
-            </ul>
-            <a href="#contact" class="btn-primary">Claim Free Site →</a>
-          </div>
+        <div class="price-menu-container">
+          <div class="price-menu">
 
-          <div class="pricing-card">
-            <div class="plan-name">Premium Add‑ons</div>
-            <div class="plan-price" style="font-size:1.6rem;">Pay as you grow</div>
-            <ul class="plan-features" style="text-align:left;">
-              <li><i class="fas fa-arrow-right"></i> Custom Domain <span class="addon-tag">R350</span></li>
-              <li><i class="fas fa-arrow-right"></i> Advanced SEO Package <span class="addon-tag">R2,500</span></li>
-              <li><i class="fas fa-arrow-right"></i> E‑commerce Integration <span class="addon-tag">R3,000</span></li>
-              <li><i class="fas fa-arrow-right"></i> Premium Support (24/7) <span class="addon-tag">R850/mo</span></li>
-              <li><i class="fas fa-arrow-right"></i> Content Management System <span class="addon-tag">R1,500</span></li>
-              <li><i class="fas fa-arrow-right"></i> Monthly Performance Reports <span class="addon-tag">R500/mo</span></li>
-            </ul>
-            <a href="#contact" class="btn-primary">Customise Your Site →</a>
+            <!-- Category: Essentials -->
+            <div class="menu-category">
+              <i class="fas fa-globe"></i>
+              <h3>🌐 Essentials – Get Online</h3>
+              <span class="badge">required to go live</span>
+            </div>
+            <div class="menu-item menu-highlight">
+              <span class="item-name">Free Base Website</span>
+              <span class="item-desc">5‑page custom site, mobile‑first, basic SEO, 30‑day warranty</span>
+              <span class="item-price">R0</span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Domain Name (.co.za)</span>
+              <span class="item-desc">Your own brandable web address – includes WHOIS privacy</span>
+              <span class="item-price">R199 <small>/year</small></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Starter Hosting</span>
+              <span class="item-desc">Fast SSD hosting, daily backups, SSL, 99.9% uptime</span>
+              <span class="item-price">R99 <small>/month</small><br><span style="font-size:.7rem;color:#8a8a8a;">or R999/year</span></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pro Hosting (e‑commerce ready)</span>
+              <span class="item-desc">More storage, faster performance, priority support</span>
+              <span class="item-price">R199 <small>/month</small><br><span style="font-size:.7rem;color:#8a8a8a;">or R1,999/year</span></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+
+            <!-- Category: Growth Features -->
+            <div class="menu-category">
+              <i class="fas fa-rocket"></i>
+              <h3>🚀 Growth Features – One‑Time Add‑ons</h3>
+              <span class="badge">pay once, use forever</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Advanced SEO Package</span>
+              <span class="item-desc">On‑page SEO, keyword research, meta tags, sitemap, Google Search Console setup</span>
+              <span class="item-price">R2,999</span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">E‑commerce Integration</span>
+              <span class="item-desc">Payment gateway, product pages, cart, and checkout setup</span>
+              <span class="item-price">R2,999</span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Content Management System (CMS)</span>
+              <span class="item-desc">Easy‑to‑use dashboard to edit your own pages and blog posts</span>
+              <span class="item-price">R1,499</span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Custom Email (per user)</span>
+              <span class="item-desc">Professional email like you@yourbusiness.co.za</span>
+              <span class="item-price">R99 <small>/month</small></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+
+            <!-- Category: Premium Services -->
+            <div class="menu-category">
+              <i class="fas fa-crown"></i>
+              <h3>👑 Premium Services – Ongoing</h3>
+              <span class="badge">monthly subscriptions</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Maintenance &amp; Security</span>
+              <span class="item-desc"><strong>Includes 5 website updates per month</strong>. Weekly backups, security scans, and software updates.</span>
+              <span class="item-price">R499 <small>/month</small></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item menu-highlight">
+              <span class="item-name">Extra Updates (per update)</span>
+              <span class="item-desc">Additional changes after your 5 included updates are used.</span>
+              <span class="item-price">R250 <small>each</small><br><span style="font-size:.7rem;color:#8a8a8a;">or R200 each when buying 5</span></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Monthly Content Updates</span>
+              <span class="item-desc">Fresh content, blog posts, and images monthly</span>
+              <span class="item-price">R599 <small>/month</small></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">24/7 Premium Support</span>
+              <span class="item-desc">Priority chat and email support – we're here whenever you need us</span>
+              <span class="item-price">R699 <small>/month</small></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Monthly Performance Reports</span>
+              <span class="item-desc">Detailed analytics, traffic insights, and optimisation recommendations</span>
+              <span class="item-price">R399 <small>/month</small></span>
+              <span class="item-action"><a href="#quote" class="btn-sm">Select</a></span>
+            </div>
+
           </div>
         </div>
-        <p style="text-align:center;color:#6a6a6a;font-size:clamp(.7rem, 1.2vw, .8rem);margin-top:1.5rem;">
-          <i class="fas fa-info-circle" style="color:#00f3ff;"></i> All prices in ZAR · No hidden fees · Free quote on request
-          <br><span style="color:#c49a6c;">⭐ Only 50 free sites available – secure yours today!</span>
+
+        <p class="price-note">
+          <i class="fas fa-info-circle"></i> All prices in ZAR. Domain &amp; hosting are required to go live – get started from <strong>R75/month</strong>! 
+          <br>Annual plans save you up to 20% – ask us for a bundle deal.
         </p>
-        <div style="text-align:center;margin-top:1.2rem;">
-          <button class="sim-payment-btn" id="claimSlotBtn"><i class="fas fa-gift"></i> Simulate Claiming a Free Slot</button>
-          <span style="font-size:.55rem;color:#6a6a6a;display:block;margin-top:.3rem;">Click to reduce available slots (demo)</span>
+      </div>
+    </section>
+
+    <!-- ===== BUILD YOUR PACKAGE (UPDATED WITH PRICES) ===== -->
+    <section id="quote" class="package-form-section fade-up visible" data-section="quote">
+      <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
+        <div class="section-title">📝 Build Your Package</div>
+        <div class="section-sub">Select the services you want, tell us your requirements, and we'll send you a custom quote.</div>
+
+        <div class="package-form" id="packageForm">
+          <form id="quoteForm" onsubmit="submitQuote(event)">
+
+            <!-- Personal Details -->
+            <div class="form-group">
+              <label for="clientName">Your Name *</label>
+              <input type="text" id="clientName" required placeholder="e.g., John Doe" style="width:100%;padding:.8rem 1rem;border:1px solid rgba(0,243,255,.08);border-radius:.8rem;background:rgba(12,11,10,.5);color:#e9e2d4;font-size:.9rem;">
+            </div>
+            <div class="form-group">
+              <label for="clientEmail">Email Address *</label>
+              <input type="email" id="clientEmail" required placeholder="john@yourbusiness.co.za" style="width:100%;padding:.8rem 1rem;border:1px solid rgba(0,243,255,.08);border-radius:.8rem;background:rgba(12,11,10,.5);color:#e9e2d4;font-size:.9rem;">
+            </div>
+            <div class="form-group">
+              <label for="clientPhone">Phone Number</label>
+              <input type="tel" id="clientPhone" placeholder="+27 82 123 4567" style="width:100%;padding:.8rem 1rem;border:1px solid rgba(0,243,255,.08);border-radius:.8rem;background:rgba(12,11,10,.5);color:#e9e2d4;font-size:.9rem;">
+            </div>
+
+            <!-- Service Selection -->
+            <div class="form-group">
+              <label>Select Your Services</label>
+              <div class="checkbox-grid" id="serviceCheckboxes">
+                <!-- Each checkbox has data-price and data-period (once/mo/yr) -->
+                <div class="checkbox-item" data-service="domain">
+                  <input type="checkbox" id="svc_domain" value="domain" data-price="199" data-period="yr" onchange="toggleConditional('domain'); updateTotal();">
+                  <label for="svc_domain">Domain Name</label>
+                  <span class="price-tag">R199/yr</span>
+                </div>
+                <div class="checkbox-item" data-service="hosting">
+                  <input type="checkbox" id="svc_hosting" value="hosting" data-price="99" data-period="mo" onchange="toggleConditional('hosting'); updateTotal();">
+                  <label for="svc_hosting">Starter Hosting</label>
+                  <span class="price-tag">R99/mo</span>
+                </div>
+                <div class="checkbox-item" data-service="prohosting">
+                  <input type="checkbox" id="svc_prohosting" value="prohosting" data-price="199" data-period="mo" onchange="toggleConditional('hosting'); updateTotal();">
+                  <label for="svc_prohosting">Pro Hosting</label>
+                  <span class="price-tag">R199/mo</span>
+                </div>
+                <div class="checkbox-item" data-service="seo">
+                  <input type="checkbox" id="svc_seo" value="seo" data-price="2999" data-period="once" onchange="toggleConditional('seo'); updateTotal();">
+                  <label for="svc_seo">Advanced SEO</label>
+                  <span class="price-tag">R2,999</span>
+                </div>
+                <div class="checkbox-item" data-service="ecommerce">
+                  <input type="checkbox" id="svc_ecommerce" value="ecommerce" data-price="2999" data-period="once" onchange="toggleConditional('ecommerce'); updateTotal();">
+                  <label for="svc_ecommerce">E‑commerce</label>
+                  <span class="price-tag">R2,999</span>
+                </div>
+                <div class="checkbox-item" data-service="cms">
+                  <input type="checkbox" id="svc_cms" value="cms" data-price="1499" data-period="once" onchange="toggleConditional('cms'); updateTotal();">
+                  <label for="svc_cms">CMS</label>
+                  <span class="price-tag">R1,499</span>
+                </div>
+                <div class="checkbox-item" data-service="email">
+                  <input type="checkbox" id="svc_email" value="email" data-price="99" data-period="mo" onchange="toggleConditional('email'); updateTotal();">
+                  <label for="svc_email">Custom Email</label>
+                  <span class="price-tag">R99/mo</span>
+                </div>
+                <div class="checkbox-item" data-service="maintenance">
+                  <input type="checkbox" id="svc_maintenance" value="maintenance" data-price="499" data-period="mo" onchange="toggleConditional('maintenance'); updateTotal();">
+                  <label for="svc_maintenance">Maintenance (5 updates)</label>
+                  <span class="price-tag">R499/mo</span>
+                </div>
+                <div class="checkbox-item" data-service="extras">
+                  <input type="checkbox" id="svc_extras" value="extras" data-price="250" data-period="each" onchange="toggleConditional('extras'); updateTotal();">
+                  <label for="svc_extras">Extra Updates</label>
+                  <span class="price-tag">R250 each</span>
+                </div>
+                <div class="checkbox-item" data-service="content">
+                  <input type="checkbox" id="svc_content" value="content" data-price="599" data-period="mo" onchange="toggleConditional('content'); updateTotal();">
+                  <label for="svc_content">Content Updates</label>
+                  <span class="price-tag">R599/mo</span>
+                </div>
+                <div class="checkbox-item" data-service="support">
+                  <input type="checkbox" id="svc_support" value="support" data-price="699" data-period="mo" onchange="toggleConditional('support'); updateTotal();">
+                  <label for="svc_support">Premium Support</label>
+                  <span class="price-tag">R699/mo</span>
+                </div>
+                <div class="checkbox-item" data-service="reports">
+                  <input type="checkbox" id="svc_reports" value="reports" data-price="399" data-period="mo" onchange="toggleConditional('reports'); updateTotal();">
+                  <label for="svc_reports">Performance Reports</label>
+                  <span class="price-tag">R399/mo</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conditional Fields -->
+            <div id="conditionalFields">
+              <div class="conditional-fields" id="cond_domain">
+                <label>Desired Domain Name</label>
+                <input type="text" id="domain_name" placeholder="e.g., mybusiness.co.za">
+              </div>
+              <div class="conditional-fields" id="cond_seo">
+                <label>SEO Details</label>
+                <textarea id="seo_details" rows="2" placeholder="Target keywords, industry, competitors, etc."></textarea>
+              </div>
+              <div class="conditional-fields" id="cond_ecommerce">
+                <label>E‑commerce Details</label>
+                <textarea id="ecommerce_details" rows="2" placeholder="What products/services? Payment gateway preference?"></textarea>
+              </div>
+              <div class="conditional-fields" id="cond_cms">
+                <label>CMS Preferences</label>
+                <textarea id="cms_details" rows="2" placeholder="What content will you manage? Blog, pages, images?"></textarea>
+              </div>
+              <div class="conditional-fields" id="cond_email">
+                <label>Email Users &amp; Addresses</label>
+                <input type="text" id="email_details" placeholder="e.g., info@, sales@, support@ (3 users)">
+              </div>
+              <div class="conditional-fields" id="cond_maintenance">
+                <label>Maintenance Preferences</label>
+                <textarea id="maintenance_details" rows="2" placeholder="Any specific security or backup needs?"></textarea>
+              </div>
+              <div class="conditional-fields" id="cond_extras">
+                <label>How many extra updates do you need?</label>
+                <select id="extra_count" onchange="updateTotal();">
+                  <option value="1">1 update (R250)</option>
+                  <option value="2">2 updates (R500)</option>
+                  <option value="3">3 updates (R750)</option>
+                  <option value="4">4 updates (R1,000)</option>
+                  <option value="5">5 updates (R1,000 – bundle price R200 each)</option>
+                  <option value="10">10 updates (R2,000)</option>
+                </select>
+              </div>
+              <div class="conditional-fields" id="cond_content">
+                <label>Content Update Details</label>
+                <textarea id="content_details" rows="2" placeholder="What kind of content? Blog posts, images, copy?"></textarea>
+              </div>
+              <div class="conditional-fields" id="cond_support">
+                <label>Support Needs</label>
+                <textarea id="support_details" rows="2" placeholder="Any specific support requirements?"></textarea>
+              </div>
+              <div class="conditional-fields" id="cond_reports">
+                <label>Reporting Preferences</label>
+                <textarea id="reports_details" rows="2" placeholder="What metrics matter most to you?"></textarea>
+              </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div class="form-group">
+              <label for="projectNotes">Any other details about your dream website?</label>
+              <textarea id="projectNotes" rows="3" placeholder="Tell us about your brand, your audience, any design ideas, or specific features you want..."></textarea>
+            </div>
+
+            <!-- Live Total Estimate -->
+            <div class="form-summary" id="formSummary">
+              <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;">
+                <span>Estimated Total:</span>
+                <span class="total" id="totalEstimate">R0</span>
+              </div>
+              <div style="font-size:.7rem;color:#8a8a8a;margin-top:.2rem;">* One‑time fees + first month of recurring services. Final quote may vary.</div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Send My Quote Request</button>
+            <div id="quoteFeedback" class="form-message" style="margin-top:1rem;padding:.8rem;border-radius:1rem;display:none;"></div>
+          </form>
         </div>
       </div>
     </section>
@@ -610,7 +889,7 @@
       </div>
     </section>
 
-    <!-- ===== BLOG WITH READ MORE MODALS ===== -->
+    <!-- ===== BLOG ===== -->
     <section id="blog" class="section-mid fade-up visible" data-section="blog" style="padding:3rem 0;">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
         <div class="section-title">Latest Insights</div>
@@ -731,33 +1010,33 @@
         <div class="faq-grid">
           <div class="faq-item">
             <button class="faq-question">What does "Free Base" include? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">The free base includes a fully custom 5‑page website, mobile‑first responsive design, basic SEO, hosting, weekly backups, and a 30‑day warranty. No monthly fees – ever!</div>
+            <div class="faq-answer">The free base includes a fully custom 5‑page website, mobile‑first responsive design, basic SEO, and a 30‑day warranty. Hosting and domain are not included – you'll need our Domain & Hosting plan to go live.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">How much does it cost to get my site live? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">The minimum is <strong>R75/month</strong> (Starter Hosting) plus <strong>R199/year</strong> for your domain. You can also pay annually to save.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">How do the website updates work? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">Our Maintenance & Security plan includes <strong>5 updates per month</strong> (content changes, image swaps, minor tweaks). If you need more, we charge <strong>R250 per extra update</strong>, or you can buy a bundle of 5 for R200 each.</div>
           </div>
           <div class="faq-item">
             <button class="faq-question">How do the limited free slots work? <i class="fas fa-chevron-down"></i></button>
             <div class="faq-answer">We're offering only <strong>50 free websites</strong> as a launch promotion. Once they're gone, we'll revert to our standard pricing. Claim yours now to avoid missing out!</div>
           </div>
           <div class="faq-item">
-            <button class="faq-question">How does the Loyalty Slot prize probability work? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">The slot uses weighted probabilities: the best prizes (Jackpot, 20% OFF, 1 Month Free) have lower odds, while more common prizes (5% OFF, Try Again) are more likely to land. This keeps the game exciting and fair!</div>
-          </div>
-          <div class="faq-item">
             <button class="faq-question">Do you use AI in your development process? <i class="fas fa-chevron-down"></i></button>
             <div class="faq-answer">Absolutely! We use AI to accelerate development, write clean code, generate SEO content, and optimise performance – all at no extra cost to you.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Are you tax registered and compliant? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Yes. We are a registered Private Company in South Africa (2025/587768/07) with a valid TAX number (9162998281). All invoices are fully compliant.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
+    <!-- ===== CONTACT (info only) ===== -->
     <section id="contact" class="section-mid fade-up visible" data-section="contact">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
-        <div class="section-title">Claim your free website</div>
-        <div class="section-sub">Fill in the form and we'll set up your free site within 24 hours.</div>
+        <div class="section-title">Contact &amp; Support</div>
+        <div class="section-sub">Have questions? Reach out to us directly.</div>
         <div class="contact-grid">
           <div class="contact-info">
             <div class="contact-detail"><i class="fas fa-building"></i><span>DEVINE DESIGNS (Reg: 2025/587768/07)</span></div>
@@ -772,16 +1051,11 @@
             </div>
           </div>
           <div>
-            <form id="contactForm">
-              <div class="form-group"><input type="text" id="name" placeholder="Your name *" required /></div>
-              <div class="form-group"><input type="email" id="email" placeholder="Email address *" required /></div>
-              <div class="form-group"><textarea rows="4" id="message" placeholder="Tell us about your dream website, SEO needs, or mobile requirements..."></textarea></div>
-              <button type="submit" class="btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i> Claim Free Site</button>
-              <div id="formFeedback" class="form-message"></div>
-            </form>
-            <p style="font-size:clamp(.6rem, .9vw, .7rem);text-align:center;margin-top:.8rem;color:#6a6a6a;">
-              <i class="fas fa-lock" style="color:#00f3ff;"></i> Your data is safe. We'll set up your free site within 24h.
-            </p>
+            <p style="color:#b8ab9a;margin-bottom:.5rem;">For quick questions, email us or use the <a href="#quote" style="color:#00f3ff;">Build Your Package</a> form to get a detailed quote.</p>
+            <div style="display:flex;flex-direction:column;gap:.5rem;">
+              <a href="mailto:info@devinedesignssa.com" class="btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-envelope"></i> Email Us</a>
+              <a href="https://wa.me/27629497355" target="_blank" class="btn-secondary" style="width:100%;justify-content:center;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
           </div>
         </div>
       </div>
@@ -813,7 +1087,7 @@
 
   <!-- ===== LEGAL MODALS ===== -->
   <div class="modal-overlay" id="privacyModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('privacy')">&times;</button><h2>Privacy Policy</h2><p><strong>Effective Date:</strong> July 2025</p><p>Devine Designs (“we,” “our,” “us”) respects your privacy. This policy explains how we collect, use, and protect your personal information.</p><h3>1. Information We Collect</h3><ul><li><strong>Personal data:</strong> Name, email, phone number, and any details you provide via forms.</li><li><strong>Usage data:</strong> IP address, browser type, pages visited, and time spent on our site.</li></ul><h3>2. How We Use Your Data</h3><ul><li>To respond to inquiries and provide quotes.</li><li>To improve our website and services.</li><li>To send promotional emails (you may opt out).</li></ul><h3>3. Data Protection</h3><p>We implement security measures to protect your data. However, no method of transmission over the internet is 100% secure.</p><h3>4. Third-Party Sharing</h3><p>We do not sell or rent your personal data. We may share data with trusted service providers who assist us in operating our website.</p><h3>5. Your Rights</h3><p>You have the right to access, correct, or delete your personal data. Contact us at <a href="mailto:info@devinedesignssa.com" style="color:#00f3ff;">info@devinedesignssa.com</a>.</p><h3>6. Cookies</h3><p>We use cookies to enhance your experience. See our <a href="#" onclick="openModal('cookies');return false;" style="color:#00f3ff;">Cookie Policy</a> for details.</p><p><strong>Contact:</strong> info@devinedesignssa.com | +27 64 949 7355</p></div></div>
-  <div class="modal-overlay" id="termsModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('terms')">&times;</button><h2>Terms of Service</h2><p><strong>Effective Date:</strong> July 2025</p><p>By using our website and services, you agree to these terms.</p><h3>1. Services</h3><p>We provide custom website development, SEO, and digital services. The free base site includes 5 pages, mobile responsiveness, basic SEO, hosting, and backups. Add‑ons are optional and charged separately.</p><h3>2. Payment &amp; Suspension</h3><p>Payment for add‑ons is due upfront. For monthly add‑ons, a 7‑day grace period applies. After 14 days, a 10% late fee is added. After 30 days of non‑payment, we reserve the right to suspend add‑on services. The free base site remains active.</p><h3>3. Limited Free Slots</h3><p>We offer 50 free websites as a limited promotion. Once all slots are claimed, the free offer expires.</p><h3>4. Intellectual Property</h3><p>We retain ownership of code until full payment. Upon final payment, you own the final deliverables. We reserve the right to showcase your project in our portfolio.</p><h3>5. Refund Policy</h3><p>We do not offer refunds on add‑on purchases. If you are unsatisfied, we will work to resolve any issues.</p><h3>6. Liability</h3><p>We are not liable for any indirect damages arising from the use of our services. Our liability is limited to the total amount paid.</p><p><strong>Contact:</strong> info@devinedesignssa.com</p></div></div>
+  <div class="modal-overlay" id="termsModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('terms')">&times;</button><h2>Terms of Service</h2><p><strong>Effective Date:</strong> July 2025</p><p>By using our website and services, you agree to these terms.</p><h3>1. Services</h3><p>We provide custom website development, SEO, and digital services. The free base site includes 5 pages, mobile responsiveness, basic SEO, but excludes domain and hosting. Domain & Hosting is a separate paid service.</p><h3>2. Payment &amp; Suspension</h3><p>Domain & Hosting are billed either monthly (R75/mo) or yearly (R750/year). For monthly billing, a 7‑day grace period applies. After 14 days, a 10% late fee is added. After 30 days of non‑payment, we reserve the right to suspend the domain and hosting services. The free base site remains available but offline without these services.</p><h3>3. Limited Free Slots</h3><p>We offer 50 free websites as a limited promotion. Once all slots are claimed, the free offer expires.</p><h3>4. Intellectual Property</h3><p>We retain ownership of code until full payment. Upon final payment, you own the final deliverables. We reserve the right to showcase your project in our portfolio.</p><h3>5. Refund Policy</h3><p>We do not offer refunds on domain or hosting purchases. If you are unsatisfied with add‑ons, we will work to resolve any issues.</p><h3>6. Liability</h3><p>We are not liable for any indirect damages arising from the use of our services. Our liability is limited to the total amount paid.</p><p><strong>Contact:</strong> info@devinedesignssa.com</p></div></div>
   <div class="modal-overlay" id="cookiesModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('cookies')">&times;</button><h2>Cookie Policy</h2><p><strong>Effective Date:</strong> July 2025</p><p>We use cookies to improve your experience on our website.</p><h3>What Are Cookies?</h3><p>Cookies are small text files stored on your device that help us remember your preferences and analyse site traffic.</p><h3>Types of Cookies We Use</h3><ul><li><strong>Essential:</strong> Necessary for site functionality.</li><li><strong>Analytical:</strong> Help us understand how visitors interact with our site (e.g., Google Analytics).</li><li><strong>Marketing:</strong> Used for targeted advertising (e.g., Facebook Pixel).</li></ul><h3>Managing Cookies</h3><p>You can control or delete cookies in your browser settings. However, disabling some cookies may affect site performance.</p><p><strong>Contact:</strong> info@devinedesignssa.com</p></div></div>
 
   <!-- ===== AI ORB ===== -->
@@ -830,30 +1104,111 @@
 
     // ===== BLOG MODALS =====
     function openBlogModal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden';}
-    // closeBlogModal is same as closeModal, we reuse it
 
     // ===== FAQ ACCORDION =====
     document.querySelectorAll('.faq-question').forEach(btn=>{btn.addEventListener('click',function(){const item=this.parentElement;const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));if(!isOpen)item.classList.add('open');});});
 
-    // ===== CONTACT FORM =====
-    const form=document.getElementById('contactForm');
-    const feedback=document.getElementById('formFeedback');
-    if(form){
-      form.addEventListener('submit',e=>{
-        e.preventDefault();
-        const name=document.getElementById('name')?.value.trim();
-        const email=document.getElementById('email')?.value.trim();
-        const message=document.getElementById('message')?.value.trim();
-        if(!name||!email){feedback.style.display='block';feedback.style.background='#2a1e18';feedback.style.color='#e2b870';feedback.innerHTML='⚠️ Please fill in name and email.';setTimeout(()=>feedback.style.display='none',2500);return;}
-        if(!email.includes('@')||!email.includes('.')){feedback.style.display='block';feedback.style.background='#2a1e18';feedback.innerHTML='📧 Valid email required.';setTimeout(()=>feedback.style.display='none',2500);return;}
-        const subject=`Free site request from ${name}`;
-        const body=`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message||'No additional message.'}`;
-        const mailtoLink=`mailto:info@devinedesignssa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.open(mailtoLink,'_blank');
-        feedback.style.display='block';feedback.style.background='rgba(0,243,255,.06)';feedback.style.color='#00f3ff';feedback.innerHTML=`✨ Thank you ${name}! Your free site request is on its way.`;form.reset();setTimeout(()=>feedback.style.display='none',4500);
-        if(window.aiOrb)window.aiOrb.speak('✨ Free site requested! We\'ll set it up for you.',2000);
-        reduceFreeSlots();
+    // ===== CONDITIONAL FIELDS =====
+    function toggleConditional(service) {
+      const field = document.getElementById('cond_'+service);
+      const checkbox = document.getElementById('svc_'+service);
+      if (checkbox && field) {
+        field.classList.toggle('active', checkbox.checked);
+      }
+    }
+
+    // ===== TOTAL ESTIMATE =====
+    function updateTotal() {
+      const checkboxes = document.querySelectorAll('#serviceCheckboxes input[type="checkbox"]:checked');
+      let total = 0;
+      let details = [];
+      checkboxes.forEach(cb => {
+        const price = parseInt(cb.dataset.price) || 0;
+        const period = cb.dataset.period || 'once';
+        if (cb.id === 'svc_extras') {
+          // Extra updates – use selected count
+          const count = parseInt(document.getElementById('extra_count').value) || 1;
+          const unitPrice = (count >= 5) ? 200 : 250;
+          total += count * unitPrice;
+        } else {
+          total += price;
+        }
       });
+      document.getElementById('totalEstimate').textContent = 'R' + total.toLocaleString();
+    }
+
+    // ===== QUOTE FORM =====
+    function submitQuote(e) {
+      e.preventDefault();
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      if (!name || !email) {
+        const fb = document.getElementById('quoteFeedback');
+        fb.style.display='block';fb.style.background='#2a1e18';fb.style.color='#e2b870';fb.innerHTML='⚠️ Please fill in your name and email.';
+        setTimeout(()=>fb.style.display='none',3000);
+        return;
+      }
+      // Gather selected services with prices
+      const checkboxes = document.querySelectorAll('#serviceCheckboxes input[type="checkbox"]:checked');
+      let services = [];
+      let total = 0;
+      checkboxes.forEach(cb => {
+        let price = parseInt(cb.dataset.price) || 0;
+        let period = cb.dataset.period || 'once';
+        let label = cb.parentElement.querySelector('label').textContent.trim();
+        if (cb.id === 'svc_extras') {
+          const count = parseInt(document.getElementById('extra_count').value) || 1;
+          const unitPrice = (count >= 5) ? 200 : 250;
+          price = count * unitPrice;
+          period = 'each';
+          label = 'Extra Updates (' + count + ' updates)';
+        }
+        services.push({ label, price, period });
+        total += price;
+      });
+      if (services.length === 0) {
+        const fb = document.getElementById('quoteFeedback');
+        fb.style.display='block';fb.style.background='#2a1e18';fb.style.color='#e2b870';fb.innerHTML='⚠️ Please select at least one service.';
+        setTimeout(()=>fb.style.display='none',3000);
+        return;
+      }
+      // Build email body with prices
+      let body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone||'Not provided'}\n\n--- SELECTED SERVICES ---\n`;
+      services.forEach(s => {
+        body += `• ${s.label} – R${s.price.toLocaleString()} (${s.period})\n`;
+      });
+      body += `\nTotal Estimate: R${total.toLocaleString()}\n\n--- DETAILS ---\n`;
+      // Gather conditional fields
+      const detailsMap = {
+        domain: document.getElementById('domain_name')?.value || '',
+        seo: document.getElementById('seo_details')?.value || '',
+        ecommerce: document.getElementById('ecommerce_details')?.value || '',
+        cms: document.getElementById('cms_details')?.value || '',
+        email: document.getElementById('email_details')?.value || '',
+        maintenance: document.getElementById('maintenance_details')?.value || '',
+        extras: document.getElementById('extra_count')?.value || '',
+        content: document.getElementById('content_details')?.value || '',
+        support: document.getElementById('support_details')?.value || '',
+        reports: document.getElementById('reports_details')?.value || ''
+      };
+      for (let key in detailsMap) {
+        if (detailsMap[key]) {
+          const label = key.charAt(0).toUpperCase() + key.slice(1);
+          body += `${label}: ${detailsMap[key]}\n`;
+        }
+      }
+      const notes = document.getElementById('projectNotes').value;
+      if (notes) body += `\n--- ADDITIONAL NOTES ---\n${notes}`;
+
+      const subject = `Quote request from ${name}`;
+      const mailtoLink = `mailto:info@devinedesignssa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(mailtoLink,'_blank');
+
+      const fb = document.getElementById('quoteFeedback');
+      fb.style.display='block';fb.style.background='rgba(0,243,255,.06)';fb.style.color='#00f3ff';fb.innerHTML=`✨ Thank you ${name}! Your quote request is ready. Please send the email from your mail client.`;
+      setTimeout(()=>fb.style.display='none',4500);
+      if(window.aiOrb) window.aiOrb.speak('✨ Quote request sent! We\'ll review it and get back to you.',2500);
     }
 
     // ===== FREE SLOTS MANAGEMENT =====
@@ -897,7 +1252,7 @@
     updateSlotDisplay();
 
     // ============================================================
-    // AI ORB (LIGHTWEIGHT)
+    // AI ORB (LIGHTWEIGHT – KEPT AS BEFORE)
     // ============================================================
     (function(){
       'use strict';
@@ -910,16 +1265,16 @@
       const knowledge = {
         intents: [
           { id: 'greeting', keywords: ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon', 'howdy', 'sup', 'yo'], response: ['Hello! 👋 Welcome to Devine Designs. How can I help you today?','Hey there! ✨ I\'m your holographic assistant. What brings you here?','Hi! 💫 Great to see you. Ready to build something amazing?'], suggestions: ['What services do you offer?','Tell me about your pricing','Show me your portfolio'] },
-          { id: 'services', keywords: ['services', 'offer', 'do you do', 'what do you build', 'web development', 'design', 'development', 'capabilities'], response: ['We build fully custom websites, web apps, and digital experiences. 💻 Everything is hand-coded — no templates, no page builders.','Our services include custom web development, SEO optimization, mobile-first design, and performance tuning. 🚀','We specialize in hand-crafted websites, SEO, mobile optimization, and performance. Every project is unique and tailored to you. ✨'], suggestions: ['How much does a website cost?','Tell me about SEO','Do you do mobile apps?'] },
-          { id: 'pricing', keywords: ['price', 'cost', 'pricing', 'how much', 'budget', 'quote', 'expensive', 'affordable', 'rates'], response: ['Our freemium model: the base website is <strong>completely free</strong>! You only pay for add‑ons like SEO, e‑commerce, or premium support.','Get a free 5‑page custom website – no monthly fees. Add‑ons start from R350. 🎯','We offer a free base site with optional paid features. 💡 Check our Pricing section for details.'], suggestions: ['What services do you offer?','How long does a site take?','Book a consultation'] },
-          { id: 'freemium', keywords: ['free', 'freemium', 'base site', 'add-ons', 'addons'], response: ['Yes! The base site is free – 5 pages, mobile‑optimised, hosting included. You only pay for extras like a custom domain, SEO, or e‑commerce.','Free website, paid upgrades. 🚀 Choose what you need – no lock‑in contracts.'], suggestions: ['Tell me about pricing','Show me the add‑ons','Claim my free site'] },
+          { id: 'pricing', keywords: ['price', 'cost', 'pricing', 'how much', 'budget', 'quote', 'expensive', 'affordable', 'rates', 'menu'], response: ['Our full 2026 price menu is available on our Pricing page. 💰 The base site is free! Domain from R199/year, hosting from R99/month, and add‑ons from R1,499.','Check our transparent price list – you only pay for what you need. Free base + affordable add‑ons!','We have a complete menu of services with clear pricing. Click the Pricing tab to see everything.'], suggestions: ['What does the free base include?','How much is hosting?','Show me the price menu'] },
+          { id: 'freemium', keywords: ['free', 'freemium', 'base site', 'add-ons', 'addons'], response: ['Yes! The base site is free – 5 pages, mobile‑optimised. You only pay for domain & hosting (from R99/mo) and extras like SEO, e‑commerce, or premium support.','Free website, paid upgrades. 🚀 Choose what you need – no lock‑in contracts.'], suggestions: ['Tell me about pricing','Show me the add‑ons','Claim my free site'] },
           { id: 'slots', keywords: ['slots', 'limited', 'available', 'free slots', 'remaining', 'claim'], response: ['We have <strong>' + totalSlots + '</strong> free slots left out of 50. Claim yours before they run out! ⏳','Only ' + totalSlots + ' free sites remaining – don\'t miss this opportunity!'], suggestions: ['How do I claim?','Tell me about pricing','Contact us'] },
+          { id: 'quote', keywords: ['quote', 'build package', 'custom', 'request', 'form', 'package'], response: ['Use our <strong>Build Your Package</strong> form to select the services you need and tell us your requirements. We\'ll send you a custom quote within 24 hours!','Head to the <strong>Build Your Package</strong> section and let us know exactly what you want – we\'ll build it for you.'], suggestions: ['Take me to the form','Tell me about pricing','Contact us'] },
           { id: 'portfolio', keywords: ['portfolio', 'work', 'projects', 'examples', 'show me', 'case studies', 'previous work', 'past projects', 'willem', 'isinyathelo'], response: ['Check out our recent work! 🏗️ We built a custom site for Willem Isinyathelo House — modern, responsive, and tailored to their brand.','Our portfolio includes projects for hotels, startups, and local businesses. 🌟 Each one is hand-crafted from scratch.','We\'ve helped 50+ clients grow their online presence. 📈 Recent projects include a boutique hotel booking engine.'], suggestions: ['How long does a project take?','Tell me about your process','View the full portfolio'] },
           { id: 'seo', keywords: ['seo', 'search engine', 'google', 'rank', 'ranking', 'optimize', 'traffic', 'keywords', 'lighthouse'], response: ['We optimize every site for SEO! 🔍 That includes schema markup, meta tags, fast load times, and 95+ Lighthouse scores.','SEO is built into every site we make. 📊 We structure content, optimize images, and ensure your site is fast and mobile-friendly.','Our sites are SEO-ready out of the box. 🏆 We aim for 95+ Lighthouse scores and use the latest semantic HTML.'], suggestions: ['What services do you offer?','How much does it cost?','Tell me about mobile optimization'] },
           { id: 'mobile', keywords: ['mobile', 'phone', 'responsive', 'tablet', 'screen', 'mobile-first', 'adaptive'], response: ['All our websites are fully responsive! 📱 They work beautifully on phones, tablets, and desktops.','Mobile optimization is a priority. 📲 Every site we build is tested on real devices.','Your site will look stunning on any screen size. 📱💻 We use flexible layouts and fluid typography.'], suggestions: ['Tell me about SEO','How much does it cost?','What services do you offer?'] },
           { id: 'timeline', keywords: ['how long', 'time', 'timeline', 'weeks', 'months', 'duration', 'when', 'delivery', 'schedule'], response: ['A simple site takes 2-4 weeks ⏱️. More complex projects can take 6-8 weeks. We work iteratively and keep you updated.','Typical projects take 2-8 weeks depending on complexity. 🗓️ We give you a clear timeline before we start.','We move fast without cutting corners. 🚀 Most projects are completed in 4-6 weeks.'], suggestions: ['How much does it cost?','What services do you offer?','Tell me about support'] },
           { id: 'support', keywords: ['support', 'maintenance', 'updates', 'help', 'retainer', 'warranty', 'ongoing', 'hibernate', 'pause'], response: ['We offer ongoing support and maintenance as part of our add‑on packages. 🛠️ Premium support is available 24/7.','You\'re not alone after launch! 🤝 We offer various support plans.','We stand behind our work. ✅ Every project comes with a warranty.'], suggestions: ['How much does it cost?','Tell me about your process','What is Hibernation Mode?'] },
-          { id: 'contact', keywords: ['contact', 'email', 'reach', 'get in touch', 'phone', 'call', 'message', 'info@', 'hello@'], response: ['You can reach us at info@devinedesignssa.com or +27 64 949 7355 📞. We\'ll get back within 24 hours.','Let\'s talk! 📧 Email info@devinedesignssa.com or use the contact form. We respond within 24 hours.','We\'d love to hear from you! ✉️ Drop us an email at info@devinedesignssa.com or use the contact form.'], suggestions: ['Tell me about your services','View your portfolio','Book a consultation'] },
+          { id: 'contact', keywords: ['contact', 'email', 'reach', 'get in touch', 'phone', 'call', 'message', 'info@', 'hello@'], response: ['You can reach us at info@devinedesignssa.com or +27 64 949 7355 📞. We\'ll get back within 24 hours.','Let\'s talk! 📧 Email info@devinedesignssa.com or use the Build Your Package form. We respond within 24 hours.','We\'d love to hear from you! ✉️ Drop us an email at info@devinedesignssa.com or use the contact form.'], suggestions: ['Tell me about your services','View your portfolio','Book a consultation'] },
           { id: 'compliance', keywords: ['tax', 'registered', 'compliant', 'legal', 'vat', 'company', 'trust', 'legitimate', 'verify'], response: ['We are fully registered and compliant. 📜 Reg No: 2025/587768/07 | TAX: 9162998281.','Yes, we are a registered Private Company in South Africa. 🇿🇦 We are tax compliant.','Trust is everything. 🤝 We\'re registered with CIPC and SARS. You can verify our status anytime.'], suggestions: ['What services do you offer?','Contact us','Book a consultation'] },
           { id: 'loyalty', keywords: ['loyalty', 'spin', 'slot', 'rewards', 'free spins', 'jackpot', 'cashback', 'prize'], response: ['🎰 Try our Loyalty Spin! New users get 3 free spins after claiming their free site. Win discounts, cashback, or a free month!','Spin the reel for a chance to win big! 💰 Cashback rewards are applied to your next add‑on purchase.','The slot uses weighted odds – the best prizes are rare, but every spin is exciting!'], suggestions: ['How do I get free spins?','Tell me about pricing','Show me the Loyalty section'] },
           { id: 'referral', keywords: ['refer', 'referral', 'friend', 'share', 'earn', 'invite', 'tell a friend'], response: ['🤝 Refer a friend and you both win! You get 3 free spins + R250 credit, and your friend gets 5% off their first add‑on.','Share the love! 🎁 Use our referral programme to earn rewards. Check the Refer & Earn section.','Tell a friend about us and get rewarded. 💰 R250 credit and 3 free spins for you!'], suggestions: ['How does the referral work?','Tell me about pricing','Contact us'] }
@@ -968,13 +1323,14 @@
         if (lower.includes('home') || lower.includes('go to home')) { setTimeout(() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' }), 300); }
         else if (lower.includes('design') || lower.includes('go to design')) { setTimeout(() => document.getElementById('design-services').scrollIntoView({ behavior: 'smooth' }), 300); }
         else if (lower.includes('marketing') || lower.includes('go to marketing')) { setTimeout(() => document.getElementById('marketing-services').scrollIntoView({ behavior: 'smooth' }), 300); }
-        else if (lower.includes('pricing') || lower.includes('go to pricing')) { setTimeout(() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' }), 300); }
+        else if (lower.includes('pricing') || lower.includes('go to pricing') || lower.includes('menu')) { setTimeout(() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' }), 300); }
         else if (lower.includes('portfolio') || lower.includes('work') || lower.includes('projects') || lower.includes('go to portfolio')) { setTimeout(() => document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' }), 300); }
         else if (lower.includes('contact') || lower.includes('go to contact')) { setTimeout(() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }), 300); }
         else if (lower.includes('faq') || lower.includes('questions')) { setTimeout(() => document.getElementById('faq').scrollIntoView({ behavior: 'smooth' }), 300); }
         else if (lower.includes('loyalty') || lower.includes('spin') || lower.includes('slot') || lower.includes('rewards')) { setTimeout(() => document.getElementById('loyalty').scrollIntoView({ behavior: 'smooth' }), 300); }
         else if (lower.includes('refer') || lower.includes('friend') || lower.includes('share')) { setTimeout(() => document.getElementById('referrals').scrollIntoView({ behavior: 'smooth' }), 300); }
         else if (lower.includes('free') || lower.includes('slot') || lower.includes('claim') || lower.includes('remaining')) { setTimeout(() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' }), 300); }
+        else if (lower.includes('quote') || lower.includes('package') || lower.includes('build')) { setTimeout(() => document.getElementById('quote').scrollIntoView({ behavior: 'smooth' }), 300); }
       }
 
       let suggestionTimeout = null;
@@ -1071,7 +1427,7 @@
       let lastTime=0;
       function animate(timestamp){ const dt=lastTime?(timestamp-lastTime)/16:1; lastTime=timestamp; state.time+=dt*.5; if(state.modeTimer>0){state.modeTimer-=dt;if(state.modeTimer<=0){if(state.mode==='success'||state.mode==='error')setMode('idle');}} drawOrb(); requestAnimationFrame(animate); }
 
-      function detectSection(){ const sections=['home','design-services','marketing-services','pricing','portfolio','blog','faq','loyalty','referrals','contact']; let current='home'; for(let sec of sections){const el=document.getElementById(sec);if(el){const rect=el.getBoundingClientRect();if(rect.top<=window.innerHeight/2&&rect.bottom>=window.innerHeight/2){current=sec;break;}}} if(current!==state.currentSection){state.currentSection=current; const sectionMessages={home:'👋 Welcome back to Devine Designs.', 'design-services':'💡 Design & Development.', 'marketing-services':'📈 Marketing & Growth.', pricing:'💰 Free base site + optional add‑ons. Only ' + totalSlots + ' free slots left!', portfolio:'🚀 Check out our recent projects!', blog:'📝 Read our latest insights.', faq:'❓ Got questions? Ask me about our freemium model!', loyalty:'🎰 Try your luck with the Loyalty Spin!', referrals:'🤝 Refer a friend and earn rewards!', contact:'📞 Ready to claim your free site?'}; if(sectionMessages[current]){speak(sectionMessages[current],2000);} } }
+      function detectSection(){ const sections=['home','design-services','marketing-services','pricing','portfolio','blog','faq','loyalty','referrals','quote','contact']; let current='home'; for(let sec of sections){const el=document.getElementById(sec);if(el){const rect=el.getBoundingClientRect();if(rect.top<=window.innerHeight/2&&rect.bottom>=window.innerHeight/2){current=sec;break;}}} if(current!==state.currentSection){state.currentSection=current; const sectionMessages={home:'👋 Welcome back to Devine Designs.', 'design-services':'💡 Design & Development.', 'marketing-services':'📈 Marketing & Growth.', pricing:'💰 View our full 2026 price menu – free base, domain from R199/yr, hosting from R99/mo.', portfolio:'🚀 Check out our recent projects!', blog:'📝 Read our latest insights.', faq:'❓ Got questions? Ask me about our freemium model!', loyalty:'🎰 Try your luck with the Loyalty Spin!', referrals:'🤝 Refer a friend and earn rewards!', quote:'📝 Build your custom package – select services and tell us your needs!', contact:'📞 Ready to claim your free site?'}; if(sectionMessages[current]){speak(sectionMessages[current],2000);} } }
 
       let moveTimeout;
       canvas.addEventListener('mousemove',e=>{if(moveTimeout)cancelAnimationFrame(moveTimeout);moveTimeout=requestAnimationFrame(()=>{const rect=canvas.getBoundingClientRect();const px=(e.clientX-rect.left)/rect.width;const py=(e.clientY-rect.top)/rect.height;state.targetX=clamp(px,0,1);state.targetY=clamp(py,0,1);const isHover=px>=0&&px<=1&&py>=0&&py<=1;if(isHover&&!state.hover){state.hover=true;setMode('hover');}else if(!isHover&&state.hover){state.hover=false;setMode('idle');}});});
