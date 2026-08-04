@@ -239,6 +239,23 @@
       100% { background-position: 200% 0 }
     }
 
+    /* ===== URGENCY BANNER (NEW) ===== */
+    #urgencyBanner {
+      background: #c49a6c;
+      color: #0a0a0a;
+      text-align: center;
+      padding: 8px 0;
+      font-weight: 700;
+      font-size: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 1001;
+      box-shadow: 0 2px 20px rgba(196,154,108,0.3);
+    }
+    @media (max-width:600px) {
+      #urgencyBanner { font-size:0.65rem; padding:6px 0; }
+    }
+
     /* ===== COOKIE BANNER ===== */
     #cookieBanner {
       position: fixed;
@@ -641,7 +658,7 @@
     .ai-feature-card.popular-ai .ai-icon { color: #c49a6c; }
     .ai-feature-card.popular-ai .ai-price { color: #c49a6c; }
     .ai-feature-card.popular-ai::after {
-      content: '⭐ Most Popular';
+      content: ' Most Popular';
       position: absolute;
       top: -10px;
       right: 10px;
@@ -762,7 +779,7 @@
       background: rgba(0, 243, 255, .02);
     }
     .sub-card.popular::after {
-      content: '⭐ Most Popular';
+      content: ' Most Popular';
       position: absolute;
       top: -10px;
       right: 10px;
@@ -1104,44 +1121,10 @@
       cursor: pointer;
     }
 
-    /* ===== TOKEN USAGE PLACEHOLDER CARD ===== */
+    /* ===== TOKEN USAGE PLACEHOLDER CARD (HIDDEN) ===== */
     .token-usage-card {
-      background: rgba(0, 243, 255, .04);
-      border: 1px solid rgba(0, 243, 255, .08);
-      border-radius: 1rem;
-      padding: 1rem 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 1.5rem;
+      display: none; /* HIDDEN – no backend yet */
     }
-    .token-usage-card .token-label {
-      color: #b8ab9a;
-      font-size: .85rem;
-    }
-    .token-usage-card .token-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #00f3ff;
-    }
-    .token-usage-card .token-bar {
-      width: 100%;
-      height: 4px;
-      background: rgba(255,255,255,.05);
-      border-radius: 4px;
-      margin-top: .3rem;
-      overflow: hidden;
-    }
-    .token-usage-card .token-bar .token-fill {
-      width: 65%;
-      height: 100%;
-      background: linear-gradient(90deg, #00f3ff, #c49a6c);
-      border-radius: 4px;
-    }
-
-    /* ============================================================ */
 
     /* ===== LEAD MAGNET ===== */
     .lead-magnet {
@@ -1971,114 +1954,13 @@
     }
 
     /* ============================================================
-       AI CHAT WIDGET (DEMO)
+       AI CHAT WIDGET (DISABLED)
        ============================================================ */
     .ai-chat-widget {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 999;
-      background: rgba(10,10,10,.95);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0,243,255,.15);
-      border-radius: 1.5rem;
-      padding: 1rem;
-      max-width: 320px;
-      width: 100%;
-      box-shadow: 0 0 40px rgba(0,0,0,.6);
-      display: none;
-      transition: all .3s;
-    }
-    .ai-chat-widget.active { display: block; }
-    .ai-chat-widget .chat-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: .5rem;
-    }
-    .ai-chat-widget .chat-header span {
-      color: #00f3ff;
-      font-weight: 700;
-      font-size: .85rem;
-    }
-    .ai-chat-widget .chat-header button {
-      background: none;
-      border: none;
-      color: #b8ab9a;
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 0 4px;
-    }
-    .ai-chat-widget .chat-messages {
-      height: 200px;
-      overflow-y: auto;
-      background: rgba(0,0,0,.3);
-      border-radius: .8rem;
-      padding: .5rem;
-      margin-bottom: .5rem;
-      font-size: .85rem;
-      color: #e9e2d4;
-    }
-    .ai-chat-widget .chat-messages p { margin: 2px 0; }
-    .ai-chat-widget .chat-messages .user { text-align: right; }
-    .ai-chat-widget .chat-messages .user strong { color: #c49a6c; }
-    .ai-chat-widget .chat-messages .ai { text-align: left; }
-    .ai-chat-widget .chat-messages .ai strong { color: #00f3ff; }
-    .ai-chat-widget .chat-messages .typing {
-      color: #6a6a6a;
-      font-style: italic;
-      text-align: left;
-    }
-    .ai-chat-widget .chat-input {
-      display: flex;
-      gap: .5rem;
-    }
-    .ai-chat-widget .chat-input input {
-      flex: 1;
-      padding: .5rem .8rem;
-      border: 1px solid rgba(0,243,255,.08);
-      border-radius: .8rem;
-      background: rgba(12,11,10,.5);
-      color: #e9e2d4;
-      font-size: .8rem;
-      outline: none;
-      transition: border .25s;
-    }
-    .ai-chat-widget .chat-input input:focus {
-      border-color: #00f3ff;
-    }
-    .ai-chat-widget .chat-input button {
-      background: #00f3ff;
-      color: #0a0a0a;
-      border: none;
-      border-radius: .8rem;
-      padding: .5rem 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all .25s;
-    }
-    .ai-chat-widget .chat-input button:hover {
-      background: #c49a6c;
+      display: none; /* Disabled – no API key yet */
     }
     .ai-chat-toggle {
-      position: fixed;
-      bottom: 80px;
-      left: 20px;
-      z-index: 998;
-      background: #00f3ff;
-      color: #0a0a0a;
-      border: none;
-      border-radius: 40px;
-      padding: .5rem 1.2rem;
-      font-weight: 700;
-      font-size: .8rem;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(0,243,255,.2);
-      transition: all .3s;
-    }
-    .ai-chat-toggle:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(0,243,255,.4);
+      display: none; /* Disabled – no API key yet */
     }
 
     /* ============================================================
@@ -2104,8 +1986,6 @@
       .onboarding-form-container { padding: 1.2rem; }
       .onboarding-form-container .checkbox-grid { grid-template-columns: 1fr 1fr; }
       #cookieBanner { padding: .8rem; flex-direction: column; gap: .6rem; }
-      .ai-chat-widget { max-width: 280px; left: 10px; bottom: 10px; }
-      .ai-chat-toggle { left: 10px; bottom: 70px; }
     }
     @media (max-width:880px) {
       .navbar { min-height: 65px }
@@ -2208,9 +2088,6 @@
       .onboarding-form-container .checkbox-grid { grid-template-columns: 1fr; }
       #cookieBanner { flex-direction: column; gap: .6rem; }
       #cookieBanner p { font-size: .75rem; }
-      .ai-chat-widget { max-width: 260px; left: 10px; bottom: 10px; padding: .8rem; }
-      .ai-chat-widget .chat-messages { height: 150px; }
-      .ai-chat-toggle { left: 10px; bottom: 60px; padding: .4rem 1rem; font-size: .7rem; }
     }
     @media (max-width:400px) {
       .hero-content h1 { font-size: 1.6rem }
@@ -2224,9 +2101,6 @@
       .addons-grid { grid-template-columns: 1fr; }
       .ai-features-grid { grid-template-columns: 1fr; }
       .topup-grid { grid-template-columns: 1fr; }
-      .ai-chat-widget { max-width: 220px; left: 5px; bottom: 5px; padding: .6rem; }
-      .ai-chat-widget .chat-messages { height: 120px; font-size: .75rem; }
-      .ai-chat-toggle { left: 5px; bottom: 50px; padding: .3rem .8rem; font-size: .65rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -2235,6 +2109,11 @@
   </style>
 </head>
 <body>
+
+  <!-- ===== URGENCY BANNER (NEW) ===== -->
+  <div id="urgencyBanner">
+     First Client Special: 50% off Launch Fee – Limited Time Offer
+  </div>
 
   <!-- ===== SKIP TO CONTENT ===== -->
   <a href="#home" style="position:absolute;top:-999px;left:0;background:#00f3ff;color:#0a0a0a;padding:12px 24px;z-index:9999;border-radius:0 0 12px 0;font-weight:600;text-decoration:none;font-size:.9rem;">Skip to content</a>
@@ -2314,17 +2193,17 @@
               We build high-performance digital assets for established businesses. <strong style="color:#c49a6c;">Guaranteed ROI or we work for free.</strong> Limited spots available.
             </p>
             <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin:1.2rem 0;">
-              <a href="#pricing" class="btn-primary">🚀 Apply for a Wealth System →</a>
+              <a href="#pricing" class="btn-primary"> Apply for a Wealth System →</a>
               <a href="https://calendly.com/devinedesigns-info" target="_blank" class="btn-secondary">Book a Free Strategy Session</a>
             </div>
 
-            <!-- ===== DOUBLE YOUR LEADS BADGE (NEW) ===== -->
+            <!-- ===== DOUBLE YOUR LEADS BADGE ===== -->
             <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:0.8rem;">
               <span class="trust-badge-gold"><i class="fas fa-check-circle"></i> Double Your Leads or We Work for Free</span>
             </div>
-            <!-- ============================================= -->
 
-            <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:0.8rem;">
+            <!-- ===== SOCIAL PROOF BADGES ===== -->
+            <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:0.5rem;">
               <span class="trust-badge-gold"><i class="fas fa-check-circle"></i> 30-Day Risk-Free</span>
               <span class="trust-badge-gold"><i class="fas fa-lock"></i> No Contracts, Cancel Anytime</span>
               <span class="trust-badge-gold"><i class="fas fa-gem"></i> You Own the Code</span>
@@ -2509,7 +2388,7 @@
     <!-- ============================================================ -->
     <section id="ai-features" class="section-mid" data-section="ai-features" style="padding:3rem 0; border-top: 1px solid rgba(0,243,255,.04);">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
-        <div class="section-title">🚀 AI‑Powered Enhancements</div>
+        <div class="section-title"> AI‑Powered Enhancements</div>
         <div class="section-sub">Supercharge your website with cutting‑edge AI features. <strong style="color:#c49a6c;">Add them to any plan.</strong> Includes monthly token allocation.</div>
 
         <div class="ai-features-grid">
@@ -2571,7 +2450,7 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- ===== TOP-UP SECTION (LIVE PAYFAST LINKS) ===== -->
+        <!-- ===== TOP-UP SECTION ===== -->
         <!-- ============================================================ -->
         <div style="margin-top:3rem; border-top:1px solid rgba(0,243,255,.06); padding-top:2rem;">
           <div style="font-family: 'Cormorant Garamond', serif; font-size:1.6rem; text-align:center; color:#f7f0e4;">
@@ -2663,7 +2542,7 @@
               <div class="value gold big" id="projectedRevenue">R18,750</div>
             </div>
             <div class="roi-difference">
-              <div class="label">🚀 Extra Monthly Profit</div>
+              <div class="label"> Extra Monthly Profit</div>
               <div class="value" id="extraRevenue">+R13,750</div>
             </div>
           </div>
@@ -2671,7 +2550,7 @@
         </div>
 
         <div class="sub-grid">
-          <!-- SOLO (UPDATED: PayFast Subscription Link) -->
+          <!-- SOLO (Dynamic Subscription Link) -->
           <div class="sub-card">
             <div class="plan-name">Solo</div>
             <div class="plan-price">R499 <small>/month</small></div>
@@ -2686,10 +2565,10 @@
               <li><i class="fas fa-check-circle"></i> <strong>You own the code</strong></li>
             </ul>
             <div class="annual-save"><i class="fas fa-calendar-alt"></i> Annual: Save 2 months</div>
-            <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&receiver=31248619&item_name=Solo%20Subscription&amount=499.00&item_description=Solo%20Plan%20-%20Monthly%20Website%20Subscription" target="_blank" class="btn-primary">Start Now →</a>
+            <a href="#" class="btn-primary" onclick="subscribe('Solo', 499); return false;">Start Now →</a>
           </div>
 
-          <!-- STARTUP (UPDATED: PayFast Subscription Link) -->
+          <!-- STARTUP (Dynamic Subscription Link) -->
           <div class="sub-card popular">
             <div class="plan-name">Startup</div>
             <div class="plan-price">R899 <small>/month</small></div>
@@ -2704,10 +2583,10 @@
               <li><i class="fas fa-check-circle"></i> Priority support (chat/email)</li>
             </ul>
             <div class="annual-save"><i class="fas fa-calendar-alt"></i> Annual: Save 2 months</div>
-            <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&receiver=31248619&item_name=Startup%20Subscription&amount=899.00&item_description=Startup%20Plan%20-%20Monthly%20Website%20Subscription" target="_blank" class="btn-primary">Start Now →</a>
+            <a href="#" class="btn-primary" onclick="subscribe('Startup', 899); return false;">Start Now →</a>
           </div>
 
-          <!-- GROWTH (UPDATED: PayFast Subscription Link) -->
+          <!-- GROWTH (Dynamic Subscription Link) -->
           <div class="sub-card">
             <div class="plan-name">Growth</div>
             <div class="plan-price">R1,599 <small>/month</small></div>
@@ -2723,22 +2602,20 @@
               <li><i class="fas fa-check-circle"></i> <strong>Dedicated account manager</strong></li>
             </ul>
             <div class="annual-save"><i class="fas fa-calendar-alt"></i> Annual: Save 2 months</div>
-            <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&receiver=31248619&item_name=Growth%20Subscription&amount=1599.00&item_description=Growth%20Plan%20-%20Monthly%20Website%20Subscription" target="_blank" class="btn-primary">Start Now →</a>
+            <a href="#" class="btn-primary" onclick="subscribe('Growth', 1599); return false;">Start Now →</a>
           </div>
 
-          <!-- ENTERPRISE WEALTH SYSTEM (UPDATED: Added "First Client Special" Badge) -->
+          <!-- ENTERPRISE WEALTH SYSTEM -->
           <div class="sub-card" style="border-color: #c49a6c; background: rgba(196, 154, 108, 0.06); box-shadow: 0 0 40px rgba(196,154,108,0.06);">
             <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#c49a6c;color:#0a0a0a;font-size:.55rem;font-weight:800;padding:.2rem 1rem;border-radius:60px;letter-spacing:1px;white-space:nowrap;">
-              👑 THE WEALTH SYSTEM
+               THE WEALTH SYSTEM
             </div>
             <div style="position:absolute;top:15px;right:10px;background:rgba(0,243,255,0.08);border:1px solid #00f3ff;color:#00f3ff;font-size:.5rem;font-weight:700;padding:.15rem .6rem;border-radius:30px;letter-spacing:.5px;">
               10x ROI Expected
             </div>
-            <!-- ===== FIRST CLIENT SPECIAL BADGE (NEW) ===== -->
             <div style="position:absolute;top:50px;right:10px;background:rgba(196,154,108,0.15);border:1px solid #c49a6c;color:#c49a6c;font-size:.5rem;font-weight:700;padding:.15rem .6rem;border-radius:30px;letter-spacing:.5px;white-space:nowrap;">
-              🔥 First Client Special
+               First Client Special
             </div>
-            <!-- ============================================= -->
             <div class="plan-name" style="margin-top:0.5rem;">Enterprise Wealth System</div>
             <div class="plan-price" style="color:#c49a6c;">R6,999 <small>/month</small></div>
             <div class="launch-fee"><i class="fas fa-wrench"></i> Launch Fee: <strong>R15,000</strong></div>
@@ -2827,9 +2704,9 @@
           <i class="fas fa-info-circle" style="color:#00f3ff;"></i> All plans include a free custom .co.za domain for the first year.
           <br><span style="color:#c49a6c;">Upgrade or add features anytime – we scale with you.</span>
           <br><span style="color:#6a6a6a;font-size:.7rem;">We register domains in your name – you keep them if you cancel. Hosting is managed by us, but you're never locked in.</span>
-          <br><span style="color:#00f3ff; font-weight:500;">💡 Annual billing: get 2 months free!</span>
-          <br><span style="color:#6a6a6a;font-size:.65rem;">💼 Launch fees cover the custom build. Monthly retainers cover ongoing strategy, optimization, and support.</span>
-          <br><span style="color:#6a6a6a;font-size:.65rem;">🤖 AI features include monthly token allocation. Top up anytime.</span>
+          <br><span style="color:#00f3ff; font-weight:500;"> Annual billing: get 2 months free!</span>
+          <br><span style="color:#6a6a6a;font-size:.65rem;"> Launch fees cover the custom build. Monthly retainers cover ongoing strategy, optimization, and support.</span>
+          <br><span style="color:#6a6a6a;font-size:.65rem;"> AI features include monthly token allocation. Top up anytime.</span>
         </p>
       </div>
     </section>
@@ -2839,25 +2716,19 @@
     <!-- ============================================================ -->
     <section id="client-onboarding" class="section-mid" data-section="client-onboarding" style="padding:3rem 0; border-top: 1px solid rgba(0,243,255,.04);">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
-        <div class="section-title">📋 Get Started</div>
+        <div class="section-title"> Get Started</div>
         <div class="section-sub">Tell us about your business and vision. We'll review your answers and craft a custom proposal within 24 hours.</div>
 
         <div class="onboarding-form-container">
-          <div class="token-usage-card">
-            <div>
-              <div class="token-label"><i class="fas fa-database" style="color:#00f3ff;"></i> Your AI Token Balance</div>
-              <div class="token-number">10,000 <span style="font-size:1rem; color:#6a6a6a;">/ 10,000</span></div>
-            </div>
-            <div style="width:100%;">
-              <div class="token-bar">
-                <div class="token-fill" style="width:65%;"></div>
-              </div>
-            </div>
-            <div style="font-size:.7rem; color:#6a6a6a;">65% used this month. <a href="#ai-features" style="color:#00f3ff;">Top up</a> if needed.</div>
-          </div>
+          <!-- Token usage card hidden -->
+          <div class="token-usage-card"></div>
 
-          <form action="mailto:info@devinedesignssa.com" method="post" enctype="text/plain">
-            <input type="hidden" name="subject" value="New Client Onboarding Submission" />
+          <!-- ===== UPDATED: Formspree Form (with mailto backup) ===== -->
+          <!-- Replace the action URL with your Formspree endpoint: -->
+          <!-- Free account at formspree.io -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="New Client Onboarding Submission" />
+            <input type="hidden" name="_cc" value="info@devinedesignssa.com" />
 
             <div class="form-group">
               <label>Full Name <span class="required">*</span></label>
@@ -2954,6 +2825,10 @@
               <i class="fas fa-lock" style="color:#c49a6c;"></i> Your information is safe with us. We'll respond within 24 hours.
             </p>
           </form>
+          <!-- ===== MAILTO BACKUP (if Formspree fails) ===== -->
+          <p style="font-size:.7rem; color:#6a6a6a; text-align:center; margin-top:.5rem;">
+            If you prefer, you can also <a href="mailto:info@devinedesignssa.com?subject=New%20Client%20Onboarding" style="color:#00f3ff;">email us directly</a>.
+          </p>
         </div>
       </div>
     </section>
@@ -3008,7 +2883,7 @@
 
         <div style="text-align:center; margin-top:2rem; padding:1rem; background:rgba(196,154,108,0.05); border:1px solid rgba(196,154,108,0.1); border-radius:1.5rem; max-width:600px; margin-left:auto; margin-right:auto;">
           <i class="fas fa-gift" style="color:#c49a6c; font-size:1.2rem;"></i>
-          <p style="color:#b8ab9a; font-size:.85rem; margin:0;">🤝 <strong style="color:#f7f0e4;">Refer a friend</strong> — If you love your new asset, refer another business owner to us and <strong style="color:#c49a6c;">get 1 month of your subscription FREE</strong> once they sign up.</p>
+          <p style="color:#b8ab9a; font-size:.85rem; margin:0;"> <strong style="color:#f7f0e4;">Refer a friend</strong> — If you love your new asset, refer another business owner to us and <strong style="color:#c49a6c;">get 1 month of your subscription FREE</strong> once they sign up.</p>
         </div>
 
       </div>
@@ -3017,7 +2892,7 @@
     <!-- ===== FREE STRATEGY SESSION ===== -->
     <section id="free-audit" class="section-mid" style="padding:3rem 0; border-top: 1px solid rgba(0,243,255,.04);">
       <div class="container" style="max-width:1280px;margin:0 auto;padding:0 16px;">
-        <div class="section-title">🔑 Free Wealth Strategy Session</div>
+        <div class="section-title"> Free Wealth Strategy Session</div>
         <div class="section-sub">We'll audit your current digital presence and map out a step-by-step plan to turn your website into a high-performing asset—worth R2,500, completely free.</div>
         <div class="lead-magnet">
           <h3>Claim Your Strategy Session</h3>
@@ -3224,61 +3099,6 @@
   <div class="modal-overlay" id="termsModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('terms')">&times;</button><h2>Terms of Service</h2><p><strong>Effective Date:</strong> July 2025</p><p>By using our website and services, you agree to these terms.</p><h3>1. Services</h3><p>We provide subscription‑based website development, SEO, and digital services. Paid subscriptions include custom pages, features, and support.</p><h3>2. Payment &amp; Suspension</h3><p>Subscriptions are billed monthly. A 7‑day grace period applies. After 14 days, a 10% late fee is added. After 30 days of non‑payment, we reserve the right to suspend the domain and hosting services. You retain ownership of your code and domain.</p><h3>3. Domain &amp; Hosting</h3><p>We register domains in your name. Hosting is provided as part of the subscription. If you cancel, we transfer everything to you.</p><h3>4. Intellectual Property</h3><p>You own the final website code. We retain the right to showcase your project in our portfolio.</p><h3>5. Refund Policy</h3><p>We do not offer refunds on subscription fees. If you are unsatisfied with add‑ons, we will work to resolve any issues.</p><h3>6. Liability</h3><p>We are not liable for any indirect damages arising from the use of our services. Our liability is limited to the total amount paid.</p><p><strong>Contact:</strong> info@devinedesignssa.com</p></div></div>
   <div class="modal-overlay" id="cookiesModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('cookies')">&times;</button><h2>Cookie Policy</h2><p><strong>Effective Date:</strong> July 2025</p><p>We use cookies to improve your experience on our website.</p><h3>What Are Cookies?</h3><p>Cookies are small text files stored on your device that help us remember your preferences and analyse site traffic.</p><h3>Types of Cookies We Use</h3><ul><li><strong>Essential:</strong> Necessary for site functionality.</li><li><strong>Analytical:</strong> Help us understand how visitors interact with our site (e.g., Google Analytics).</li><li><strong>Marketing:</strong> Used for targeted advertising (e.g., Facebook Pixel).</li></ul><h3>Managing Cookies</h3><p>You can control or delete cookies in your browser settings. However, disabling some cookies may affect site performance.</p><p><strong>Contact:</strong> info@devinedesignssa.com</p></div></div>
 
-  <!-- ============================================================ -->
-  <!-- ===== AI CHAT WIDGET (LIVE DEMO) ===== -->
-  <!-- ============================================================ -->
-  <div class="ai-chat-widget" id="aiChatWidget">
-    <div class="chat-header">
-      <span>🤖 AI Assistant</span>
-      <button onclick="document.getElementById('aiChatWidget').classList.remove('active')">✕</button>
-    </div>
-    <div class="chat-messages" id="aiChatMessages">
-      <p class="ai"><strong>AI:</strong> 👋 Hello! I'm your AI assistant. Ask me about our services, pricing, or how we can help you grow your business.</p>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="aiChatInput" placeholder="Ask me anything..." />
-      <button onclick="sendAIChat()">Send</button>
-    </div>
-  </div>
-
-  <button class="ai-chat-toggle" onclick="document.getElementById('aiChatWidget').classList.toggle('active')">
-    💬 AI Chat
-  </button>
-
-  <script>
-    async function sendAIChat() {
-      const input = document.getElementById('aiChatInput');
-      const messages = document.getElementById('aiChatMessages');
-      const query = input.value.trim();
-      if (!query) return;
-      input.value = '';
-      
-      // Show user message
-      messages.innerHTML += `<p class="user"><strong>You:</strong> ${query}</p>`;
-      messages.scrollTop = messages.scrollHeight;
-      
-      // Show typing indicator
-      const typingId = 'typing-' + Date.now();
-      messages.innerHTML += `<p class="typing" id="${typingId}">AI is thinking...</p>`;
-      messages.scrollTop = messages.scrollHeight;
-      
-      try {
-        const response = await callAI(query);
-        document.getElementById(typingId)?.remove();
-        messages.innerHTML += `<p class="ai"><strong>AI:</strong> ${response}</p>`;
-      } catch (error) {
-        document.getElementById(typingId)?.remove();
-        messages.innerHTML += `<p class="ai" style="color:#ff6b6b;"><strong>AI:</strong> ❌ Sorry, I encountered an error. Please try again later.</p>`;
-      }
-      messages.scrollTop = messages.scrollHeight;
-    }
-    
-    document.getElementById('aiChatInput').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') sendAIChat();
-    });
-  </script>
-  <!-- ============================================================ -->
-
   <!-- ============================================================
   SCRIPTS
   ============================================================ -->
@@ -3394,7 +3214,7 @@
         fb.style.display = 'block';
         fb.style.background = '#2a1e18';
         fb.style.color = '#e2b870';
-        fb.innerHTML = '⚠️ Please fill in both fields.';
+        fb.innerHTML = ' Please fill in both fields.';
         setTimeout(() => fb.style.display = 'none', 3000);
         return;
       }
@@ -3458,29 +3278,32 @@
     })();
 
     // ============================================================
-    // DEEPSEEK AI API INTEGRATION (SECURE - Cloudflare Worker)
+    // DYNAMIC PAYFAST SUBSCRIPTION LINKS (NEW)
     // ============================================================
-    // Replace this URL with your actual Cloudflare Worker endpoint
-    // Example: https://devine-designs-api.your-username.workers.dev/ai
-    const AI_WORKER_URL = 'https://your-worker.workers.dev/ai';
+    function subscribe(planName, amount) {
+      // Get tomorrow's date in YYYY-MM-DD format
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const billingDate = tomorrow.toISOString().split('T')[0];
 
-    async function callAI(prompt) {
-      try {
-        const response = await fetch(AI_WORKER_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ prompt: prompt })
-        });
-        const data = await response.json();
-        return data.response || 'Sorry, I didn\'t understand that. Please try again.';
-      } catch (error) {
-        console.error('AI Error:', error);
-        return '❌ I\'m having trouble connecting. Please try again later.';
-      }
+      // Build the PayFast subscription URL
+      const baseUrl = 'https://www.payfast.co.za/eng/process';
+      const params = new URLSearchParams({
+        cmd: '_subscription',
+        receiver: '31248619',
+        item_name: planName + ' Subscription',
+        amount: amount,
+        m_payment_id: planName.toLowerCase() + '_' + Date.now(),
+        subscription_type: '1',
+        billing_date: billingDate,
+        recurring_amount: amount,
+        frequency: '1', // Monthly
+        cycles: '0', // Unlimited
+        item_description: planName + ' Plan - Monthly Website Subscription'
+      });
+
+      window.open(baseUrl + '?' + params.toString(), '_blank');
     }
-    window.callAI = callAI;
 
     // ============================================================
     // MOBILE MENU
@@ -3537,6 +3360,16 @@
         }
       });
     });
+
+    // ============================================================
+    // AI API FUNCTION (PLACEHOLDER – DISABLED)
+    // ============================================================
+    // This function is currently disabled as we have no API tokens.
+    // When you get your API key, you can enable it by pointing to your Cloudflare Worker.
+    async function callAI(prompt) {
+      return ' AI features are currently being set up. Please check back soon!';
+    }
+    window.callAI = callAI;
   </script>
 
 </body>
