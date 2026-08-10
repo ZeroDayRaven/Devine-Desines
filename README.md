@@ -2,19 +2,24 @@
 
 A Flask web application for generating website quality scorecards and managing leads.
 
-## Quick Start (Railway.app)
+**Tech Stack:** Flask, SQLAlchemy, PostgreSQL, Gunicorn
 
-### Deploy for FREE:
-1. Push to GitHub: `git push origin main`
-2. Sign up on https://railway.app (free, with GitHub)
-3. Deploy from GitHub repo
-4. Add PostgreSQL database
-5. Add environment variables (see below)
-6. Your app is live!
+**Deployment:** Railway.app (Free tier)
+
+## Quick Deploy to Railway
+
+1. Sign up: https://railway.app (with GitHub)
+2. Create new project from this GitHub repo
+3. Add PostgreSQL database
+4. Set environment variables (see below)
+5. Auto-deploys on push to main
 
 ## Environment Variables
 
+Railway reads from your `.env` file. Required:
+
 ```
+DATABASE_URL=postgresql://...  # Railway auto-injects this
 FLASK_ENV=production
 DEBUG=false
 SECRET_KEY=<your-secret-key>
@@ -24,29 +29,13 @@ SENDGRID_FROM_EMAIL=info@devinedesignssa.com
 CORS_ORIGINS=https://devinedesignssa.com
 ```
 
-## Running Locally
+## Local Development
 
 ```bash
 cd backend
-pip install -r requirements.txt
+pip install -r ../requirements.txt
 flask run
 ```
-
-## Tech Stack
-
-- **Backend:** Flask, SQLAlchemy, PostgreSQL
-- **Frontend:** HTML, CSS, JavaScript
-- **Deployment:** Railway.app (free)
-- **Email:** SendGrid
-
-## Features
-
-- Website quality scorecard generator (25+ checks)
-- Lead management system
-- Admin dashboard
-- ROI calculator
-- Rate limiting & security
-- API documentation (Swagger)
 
 ## Database Migrations
 
@@ -54,8 +43,29 @@ flask run
 flask db upgrade
 ```
 
-## Documentation
+## Project Structure
 
-- `RAILWAY_SETUP.md` - Step-by-step Railway deployment
-- `FREE_HOSTING_OPTIONS.md` - Alternative free hosting options
-- `FREE_DEPLOYMENT_ACTION.md` - Your action plan
+```
+backend/
+  ├── app/               # Flask application
+  ├── migrations/        # Database migrations
+  └── run.py            # Entry point
+
+frontend/
+  ├── index.html        # Landing page
+  ├── images/           # Assets
+  └── robots.txt        # SEO
+
+Dockerfile             # Production image
+Procfile              # Railway config
+requirements.txt      # Python dependencies
+```
+
+## Features
+
+- Website quality scorecard (25+ checks)
+- Lead management
+- Admin dashboard
+- Rate limiting & security
+- API documentation (Swagger)
+- SendGrid email integration
