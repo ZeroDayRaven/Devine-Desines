@@ -8,10 +8,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy and install dependencies
-COPY backend/requirements.txt .
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
+# Copy application code from backend
 COPY backend/ .
 
 # Set environment variables
@@ -21,7 +21,7 @@ ENV PYTHONUNBUFFERED=1
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:5000/health || exit 1
+    CMD curl -f http://localhost:$PORT/health || exit 1
 
 # Run the application with gunicorn for production
-CMD ["gunicorn", "--workers", "2", "--worker-class", "sync", "--bind", "0.0.0.0:5000", "--timeout", "120", "--access-logfile", "-", "--error-logfile", "-", "run:app"]
+CMD ["gunicorn", "--workers", "2", "--worker-class", "sync", "--bind", "0.0.0.0:$PORT", "--timeout", "120", "--access-logfile", "-", "--error-logfile", "-", "run:app"]
