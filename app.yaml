@@ -1,0 +1,41 @@
+name: devine-designs
+region: nyc
+services:
+  - name: web
+    dockerfile_path: ./backend/Dockerfile
+    github:
+      branch: main
+      deploy_on_push: true
+    source_dir: .
+    docker_auth:
+      username: ${DOCKER_USERNAME}
+      password: ${DOCKER_PASSWORD}
+    envs:
+      - key: SECRET_KEY
+        value: ${SECRET_KEY}
+      - key: ADMIN_API_KEY
+        value: ${ADMIN_API_KEY}
+      - key: SENDGRID_API_KEY
+        value: ${SENDGRID_API_KEY}
+      - key: SENDGRID_FROM_EMAIL
+        value: ${SENDGRID_FROM_EMAIL}
+      - key: GA_TRACKING_ID
+        value: ${GA_TRACKING_ID}
+      - key: FB_PIXEL_ID
+        value: ${FB_PIXEL_ID}
+      - key: CORS_ORIGINS
+        value: ${CORS_ORIGINS}
+      - key: ANALYTICS_CONSENT
+        value: ${ANALYTICS_CONSENT}
+      - key: FLASK_ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+    health_check:
+      http_path: /health
+    http_port: 5000
+databases:
+  - name: db
+    engine: PG
+    version: 15
+    production: true
