@@ -1,0 +1,265 @@
+================================================================================
+           DEVINE DESIGNS - PRODUCTION SETUP CHECKLIST
+                   Print this and check off as you go!
+================================================================================
+
+SECTION 1: SENDGRID EMAIL SETUP
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Visit https://sendgrid.com and create account                           │
+│ [ ] Verify sender email in SendGrid                                         │
+│ [ ] Generate API Key at Settings → API Keys → Create API Key               │
+│ [ ] Copy API Key: _______________________________________________           │
+│ [ ] Add to backend/.env as SENDGRID_API_KEY                               │
+│ [ ] Set SENDGRID_FROM_EMAIL: _______________________________________________│
+│ [ ] Send test email to confirm it works                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 2: DATABASE CONFIGURATION
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Decide: Docker PostgreSQL OR managed database service                   │
+│     If Docker: Done! (already configured)                                   │
+│     If managed: Get connection URL                                          │
+│ [ ] DATABASE_URL: __________________________________________________          │
+│     Format: postgresql://user:pass@host:5432/database                      │
+│ [ ] Verify database connection works                                        │
+│ [ ] Backup location: [ ] Local /backups [ ] S3 [ ] GCS [ ] Other: ____     │
+│ [ ] Backup frequency: [ ] Daily [ ] 4 hours [ ] Weekly                     │
+│ [ ] Backup time (UTC): _______________                                      │
+│ [ ] Retention days: _______________                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 3: GENERATE SECURITY KEYS
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Generate SECRET_KEY (32+ random characters):                           │
+│     Command: openssl rand -base64 32                                        │
+│     SECRET_KEY: __________________________________________________           │
+│     Add to backend/.env                                                    │
+│                                                                             │
+│ [ ] Generate ADMIN_API_KEY (32+ random characters):                        │
+│     Command: openssl rand -hex 32                                          │
+│     ADMIN_API_KEY: __________________________________________________        │
+│     Add to backend/.env                                                    │
+│                                                                             │
+│ [ ] Store these safely (password manager recommended)                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 4: DOMAIN & CORS SETUP
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Primary domain: __________________________________________________       │
+│ [ ] Domain registered: [ ] Yes [ ] No   Where? ____________________         │
+│ [ ] Domain pointing to server: [ ] Yes [ ] No                              │
+│ [ ] Server IP address: __________________________________________________   │
+│ [ ] CORS origins (comma-separated):                                         │
+│     _________________________________________________________________       │
+│ [ ] Add to backend/.env as CORS_ORIGINS                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 5: ANALYTICS (OPTIONAL)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Google Analytics 4 account: [ ] Yes [ ] No                             │
+│     If Yes, GA4 Property ID: G-_____________________                        │
+│     Add to backend/.env as GA_TRACKING_ID                                 │
+│                                                                             │
+│ [ ] Meta Pixel account: [ ] Yes [ ] No                                     │
+│     If Yes, Pixel ID: __________________________________________________    │
+│     Add to backend/.env as FB_PIXEL_ID                                    │
+│                                                                             │
+│ [ ] Skip optional if not needed                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 6: WHATSAPP (OPTIONAL)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] WhatsApp Business account: [ ] Yes [ ] No                              │
+│     If No, skip this section                                               │
+│                                                                             │
+│     If Yes:                                                                │
+│     [ ] WhatsApp API Key: __________________________________________________│
+│     [ ] WhatsApp Phone ID: __________________________________________________│
+│     [ ] Add both to backend/.env                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 7: HOSTING & INFRASTRUCTURE
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Hosting provider selected:                                              │
+│     [ ] AWS [ ] DigitalOcean [ ] Linode [ ] Heroku [ ] Other: _______      │
+│                                                                             │
+│ [ ] Server specs decided:                                                  │
+│     CPU: _____ cores   RAM: _____ GB   Storage: _____ GB                   │
+│                                                                             │
+│ [ ] Server created and IP noted: __________________________________________│
+│                                                                             │
+│ [ ] SSH access verified                                                     │
+│ [ ] Docker installed on server                                             │
+│ [ ] Docker Compose installed on server                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 8: SSL/HTTPS SETUP
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] HTTPS required: [ ] Yes (production) [ ] No (development only)         │
+│                                                                             │
+│     If Yes:                                                                │
+│     [ ] SSL certificate obtained:                                          │
+│         [ ] Let's Encrypt (free) [ ] Paid certificate                      │
+│     [ ] Certificate path on server: __________________________________________│
+│     [ ] Nginx/Apache reverse proxy configured                              │
+│     [ ] HTTP → HTTPS redirect enabled                                      │
+│     [ ] Tested HTTPS connection                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 9: FINAL ENVIRONMENT FILE SETUP
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Copy backend/.env.example to backend/.env                             │
+│ [ ] Fill in all REQUIRED values:                                           │
+│     [ ] DATABASE_URL                                                       │
+│     [ ] SECRET_KEY                                                         │
+│     [ ] SENDGRID_API_KEY                                                   │
+│     [ ] SENDGRID_FROM_EMAIL                                               │
+│     [ ] ADMIN_API_KEY                                                      │
+│     [ ] CORS_ORIGINS                                                       │
+│                                                                             │
+│ [ ] Fill in OPTIONAL values:                                               │
+│     [ ] GA_TRACKING_ID (if using)                                         │
+│     [ ] FB_PIXEL_ID (if using)                                            │
+│     [ ] WHATSAPP_API_KEY (if using)                                       │
+│                                                                             │
+│ [ ] Verify NO secrets are exposed in code                                  │
+│ [ ] .env file is in .gitignore                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 10: DOCKER DEPLOYMENT
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Backend/.env file created and filled                                   │
+│ [ ] Run: docker compose build                                              │
+│ [ ] Run: docker compose up                                                 │
+│ [ ] Wait for containers to start (1-2 minutes)                            │
+│ [ ] In new terminal, run: docker compose exec web flask db upgrade        │
+│ [ ] Wait for migrations to complete                                        │
+│ [ ] Test: curl http://localhost:5000/health                              │
+│     Expected response: {"status": "healthy"}                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 11: TESTING ENDPOINTS
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Health check: curl http://localhost:5000/health                       │
+│ [ ] Readiness: curl http://localhost:5000/ready                           │
+│ [ ] API docs: open http://localhost:5000/api/docs                         │
+│ [ ] Admin dashboard: curl -H "X-Admin-Key: <YOUR_KEY>" \                 │
+│                     http://localhost:5000/admin/dashboard                  │
+│ [ ] Frontend: open http://localhost:5000                                   │
+│ [ ] Test scorecard API (see API docs for curl command)                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 12: MONITORING & LOGGING
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Monitoring service selected:                                           │
+│     [ ] None (basic only) [ ] Datadog [ ] New Relic [ ] CloudWatch        │
+│                                                                             │
+│ [ ] Log aggregation selected:                                              │
+│     [ ] None [ ] ELK Stack [ ] Papertrail [ ] Splunk [ ] Other: ____      │
+│                                                                             │
+│ [ ] Alerts configured:                                                     │
+│     [ ] API error rate > 5%                                               │
+│     [ ] Response time > 5s                                                │
+│     [ ] Server down                                                       │
+│     [ ] Disk space < 10%                                                  │
+│                                                                             │
+│ [ ] Uptime monitoring setup: [ ] Yes [ ] No                               │
+│     Service: _________________________________________________________________│
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 13: BACKUP & DISASTER RECOVERY
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Backup script scheduled:                                               │
+│     [ ] Cron job for automated backups                                    │
+│     [ ] Command: 0 2 * * * /backend/scripts/backup_db.sh /backups        │
+│                                                                             │
+│ [ ] Backup restore procedure tested:                                       │
+│     [ ] Created test backup                                               │
+│     [ ] Restored to test database                                        │
+│     [ ] Verified data integrity                                          │
+│                                                                             │
+│ [ ] Geo-redundant backup: [ ] Yes (upload to S3/GCS) [ ] No              │
+│                                                                             │
+│ [ ] First backup created and stored                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 14: OPTIONAL - PAYMENT PROCESSING
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] Payment processing needed: [ ] Yes [ ] No                              │
+│     If No, skip this section                                               │
+│                                                                             │
+│     If Yes:                                                                │
+│     [ ] Stripe account created                                            │
+│     [ ] Stripe API Key obtained: sk_live_____________________             │
+│     [ ] Subscription plans configured:                                     │
+│         Plan 1: ____________________  Price: $__________/month            │
+│         Plan 2: ____________________  Price: $__________/month            │
+│         Plan 3: ____________________  Price: $__________/month            │
+│     [ ] Webhooks configured                                               │
+│     [ ] Test payment completed                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 15: OPTIONAL - CRM INTEGRATION
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] CRM system: [ ] None [ ] HubSpot [ ] Pipedrive [ ] Other: _______      │
+│     If None, skip this section                                             │
+│                                                                             │
+│     If selected:                                                           │
+│     [ ] CRM account created                                               │
+│     [ ] CRM API key obtained: __________________________________________  │
+│     [ ] Auto-sync leads configured: [ ] Yes [ ] No                       │
+│     [ ] Test lead sync completed                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SECTION 16: PRODUCTION DEPLOYMENT
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] All above sections completed                                           │
+│ [ ] Production database ready                                              │
+│ [ ] Production server ready                                                │
+│ [ ] HTTPS certificate installed                                            │
+│ [ ] Reverse proxy (Nginx/Apache) configured                               │
+│ [ ] Domain DNS pointing to server IP                                       │
+│ [ ] .env file copied to production server (securely)                      │
+│ [ ] Docker containers built on production server                           │
+│ [ ] Containers running: docker compose up -d                              │
+│ [ ] Database migrations applied: flask db upgrade                         │
+│ [ ] Health check returning 200 status                                      │
+│ [ ] API responding correctly                                               │
+│ [ ] Frontend loading                                                       │
+│ [ ] Admin dashboard accessible                                             │
+│ [ ] Email working (test scorecard submission)                             │
+│ [ ] Backups running on schedule                                            │
+│ [ ] Monitoring and alerts active                                           │
+│ [ ] Uptime monitoring active                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+COMPLETION CHECKLIST
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ [ ] All 16 sections completed                                              │
+│ [ ] All environment variables set                                          │
+│ [ ] All API keys obtained                                                  │
+│ [ ] All services configured                                                │
+│ [ ] Application tested locally                                             │
+│ [ ] Application deployed to production                                     │
+│ [ ] All endpoints verified working                                         │
+│ [ ] Monitoring and alerts active                                           │
+│ [ ] Backups scheduled                                                      │
+│ [ ] Documentation updated                                                  │
+│                                                                             │
+│                    ✅ READY FOR PRODUCTION ✅                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Notes & Comments:
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+
+Date Started: ___________________
+Date Completed: ___________________
+Deployed By: ___________________
+
+================================================================================
+                        Save this checklist!
+================================================================================

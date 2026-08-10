@@ -2020,230 +2020,269 @@
 
   <!-- ============================================================
   SCRIPTS
-  ============================================================ -->
-  <script>
-    // ============================================================
-    // COOKIE CONSENT
-    // ============================================================
-    (function() {
-      const banner = document.getElementById('cookieBanner');
-      const acceptBtn = document.getElementById('acceptCookies');
-      const rejectBtn = document.getElementById('rejectCookies');
+============================================================ -->
+<script>
+  // ============================================================
+  // COOKIE CONSENT
+  // ============================================================
+  (function() {
+    const banner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const rejectBtn = document.getElementById('rejectCookies');
 
-      function loadTrackingScripts() {
-        const gaScript = document.createElement('script');
-        gaScript.async = true;
-        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-14H9QCZ92J';
-        document.head.appendChild(gaScript);
+    function loadTrackingScripts() {
+      // GA4
+      const gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-14H9QCZ92J';
+      document.head.appendChild(gaScript);
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-14H9QCZ92J');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-14H9QCZ92J');
 
-        !function(f,b,e,v,n,t,s){
-          if(f.fbq)return;
-          n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
-          if(!f._fbq) f._fbq = n;
-          n.push = n;
-          n.loaded = !0;
-          n.version = '2.0';
-          n.queue = [];
-          t=b.createElement(e);
-          t.async=!0;
-          t.src=v;
-          s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s);
-        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1384801683570697');
-        fbq('track', 'PageView');
-      }
+      // Meta Pixel
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;
+        n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+        if(!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t=b.createElement(e);
+        t.async=!0;
+        t.src=v;
+        s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s);
+      }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1384801683570697');
+      fbq('track', 'PageView');
 
-      function setConsent(accepted) {
-        localStorage.setItem('cookieConsent', accepted ? 'true' : 'false');
-        banner.classList.remove('active');
-        if (accepted) {
-          loadTrackingScripts();
-        }
-      }
+      localStorage.setItem('analytics_consent', 'true');
+    }
 
-      const consent = localStorage.getItem('cookieConsent');
-      if (consent === 'true') {
-        banner.classList.remove('active');
+    function setConsent(accepted) {
+      localStorage.setItem('cookieConsent', accepted ? 'true' : 'false');
+      banner.classList.remove('active');
+      if (accepted) {
         loadTrackingScripts();
-      } else if (consent === 'false') {
-        banner.classList.remove('active');
+        fetch('/api/track-consent', { method: 'POST', body: JSON.stringify({consent: true}), headers: {'Content-Type': 'application/json'} });
       } else {
-        banner.classList.add('active');
+        localStorage.setItem('analytics_consent', 'false');
       }
-
-      acceptBtn.addEventListener('click', () => setConsent(true));
-      rejectBtn.addEventListener('click', () => setConsent(false));
-    })();
-
-    // ============================================================
-    // LEGAL MODALS
-    // ============================================================
-    function openModal(id) {
-      document.getElementById(id + 'Modal').classList.add('active');
-      document.body.style.overflow = 'hidden';
     }
-    function closeModal(id) {
-      document.getElementById(id + 'Modal').classList.remove('active');
-      document.body.style.overflow = '';
+
+    const consent = localStorage.getItem('cookieConsent');
+    if (consent === 'true') {
+      banner.classList.remove('active');
+      loadTrackingScripts();
+    } else if (consent === 'false') {
+      banner.classList.remove('active');
+    } else {
+      banner.classList.add('active');
     }
-    document.querySelectorAll('.modal-overlay').forEach(el => {
-      el.addEventListener('click', e => {
-        if (e.target === el) {
-          el.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      });
-    });
 
-    // ============================================================
-    // FAQ ACCORDION
-    // ============================================================
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const item = this.parentElement;
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    });
+    acceptBtn.addEventListener('click', () => setConsent(true));
+    rejectBtn.addEventListener('click', () => setConsent(false));
+  })();
 
-    // ============================================================
-    // SCORECARD FORM
-    // ============================================================
-    function submitScorecard(e) {
-      e.preventDefault();
-      const email = document.getElementById('scorecardEmail').value.trim();
-      const url = document.getElementById('scorecardUrl').value.trim();
-      if (!email || !url) {
-        const fb = document.getElementById('scorecardFeedback');
-        fb.style.display = 'block';
-        fb.style.background = '#2a1e18';
-        fb.style.color = '#e2b870';
-        fb.innerHTML = '⚠️ Please fill in both fields.';
-        setTimeout(() => fb.style.display = 'none', 3000);
-        return;
+  // ============================================================
+  // LEGAL MODALS
+  // ============================================================
+  function openModal(id) {
+    document.getElementById(id + 'Modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id + 'Modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', e => {
+      if (e.target === el) {
+        el.classList.remove('active');
+        document.body.style.overflow = '';
       }
-      const subject = 'Digital Asset Scorecard Request';
-      const body = `Email: ${email}\nWebsite URL: ${url}\n\nPlease send the 5‑page scorecard report.`;
-      const mailtoLink =
-        `mailto:info@devinedesignssa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.open(mailtoLink, '_blank');
-      const fb = document.getElementById('scorecardFeedback');
+    });
+  });
+
+  // ============================================================
+  // FAQ ACCORDION
+  // ============================================================
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item = this.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ============================================================
+  // SCORECARD FORM – NEW VERSION WITH API
+  // ============================================================
+  function submitScorecard(e) {
+    e.preventDefault();
+    const email = document.getElementById('scorecardEmail').value.trim();
+    const url = document.getElementById('scorecardUrl').value.trim();
+    const fb = document.getElementById('scorecardFeedback');
+
+    if (!email || !url) {
+      fb.style.display = 'block';
+      fb.style.background = '#2a1e18';
+      fb.style.color = '#e2b870';
+      fb.innerHTML = '⚠️ Please fill in both fields.';
+      setTimeout(() => fb.style.display = 'none', 3000);
+      return;
+    }
+
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Processing...';
+
+    fetch('/api/scorecards', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, website: url })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        throw new Error(data.error);
+      }
       fb.style.display = 'block';
       fb.style.background = 'rgba(0,243,255,.04)';
       fb.style.color = '#00f3ff';
-      fb.innerHTML = '✅ Request sent! We\'ll email your personalised scorecard within 24 hours.';
-      setTimeout(() => fb.style.display = 'none', 4000);
+      fb.innerHTML = `✅ Scorecard generated! Your score: ${data.total_score}/100. We'll email the full report.`;
+      // Clear fields
       document.getElementById('scorecardEmail').value = '';
       document.getElementById('scorecardUrl').value = '';
+      // Track event
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          lead_id: data.lead_id || 0,
+          event_type: 'scorecard_completed',
+          metadata: { score: data.total_score }
+        })
+      }).catch(() => {});
+    })
+    .catch(error => {
+      fb.style.display = 'block';
+      fb.style.background = '#2a1e18';
+      fb.style.color = '#e2b870';
+      fb.innerHTML = '❌ Error: ' + error.message;
+      setTimeout(() => fb.style.display = 'none', 4000);
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fas fa-gem"></i> Get My Free Scorecard';
+    });
+  }
+
+  // ============================================================
+  // ROI CALCULATOR
+  // ============================================================
+  (function() {
+    const visitorsRange = document.getElementById('visitorsRange');
+    const conversionRange = document.getElementById('conversionRange');
+    const saleRange = document.getElementById('saleRange');
+    const visitorsVal = document.getElementById('visitorsVal');
+    const conversionVal = document.getElementById('conversionVal');
+    const saleVal = document.getElementById('saleVal');
+    const currentRevenueEl = document.getElementById('currentRevenue');
+    const projectedRevenueEl = document.getElementById('projectedRevenue');
+    const extraRevenueEl = document.getElementById('extraRevenue');
+
+    function formatCurrency(amount) {
+      return 'R' + Math.round(amount).toLocaleString('en-ZA');
     }
 
-    // ============================================================
-    // ROI CALCULATOR
-    // ============================================================
-    (function() {
-      const visitorsRange = document.getElementById('visitorsRange');
-      const conversionRange = document.getElementById('conversionRange');
-      const saleRange = document.getElementById('saleRange');
-      const visitorsVal = document.getElementById('visitorsVal');
-      const conversionVal = document.getElementById('conversionVal');
-      const saleVal = document.getElementById('saleVal');
-      const currentRevenueEl = document.getElementById('currentRevenue');
-      const projectedRevenueEl = document.getElementById('projectedRevenue');
-      const extraRevenueEl = document.getElementById('extraRevenue');
+    function updateROI() {
+      const visitors = parseInt(visitorsRange.value, 10);
+      const conversion = parseFloat(conversionRange.value) / 100;
+      const sale = parseInt(saleRange.value, 10);
 
-      function formatCurrency(amount) {
-        return 'R' + Math.round(amount).toLocaleString('en-ZA');
-      }
+      visitorsVal.textContent = visitors.toLocaleString();
+      conversionVal.textContent = (conversion * 100).toFixed(1) + '%';
+      saleVal.textContent = 'R' + sale.toLocaleString();
 
-      function updateROI() {
-        const visitors = parseInt(visitorsRange.value, 10);
-        const conversion = parseFloat(conversionRange.value) / 100;
-        const sale = parseInt(saleRange.value, 10);
+      const currentRev = visitors * conversion * sale;
+      const projVisitors = visitors * 1.5;
+      const projConversion = conversion * 2.5;
+      const projRev = projVisitors * projConversion * sale;
 
-        visitorsVal.textContent = visitors.toLocaleString();
-        conversionVal.textContent = (conversion * 100).toFixed(1) + '%';
-        saleVal.textContent = 'R' + sale.toLocaleString();
-
-        const currentRev = visitors * conversion * sale;
-        const projVisitors = visitors * 1.5;
-        const projConversion = conversion * 2.5;
-        const projRev = projVisitors * projConversion * sale;
-
-        currentRevenueEl.textContent = formatCurrency(currentRev);
-        projectedRevenueEl.textContent = formatCurrency(projRev);
-        const diff = projRev - currentRev;
-        extraRevenueEl.textContent = (diff >= 0 ? '+' : '') + formatCurrency(diff);
-      }
-
-      visitorsRange.addEventListener('input', updateROI);
-      conversionRange.addEventListener('input', updateROI);
-      saleRange.addEventListener('input', updateROI);
-      updateROI();
-    })();
-
-    // ============================================================
-    // MOBILE MENU
-    // ============================================================
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    const body = document.body;
-    const closeBtn = document.createElement('button');
-    closeBtn.className = 'nav-close-btn';
-    closeBtn.innerHTML = '✕';
-    closeBtn.setAttribute('aria-label', 'Close menu');
-    navLinks.appendChild(closeBtn);
-
-    function toggleMenu(forceState) {
-      const isOpen = navLinks.classList.contains('active');
-      const newState = forceState !== undefined ? forceState : !isOpen;
-      if (newState) {
-        navLinks.classList.add('active');
-        body.classList.add('menu-open');
-        const icon = menuToggle.querySelector('i');
-        if (icon) { icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times'); }
-      } else {
-        navLinks.classList.remove('active');
-        body.classList.remove('menu-open');
-        const icon = menuToggle.querySelector('i');
-        if (icon) { icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars'); }
-      }
+      currentRevenueEl.textContent = formatCurrency(currentRev);
+      projectedRevenueEl.textContent = formatCurrency(projRev);
+      const diff = projRev - currentRev;
+      extraRevenueEl.textContent = (diff >= 0 ? '+' : '') + formatCurrency(diff);
     }
-    if (menuToggle) {
-      menuToggle.addEventListener('click', (e) => { e.stopPropagation();
-        toggleMenu(); });
+
+    visitorsRange.addEventListener('input', updateROI);
+    conversionRange.addEventListener('input', updateROI);
+    saleRange.addEventListener('input', updateROI);
+    updateROI();
+  })();
+
+  // ============================================================
+  // MOBILE MENU
+  // ============================================================
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const body = document.body;
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'nav-close-btn';
+  closeBtn.innerHTML = '✕';
+  closeBtn.setAttribute('aria-label', 'Close menu');
+  navLinks.appendChild(closeBtn);
+
+  function toggleMenu(forceState) {
+    const isOpen = navLinks.classList.contains('active');
+    const newState = forceState !== undefined ? forceState : !isOpen;
+    if (newState) {
+      navLinks.classList.add('active');
+      body.classList.add('menu-open');
+      const icon = menuToggle.querySelector('i');
+      if (icon) { icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times'); }
+    } else {
+      navLinks.classList.remove('active');
+      body.classList.remove('menu-open');
+      const icon = menuToggle.querySelector('i');
+      if (icon) { icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars'); }
     }
-    closeBtn.addEventListener('click', () => toggleMenu(false));
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => { toggleMenu(false); });
-    });
-    document.addEventListener('click', (e) => {
-      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-        toggleMenu(false);
+  }
+  if (menuToggle) {
+    menuToggle.addEventListener('click', (e) => { e.stopPropagation();
+      toggleMenu(); });
+  }
+  closeBtn.addEventListener('click', () => toggleMenu(false));
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => { toggleMenu(false); });
+  });
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      toggleMenu(false);
+    }
+  });
+
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = this.getAttribute('href');
+      if (target === '#') return;
+      const el = document.querySelector(target);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth' });
       }
     });
-
-    // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = this.getAttribute('href');
-        if (target === '#') return;
-        const el = document.querySelector(target);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>
