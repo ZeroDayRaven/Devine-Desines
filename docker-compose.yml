@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: devine_db
+    environment:
+      POSTGRES_USER: devine
+      POSTGRES_PASSWORD: postgres_password_123
+      POSTGRES_DB: devine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devine"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  web:
+    build: .
+    container_name: devine_web
+    command: >
+      sh -c "flask db upgrade &&
+             gunicorn --workers 2 --worker-class sync --bind 0.0.0.0:5000 --timeout 120 --access-logfile - --error-logfile - run:app"
+    environment:
+      FLASK_ENV: production
+      DEBUG: 'false'
+      DATABASE_URL: postgresql://devine:postgres_password_123@db:5432/devine
+      SECRET_KEY: vtUr3.Dlc6Qys,ubE%qBG8&dn"*Vi(h'
+      ADMIN_API_KEY: z6QVgirf!UZFJK%-IhO,/qye)"A9cECb
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY}
+      SENDGRID_FROM_EMAIL: info@devinedesignssa.com
+      CORS_ORIGINS: http://192.168.110.18:5000,http://localhost:5000,http://192.168.110.18,http://localhost
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  default:
+    name: devine_network
