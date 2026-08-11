@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY . .
+# Copy application code from backend
+COPY backend/ .
 
 # Set environment variables
 ENV FLASK_APP=run.py
@@ -21,7 +21,7 @@ ENV PYTHONUNBUFFERED=1
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:5000/health || exit 1
+    CMD curl -f http://localhost:$PORT/health || exit 1
 
-# Run the application
-CMD ["python", "run.py"]
+# Run the application with gunicorn for production
+CMD ["gunicorn", "--workers", "2", "--worker-class", "sync", "--bind", "0.0.0.0:$PORT", "--timeout", "120", "--access-logfile", "-", "--error-logfile", "-", "run:app"]
